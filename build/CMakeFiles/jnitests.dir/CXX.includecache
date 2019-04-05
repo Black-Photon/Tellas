@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/java/jni_Utilities.cpp
+jni_Utilities.h
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/java/jni_Utilities.h
+
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/java/jni_Utilities.h
+jni.h
+-
+
+/usr/lib/jvm/default/include/jni.h
+stdio.h
+-
+stdarg.h
+-
+jni_md.h
+/usr/lib/jvm/default/include/jni_md.h
+
+/usr/lib/jvm/default/include/linux/jni_md.h
+

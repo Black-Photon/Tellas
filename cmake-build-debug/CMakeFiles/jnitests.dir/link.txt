@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -g  -shared -Wl,-soname,libjnitests.so -o libjnitests.so CMakeFiles/jnitests.dir/java/jni_Utilities.cpp.o 
