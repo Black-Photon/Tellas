@@ -2,15 +2,19 @@ import jni.GLWrapper
 
 object Main extends App{
   override def main(args: Array[String]): Unit = {
-    println("INFO::SCALA::PRE-INITIALISATION")
+    message("Pre-Initialisation")
     GLWrapper.preInit(1920, 1080, "Tellas")
-    println("INFO::SCALA::INITIALISATION")
+    message("Initialisation")
     GLWrapper.init()
-    println("INFO::SCALA::DRAWING")
+    message("Drawing")
     while(!GLWrapper.shouldClose()) {
       GLWrapper.frame()
     }
-    println("INFO::SCALA::CLOSING")
+    message("Closing")
     GLWrapper.close()
+  }
+
+  def message(message: String): Unit = {
+    println("INFO::SCALA::"+message.toUpperCase())
   }
 }

@@ -1,11 +1,11 @@
 #include "Shader.h"
 
-Shader::Shader(const char* vertexPath, const char* fragmentPath)
+Shader::Shader(std::string vertexPath, std::string fragmentPath, std::string location)
 {
     std::string vertexLocation;// = new std::string;
     std::string fragmentLocation;// = new std::string;
-    readVertexFile(vertexPath, &vertexLocation);
-    readFragmentFile(fragmentPath, &fragmentLocation);
+    readVertexFile((location + vertexPath).c_str(), &vertexLocation);
+    readFragmentFile((location + fragmentPath).c_str(), &fragmentLocation);
     const char* vShaderCode = (vertexLocation).c_str();
     const char* fShaderCode = (fragmentLocation).c_str();
 

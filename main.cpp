@@ -73,7 +73,7 @@ namespace core {
         glEnable(GL_DEPTH_TEST);
 
         // Program
-        auto *shader = new Shader("../../../shaders/vertexShader.vert", "../../../shaders/fragmentShader.frag");
+        auto *shader = new Shader("vertexShader.vert", "fragmentShader.frag", Path.shaders);
         Data.shader = shader;
 
         stbi_set_flip_vertically_on_load(true);
