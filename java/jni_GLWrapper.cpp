@@ -3,35 +3,38 @@
 
 // Pre-Init
 JNIEXPORT void JNICALL Java_jni_GLWrapper_preInit
-        (JNIEnv *, jclass)
+        (JNIEnv * env, jclass self, jint width, jint height, jstring jname)
 {
-    preInit();
+    const char *chars = env->GetStringUTFChars(jname, NULL);
+    std::string title = std::string(chars);
+    env->ReleaseStringUTFChars(jname, chars);
+    core::preInit(width, height, title);
 }
 
 // Init
 JNIEXPORT void JNICALL Java_jni_GLWrapper_init
         (JNIEnv *, jclass)
 {
-    init();
+    core::init();
 }
 
 // Frame
 JNIEXPORT void JNICALL Java_jni_GLWrapper_frame
         (JNIEnv *, jclass)
 {
-    frame();
+    core::frame();
 }
 
 // Should Close
 JNIEXPORT jboolean JNICALL Java_jni_GLWrapper_shouldClose
         (JNIEnv *, jclass)
 {
-    return shouldClose();
+    return core::shouldClose();
 }
 
 // Close
 JNIEXPORT void JNICALL Java_jni_GLWrapper_close
         (JNIEnv *, jclass)
 {
-    close();
+    core::close();
 }

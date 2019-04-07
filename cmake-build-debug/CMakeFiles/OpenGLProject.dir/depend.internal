@@ -18,8 +18,7 @@ CMakeFiles/OpenGLProject.dir/classes/Shader.cpp.o
 CMakeFiles/OpenGLProject.dir/classes/Shape.cpp.o
  /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shape.cpp
  /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shape.h
-CMakeFiles/OpenGLProject.dir/out/production/OpenGLProject/jni_GLWrapper.cpp.o
- ../classes/Shader.h
+CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.o
  ../include/glad/glad.h
  ../include/glfw-3.2.1/include/GLFW/glfw3.h
  ../include/glm/./detail/setup.hpp
@@ -224,13 +223,14 @@ CMakeFiles/OpenGLProject.dir/out/production/OpenGLProject/jni_GLWrapper.cpp.o
  ../include/glm/vec4.hpp
  ../include/glm/vector_relational.hpp
  ../include/stb_image.h
- ../main.cpp
- ../src/data.cpp
- ../src/frame.cpp
- ../src/include.cpp
- ../src/init.cpp
- ../src/preInit.cpp
- /home/joseph/Documents/Programming/Graphics/OpenGLProject/out/production/OpenGLProject/jni_GLWrapper.cpp
- /home/joseph/Documents/Programming/Graphics/OpenGLProject/out/production/OpenGLProject/jni_GLWrapper.h
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shader.h
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/java/jni_GLWrapper.cpp
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/java/jni_GLWrapper.h
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/main.cpp
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/src/data.cpp
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/src/frame.cpp
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/src/include.cpp
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/src/init.cpp
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/src/preInit.cpp
  /usr/lib/jvm/default/include/jni.h
  /usr/lib/jvm/default/include/linux/jni_md.h

@@ -26,7 +26,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Cube.cpp" "/home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/CMakeFiles/OpenGLProject.dir/classes/Cube.cpp.o"
   "/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shader.cpp" "/home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/CMakeFiles/OpenGLProject.dir/classes/Shader.cpp.o"
   "/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shape.cpp" "/home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/CMakeFiles/OpenGLProject.dir/classes/Shape.cpp.o"
-  "/home/joseph/Documents/Programming/Graphics/OpenGLProject/out/production/OpenGLProject/jni_GLWrapper.cpp" "/home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/CMakeFiles/OpenGLProject.dir/out/production/OpenGLProject/jni_GLWrapper.cpp.o"
+  "/home/joseph/Documents/Programming/Graphics/OpenGLProject/java/jni_GLWrapper.cpp" "/home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

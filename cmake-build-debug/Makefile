@@ -303,32 +303,32 @@ classes/Shape.cpp.s:
 	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Shape.cpp.s
 .PHONY : classes/Shape.cpp.s
 
-out/production/OpenGLProject/jni_GLWrapper.o: out/production/OpenGLProject/jni_GLWrapper.cpp.o
+java/jni_GLWrapper.o: java/jni_GLWrapper.cpp.o
 
-.PHONY : out/production/OpenGLProject/jni_GLWrapper.o
+.PHONY : java/jni_GLWrapper.o
 
 # target to build an object file
-out/production/OpenGLProject/jni_GLWrapper.cpp.o:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/out/production/OpenGLProject/jni_GLWrapper.cpp.o
-.PHONY : out/production/OpenGLProject/jni_GLWrapper.cpp.o
+java/jni_GLWrapper.cpp.o:
+	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.o
+.PHONY : java/jni_GLWrapper.cpp.o
 
-out/production/OpenGLProject/jni_GLWrapper.i: out/production/OpenGLProject/jni_GLWrapper.cpp.i
+java/jni_GLWrapper.i: java/jni_GLWrapper.cpp.i
 
-.PHONY : out/production/OpenGLProject/jni_GLWrapper.i
+.PHONY : java/jni_GLWrapper.i
 
 # target to preprocess a source file
-out/production/OpenGLProject/jni_GLWrapper.cpp.i:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/out/production/OpenGLProject/jni_GLWrapper.cpp.i
-.PHONY : out/production/OpenGLProject/jni_GLWrapper.cpp.i
+java/jni_GLWrapper.cpp.i:
+	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.i
+.PHONY : java/jni_GLWrapper.cpp.i
 
-out/production/OpenGLProject/jni_GLWrapper.s: out/production/OpenGLProject/jni_GLWrapper.cpp.s
+java/jni_GLWrapper.s: java/jni_GLWrapper.cpp.s
 
-.PHONY : out/production/OpenGLProject/jni_GLWrapper.s
+.PHONY : java/jni_GLWrapper.s
 
 # target to generate assembly for a file
-out/production/OpenGLProject/jni_GLWrapper.cpp.s:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/out/production/OpenGLProject/jni_GLWrapper.cpp.s
-.PHONY : out/production/OpenGLProject/jni_GLWrapper.cpp.s
+java/jni_GLWrapper.cpp.s:
+	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.s
+.PHONY : java/jni_GLWrapper.cpp.s
 
 src/glad.o: src/glad.c.o
 
@@ -384,9 +384,9 @@ help:
 	@echo "... classes/Shape.o"
 	@echo "... classes/Shape.i"
 	@echo "... classes/Shape.s"
-	@echo "... out/production/OpenGLProject/jni_GLWrapper.o"
-	@echo "... out/production/OpenGLProject/jni_GLWrapper.i"
-	@echo "... out/production/OpenGLProject/jni_GLWrapper.s"
+	@echo "... java/jni_GLWrapper.o"
+	@echo "... java/jni_GLWrapper.i"
+	@echo "... java/jni_GLWrapper.s"
 	@echo "... src/glad.o"
 	@echo "... src/glad.i"
 	@echo "... src/glad.s"

@@ -17,8 +17,11 @@ public class GLWrapper {
 
     /**
      * Sets up the classes necessary for OpenGL to function
+     * @param width Window Width
+     * @param height Window height
+     * @param title Window title
      */
-    public static native void preInit();
+    public static native void preInit(int width, int height, String title);
 
     /**
      * Initialises any data required for the application to function

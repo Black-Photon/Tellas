@@ -10,10 +10,10 @@ extern "C" {
 /*
  * Class:     jni_GLWrapper
  * Method:    preInit
- * Signature: ()V
+ * Signature: (IILjava/lang/String;)V
  */
 JNIEXPORT void JNICALL Java_jni_GLWrapper_preInit
-  (JNIEnv *, jclass);
+  (JNIEnv *, jclass, jint, jint, jstring);
 
 /*
  * Class:     jni_GLWrapper

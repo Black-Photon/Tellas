@@ -3,7 +3,7 @@ import jni.GLWrapper
 object Main extends App{
   override def main(args: Array[String]): Unit = {
     println("INFO::SCALA::PRE-INITIALISATION")
-    GLWrapper.preInit()
+    GLWrapper.preInit(1920, 1080, "Tellas")
     println("INFO::SCALA::INITIALISATION")
     GLWrapper.init()
     println("INFO::SCALA::DRAWING")

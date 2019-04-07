@@ -6,18 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../classes/Shader.h
-glad/glad.h
--
-string
--
-fstream
--
-sstream
--
-iostream
--
-
 ../include/glad/glad.h
 windows.h
 -
@@ -1492,37 +1480,59 @@ intrin.h
 arm_neon.h
 -
 
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shader.h
+glad/glad.h
+-
+string
+-
+fstream
+-
+sstream
+-
+iostream
+-
+
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/java/jni_GLWrapper.cpp
+jni_GLWrapper.h
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/java/jni_GLWrapper.h
 ../main.cpp
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/main.cpp
+
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/java/jni_GLWrapper.h
+jni.h
+-
+
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/main.cpp
 src/include.cpp
-../src/include.cpp
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/src/include.cpp
 classes/Shader.h
-../classes/Shader.h
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shader.h
 src/data.cpp
-../src/data.cpp
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/src/data.cpp
 src/preInit.cpp
-../src/preInit.cpp
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/src/preInit.cpp
 src/init.cpp
-../src/init.cpp
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/src/init.cpp
 src/frame.cpp
-../src/frame.cpp
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/src/frame.cpp
 
-../src/data.cpp
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/src/data.cpp
 include.cpp
-../src/include.cpp
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/src/include.cpp
 ../classes/Shader.h
-../classes/Shader.h
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shader.h
 
-../src/frame.cpp
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/src/frame.cpp
 data.cpp
-../src/data.cpp
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/src/data.cpp
 ../classes/Shader.h
-../classes/Shader.h
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shader.h
 
-../src/include.cpp
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/src/include.cpp
 iostream
 -
 glad/glad.h
-../src/glad/glad.h
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/src/glad/glad.h
 GLFW/glfw3.h
 -
 string
@@ -1534,7 +1544,7 @@ tgmath.h
 cmath
 -
 stb_image.h
-../src/stb_image.h
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/src/stb_image.h
 glm/glm.hpp
 -
 glm/gtc/matrix_transform.hpp
@@ -1542,23 +1552,13 @@ glm/gtc/matrix_transform.hpp
 glm/gtc/type_ptr.hpp
 -
 
-../src/init.cpp
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/src/init.cpp
 data.cpp
-../src/data.cpp
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/src/data.cpp
 
-../src/preInit.cpp
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/src/preInit.cpp
 data.cpp
-../src/data.cpp
-
-/home/joseph/Documents/Programming/Graphics/OpenGLProject/out/production/OpenGLProject/jni_GLWrapper.cpp
-jni_GLWrapper.h
-/home/joseph/Documents/Programming/Graphics/OpenGLProject/out/production/OpenGLProject/jni_GLWrapper.h
-../main.cpp
-/home/joseph/Documents/Programming/Graphics/OpenGLProject/out/production/main.cpp
-
-/home/joseph/Documents/Programming/Graphics/OpenGLProject/out/production/OpenGLProject/jni_GLWrapper.h
-jni.h
--
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/src/data.cpp
 
 /usr/lib/jvm/default/include/jni.h
 stdio.h

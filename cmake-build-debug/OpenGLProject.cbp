@@ -303,10 +303,10 @@
 		<Unit filename="/home/joseph/Documents/Programming/Graphics/OpenGLProject/include/glfw-3.2.1/src/xkb_unicode.h">
 			<Option target="glfw"/>
 		</Unit>
-		<Unit filename="/home/joseph/Documents/Programming/Graphics/OpenGLProject/out/production/OpenGLProject/jni_GLWrapper.cpp">
+		<Unit filename="/home/joseph/Documents/Programming/Graphics/OpenGLProject/java/jni_GLWrapper.cpp">
 			<Option target="OpenGLProject"/>
 		</Unit>
-		<Unit filename="/home/joseph/Documents/Programming/Graphics/OpenGLProject/out/production/OpenGLProject/jni_GLWrapper.h">
+		<Unit filename="/home/joseph/Documents/Programming/Graphics/OpenGLProject/java/jni_GLWrapper.h">
 			<Option target="OpenGLProject"/>
 		</Unit>
 		<Unit filename="/home/joseph/Documents/Programming/Graphics/OpenGLProject/src/glad.c">
