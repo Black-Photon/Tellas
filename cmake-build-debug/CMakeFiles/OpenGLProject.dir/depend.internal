@@ -4,11 +4,22 @@
 CMakeFiles/OpenGLProject.dir/src/glad.c.o
  ../include/glad/glad.h
  /home/joseph/Documents/Programming/Graphics/OpenGLProject/src/glad.c
-CMakeFiles/OpenGLProject.dir/Shader.cpp.o
+CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.o
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Camera.cpp
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Camera.h
+CMakeFiles/OpenGLProject.dir/classes/Cube.cpp.o
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Cube.cpp
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Cube.h
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shape.h
+CMakeFiles/OpenGLProject.dir/classes/Shader.cpp.o
  ../include/glad/glad.h
- /home/joseph/Documents/Programming/Graphics/OpenGLProject/Shader.cpp
- /home/joseph/Documents/Programming/Graphics/OpenGLProject/Shader.h
-CMakeFiles/OpenGLProject.dir/java/jni_Utilities.cpp.o
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shader.cpp
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shader.h
+CMakeFiles/OpenGLProject.dir/classes/Shape.cpp.o
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shape.cpp
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shape.h
+CMakeFiles/OpenGLProject.dir/out/production/OpenGLProject/jni_GLWrapper.cpp.o
+ ../classes/Shader.h
  ../include/glad/glad.h
  ../include/glfw-3.2.1/include/GLFW/glfw3.h
  ../include/glm/./detail/setup.hpp
@@ -213,10 +224,13 @@ CMakeFiles/OpenGLProject.dir/java/jni_Utilities.cpp.o
  ../include/glm/vec4.hpp
  ../include/glm/vector_relational.hpp
  ../include/stb_image.h
- /home/joseph/Documents/Programming/Graphics/OpenGLProject/Shader.h
- /home/joseph/Documents/Programming/Graphics/OpenGLProject/include/glad/glad.h
- /home/joseph/Documents/Programming/Graphics/OpenGLProject/java/jni_Utilities.cpp
- /home/joseph/Documents/Programming/Graphics/OpenGLProject/java/jni_Utilities.h
- /home/joseph/Documents/Programming/Graphics/OpenGLProject/main.cpp
+ ../main.cpp
+ ../src/data.cpp
+ ../src/frame.cpp
+ ../src/include.cpp
+ ../src/init.cpp
+ ../src/preInit.cpp
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/out/production/OpenGLProject/jni_GLWrapper.cpp
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/out/production/OpenGLProject/jni_GLWrapper.h
  /usr/lib/jvm/default/include/jni.h
  /usr/lib/jvm/default/include/linux/jni_md.h

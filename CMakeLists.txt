@@ -11,17 +11,11 @@ include_directories(${JNI_INCLUDE_DIRS})
 include_directories(include)
 
 set(SOURCE_FILES
-        java/jni_Utilities.cpp
+        out/production/OpenGLProject/jni_GLWrapper.cpp
         src/glad.c
         include/glad/glad.h
-        Shader.h Shader.cpp include/stb_image.h)
+        classes/Shader.cpp classes/Shape.cpp classes/Cube.cpp classes/Camera.cpp)
 add_library(OpenGLProject SHARED ${SOURCE_FILES})
-
-#add_library(OpenGLProject
-#        main.cpp
-#        src/glad.c
-#        include/glad/glad.h
-#        Shader.h Shader.cpp include/stb_image.h)
 
 # GLFW
 
@@ -29,17 +23,5 @@ set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
-#add_subdirectory("/home/joseph/CLionProjects/OpenGLProject/include/glfw-3.2.1/")
-#add_subdirectory("/run/media/u1800015/USB-ALPHA/C++/OpenGLProject/include/glfw-3.2.1/")
 add_subdirectory("/home/joseph/Documents/Programming/Graphics/OpenGLProject/include/glfw-3.2.1/")
 target_link_libraries(OpenGLProject glfw)
-
-
-# OpenGL Stuff - Probably not necessary
-
-#find_package(OpenGL REQUIRED)
-#if(OPENGL_FOUND)
-#    include_directories(${OPENGL_INCLUDE_DIR})
-#    target_link_libraries(OpenGLProject ${OPENGL_gl_LIBRARY})
-#endif()
-#

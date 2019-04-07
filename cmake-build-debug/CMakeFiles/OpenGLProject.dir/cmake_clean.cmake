@@ -1,7 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/OpenGLProject.dir/java/jni_Utilities.cpp.o"
+  "CMakeFiles/OpenGLProject.dir/out/production/OpenGLProject/jni_GLWrapper.cpp.o"
   "CMakeFiles/OpenGLProject.dir/src/glad.c.o"
-  "CMakeFiles/OpenGLProject.dir/Shader.cpp.o"
+  "CMakeFiles/OpenGLProject.dir/classes/Shader.cpp.o"
+  "CMakeFiles/OpenGLProject.dir/classes/Shape.cpp.o"
+  "CMakeFiles/OpenGLProject.dir/classes/Cube.cpp.o"
+  "CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.o"
   "libOpenGLProject.pdb"
   "libOpenGLProject.so"
 )
