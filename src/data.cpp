@@ -7,6 +7,7 @@
 #include "include.cpp"
 #include "../classes/Shader.h"
 #include "../classes/Camera.h"
+#include "../classes/Model.h"
 
 namespace core {
 
@@ -20,17 +21,8 @@ namespace core {
         GLFWwindow *window = nullptr;
         Shader *shader = nullptr;
         Camera *camera = nullptr;
-        unsigned int texture[2];
+        std::vector<Model*> models;
     } Data;
-
-    /**
-     * Holds the VAO, VBO and EBO
-     */
-    struct Buffers {
-        unsigned int EBO;
-        unsigned int *VBO;
-        unsigned int *VAO;
-    } Buffers;
 
     /**
      * Holds variables relating to mouse movement

@@ -23,9 +23,9 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   )
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Camera.cpp" "/home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.o"
-  "/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Cube.cpp" "/home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/CMakeFiles/OpenGLProject.dir/classes/Cube.cpp.o"
+  "/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/CubeModel.cpp" "/home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/CMakeFiles/OpenGLProject.dir/classes/CubeModel.cpp.o"
+  "/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Model.cpp" "/home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/CMakeFiles/OpenGLProject.dir/classes/Model.cpp.o"
   "/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shader.cpp" "/home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/CMakeFiles/OpenGLProject.dir/classes/Shader.cpp.o"
-  "/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shape.cpp" "/home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/CMakeFiles/OpenGLProject.dir/classes/Shape.cpp.o"
   "/home/joseph/Documents/Programming/Graphics/OpenGLProject/java/jni_GLWrapper.cpp" "/home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

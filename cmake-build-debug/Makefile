@@ -222,32 +222,59 @@ classes/Camera.cpp.s:
 	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.s
 .PHONY : classes/Camera.cpp.s
 
-classes/Cube.o: classes/Cube.cpp.o
+classes/CubeModel.o: classes/CubeModel.cpp.o
 
-.PHONY : classes/Cube.o
+.PHONY : classes/CubeModel.o
 
 # target to build an object file
-classes/Cube.cpp.o:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Cube.cpp.o
-.PHONY : classes/Cube.cpp.o
+classes/CubeModel.cpp.o:
+	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/CubeModel.cpp.o
+.PHONY : classes/CubeModel.cpp.o
 
-classes/Cube.i: classes/Cube.cpp.i
+classes/CubeModel.i: classes/CubeModel.cpp.i
 
-.PHONY : classes/Cube.i
+.PHONY : classes/CubeModel.i
 
 # target to preprocess a source file
-classes/Cube.cpp.i:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Cube.cpp.i
-.PHONY : classes/Cube.cpp.i
+classes/CubeModel.cpp.i:
+	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/CubeModel.cpp.i
+.PHONY : classes/CubeModel.cpp.i
 
-classes/Cube.s: classes/Cube.cpp.s
+classes/CubeModel.s: classes/CubeModel.cpp.s
 
-.PHONY : classes/Cube.s
+.PHONY : classes/CubeModel.s
 
 # target to generate assembly for a file
-classes/Cube.cpp.s:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Cube.cpp.s
-.PHONY : classes/Cube.cpp.s
+classes/CubeModel.cpp.s:
+	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/CubeModel.cpp.s
+.PHONY : classes/CubeModel.cpp.s
+
+classes/Model.o: classes/Model.cpp.o
+
+.PHONY : classes/Model.o
+
+# target to build an object file
+classes/Model.cpp.o:
+	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Model.cpp.o
+.PHONY : classes/Model.cpp.o
+
+classes/Model.i: classes/Model.cpp.i
+
+.PHONY : classes/Model.i
+
+# target to preprocess a source file
+classes/Model.cpp.i:
+	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Model.cpp.i
+.PHONY : classes/Model.cpp.i
+
+classes/Model.s: classes/Model.cpp.s
+
+.PHONY : classes/Model.s
+
+# target to generate assembly for a file
+classes/Model.cpp.s:
+	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Model.cpp.s
+.PHONY : classes/Model.cpp.s
 
 classes/Shader.o: classes/Shader.cpp.o
 
@@ -275,33 +302,6 @@ classes/Shader.s: classes/Shader.cpp.s
 classes/Shader.cpp.s:
 	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Shader.cpp.s
 .PHONY : classes/Shader.cpp.s
-
-classes/Shape.o: classes/Shape.cpp.o
-
-.PHONY : classes/Shape.o
-
-# target to build an object file
-classes/Shape.cpp.o:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Shape.cpp.o
-.PHONY : classes/Shape.cpp.o
-
-classes/Shape.i: classes/Shape.cpp.i
-
-.PHONY : classes/Shape.i
-
-# target to preprocess a source file
-classes/Shape.cpp.i:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Shape.cpp.i
-.PHONY : classes/Shape.cpp.i
-
-classes/Shape.s: classes/Shape.cpp.s
-
-.PHONY : classes/Shape.s
-
-# target to generate assembly for a file
-classes/Shape.cpp.s:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Shape.cpp.s
-.PHONY : classes/Shape.cpp.s
 
 java/jni_GLWrapper.o: java/jni_GLWrapper.cpp.o
 
@@ -375,15 +375,15 @@ help:
 	@echo "... classes/Camera.o"
 	@echo "... classes/Camera.i"
 	@echo "... classes/Camera.s"
-	@echo "... classes/Cube.o"
-	@echo "... classes/Cube.i"
-	@echo "... classes/Cube.s"
+	@echo "... classes/CubeModel.o"
+	@echo "... classes/CubeModel.i"
+	@echo "... classes/CubeModel.s"
+	@echo "... classes/Model.o"
+	@echo "... classes/Model.i"
+	@echo "... classes/Model.s"
 	@echo "... classes/Shader.o"
 	@echo "... classes/Shader.i"
 	@echo "... classes/Shader.s"
-	@echo "... classes/Shape.o"
-	@echo "... classes/Shape.i"
-	@echo "... classes/Shape.s"
 	@echo "... java/jni_GLWrapper.o"
 	@echo "... java/jni_GLWrapper.i"
 	@echo "... java/jni_GLWrapper.s"

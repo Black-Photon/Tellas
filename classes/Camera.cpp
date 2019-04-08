@@ -86,16 +86,12 @@ void Camera::rotate(Rotation rotation, float angle)
                     pitch = -89.0f;
             }
 
-            std::cout << "Pitch: " << pitch << std::endl;
             pitch = modulus(pitch);
-            std::cout << "Pitch: " << pitch << std::endl;
             break;
         case YAW:
             yaw += angle;
 
-            std::cout << "Yaw: " << yaw << std::endl;
             yaw = modulus(yaw);
-            std::cout << "Yaw: " << yaw << std::endl;
             break;
         default:
             throw std::invalid_argument("rotation");

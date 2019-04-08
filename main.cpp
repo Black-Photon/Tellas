@@ -1,3 +1,4 @@
+#pragma once
 #include "src/include.cpp"
 
 #include "classes/Shader.h"
@@ -5,6 +6,7 @@
 #include "src/preInit.cpp"
 #include "src/init.cpp"
 #include "src/frame.cpp"
+#include "classes/CubeModel.h"
 
 namespace core {
 
@@ -25,11 +27,6 @@ namespace core {
      * @return True if the window should close
      */
     bool shouldClose();
-
-    /**
-     * Prepares and draws the next frame
-     */
-    void frame();
 
     /**
      * Closes the program by deleting any references
@@ -77,18 +74,10 @@ namespace core {
         Data.shader = shader;
 
         stbi_set_flip_vertically_on_load(true);
-        generateTexture(Data.texture, "container.jpg", false);
-        generateTexture(Data.texture + 1, "awesomeface.png", true);
 
         shader->use(); // Must activate shader to use uniforms
         shader->setInt("ourTexture", 0);
         shader->setInt("otherTexture", 1);
-
-        Buffers.VAO = new unsigned int[1];
-        Buffers.VBO = new unsigned int[1];
-
-        // Vertex attribute object and Virtual Buffer Object
-        buildImage(Buffers.VAO, Buffers.VBO, &Buffers.EBO);
 
         // Creates the actual main viewport, and makes it adjust for window size changes
         glViewport(0, 0, Data.SCR_WIDTH, Data.SCR_HEIGHT);
@@ -98,36 +87,16 @@ namespace core {
         auto *camera = new Camera(1920.0f/1080.0f);
         Data.camera = camera;
         Data.camera->rotate(YAW, -90.0f);
+
+        Model *model = new CubeModel();
+        Data.models.push_back(model);
     }
 
     bool shouldClose() {
         return glfwWindowShouldClose(Data.window);
     }
 
-    void frame() {
-        float currentFrame = glfwGetTime();
-        float deltaTime = currentFrame - Data.lastFrame;
-        Data.lastFrame = currentFrame;
-
-        // Input
-        processInput(deltaTime);
-
-        // Pre-Render
-        prerender();
-
-        // Draw
-        draw(*Data.shader, Buffers.VAO[0], &Buffers.EBO, Data.texture);
-
-        // Swap buffers and call events
-        glfwSwapBuffers(Data.window);
-        glfwPollEvents();
-    }
-
     void close() {
-        // Deletes VAO and VBO data from memory
-        glDeleteVertexArrays(1, Buffers.VAO);
-        glDeleteBuffers(1, Buffers.VBO);
-
         delete (Data.shader);
         delete (Data.camera);
 

@@ -25,14 +25,6 @@ JNIEXPORT void JNICALL Java_jni_GLWrapper_init
 
 /*
  * Class:     jni_GLWrapper
- * Method:    frame
- * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_jni_GLWrapper_frame
-  (JNIEnv *, jclass);
-
-/*
- * Class:     jni_GLWrapper
  * Method:    shouldClose
  * Signature: ()Z
  */
@@ -45,6 +37,78 @@ JNIEXPORT jboolean JNICALL Java_jni_GLWrapper_shouldClose
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_jni_GLWrapper_close
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     jni_GLWrapper
+ * Method:    deltaT
+ * Signature: ()F
+ */
+JNIEXPORT jfloat JNICALL Java_jni_GLWrapper_deltaT
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     jni_GLWrapper
+ * Method:    processInput
+ * Signature: (F)V
+ */
+JNIEXPORT void JNICALL Java_jni_GLWrapper_processInput
+  (JNIEnv *, jclass, jfloat);
+
+/*
+ * Class:     jni_GLWrapper
+ * Method:    prerender
+ * Signature: (FFF)V
+ */
+JNIEXPORT void JNICALL Java_jni_GLWrapper_prerender
+  (JNIEnv *, jclass, jfloat, jfloat, jfloat);
+
+/*
+ * Class:     jni_GLWrapper
+ * Method:    postrender
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_jni_GLWrapper_postrender
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     jni_GLWrapper
+ * Method:    swapBuffers
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_jni_GLWrapper_swapBuffers
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     jni_GLWrapper
+ * Method:    pollEvents
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_jni_GLWrapper_pollEvents
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     jni_GLWrapper
+ * Method:    generateTexture
+ * Signature: (Ljava/lang/String;Z)I
+ */
+JNIEXPORT jint JNICALL Java_jni_GLWrapper_generateTexture
+  (JNIEnv *, jclass, jstring, jboolean);
+
+/*
+ * Class:     jni_GLWrapper
+ * Method:    useTexture
+ * Signature: (II)V
+ */
+JNIEXPORT void JNICALL Java_jni_GLWrapper_useTexture
+  (JNIEnv *, jclass, jint, jint);
+
+/*
+ * Class:     jni_GLWrapper
+ * Method:    checkError
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_jni_GLWrapper_checkError
   (JNIEnv *, jclass);
 
 #ifdef __cplusplus

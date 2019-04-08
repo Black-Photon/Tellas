@@ -2,19 +2,61 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8a1e91b-82b9-4223-acfe-9dc474231d0a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/dirt.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/CubeModel.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/CubeModel.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/Model.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/Model.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/jni/Model.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/jni/Shape.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/jni/Vector3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/jni_Shape.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/jni_Shape.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OpenGLProject.iws" beforeDir="false" afterPath="$PROJECT_DIR$/OpenGLProject.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/awesomeface.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/container.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/wall.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/Camera.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Camera.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Camera.h" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Camera.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Cube.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Cube.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Shape.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Shape.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/build.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/classes/Cube.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/classes/Shape.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/cmake_clean.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/depend.internal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenGLProject.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenGLProject.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/libOpenGLProject.so" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/libOpenGLProject.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/glm/fwd.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/include/glm/fwd.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/glm/glm.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/include/glm/glm.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/glm/gtx/std_based_type.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/include/glm/gtx/std_based_type.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/glm/vector_relational.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/include/glm/vector_relational.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/java/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jni/GLWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/jni/GLWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jni_GLWrapper.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/java/jni_GLWrapper.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/jni_GLWrapper.h" beforeDir="false" afterPath="$PROJECT_DIR$/java/jni_GLWrapper.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jni.sh" beforeDir="false" afterPath="$PROJECT_DIR$/jni.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OpenGLProject/Main$.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpenGLProject/Main$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OpenGLProject/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpenGLProject/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OpenGLProject/jni/GLWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpenGLProject/jni/GLWrapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OpenGLProject/jni_GLWrapper.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpenGLProject/jni_GLWrapper.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OpenGLProject/jni_GLWrapper.h" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpenGLProject/jni_GLWrapper.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/fragmentShader.frag" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/fragmentShader.frag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shaders/vertexShader.vert" beforeDir="false" afterPath="$PROJECT_DIR$/shaders/vertexShader.vert" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frame.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/frame.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/preInit.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/preInit.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/include.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/include.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/init.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/init.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +73,59 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/java/Main.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+            <state relative-caret-position="96">
+              <caret line="6" column="54" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
+              <folding>
+                <element signature="e#0#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java/jni/Vector3.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="512">
+              <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java/jni/Model.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java/jni/Shape.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="397">
+              <caret line="32" column="43" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
+              <folding>
+                <element signature="e#112#113#0" expanded="true" />
+                <element signature="e#152#153#0" expanded="true" />
+                <element signature="e#188#189#0" expanded="true" />
+                <element signature="e#262#263#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java/jni/GLWrapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="701">
+              <caret line="98" column="43" selection-start-line="98" selection-start-column="43" selection-end-line="98" selection-end-column="43" />
+              <folding>
+                <element signature="docComment;class#GLWrapper#0" />
+                <element signature="docComment;method#preInit#0;class#GLWrapper#0" />
+                <element signature="docComment;method#init#0;class#GLWrapper#0" />
+                <element signature="docComment;method#close#0;class#GLWrapper#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -47,32 +140,23 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/java/jni/GLWrapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="38" column="47" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
-              <folding>
-                <element signature="docComment;class#GLWrapper#0" />
-                <element signature="docComment;method#preInit#0;class#GLWrapper#0" />
-                <element signature="docComment;method#init#0;class#GLWrapper#0" />
-                <element signature="docComment;method#frame#0;class#GLWrapper#0" />
-                <element signature="docComment;method#shouldClose#0;class#GLWrapper#0" />
-                <element signature="docComment;method#close#0;class#GLWrapper#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jni.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+            <state relative-caret-position="96">
+              <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -90,8 +174,15 @@
         <option value="$PROJECT_DIR$/java/Main.java" />
         <option value="$PROJECT_DIR$/java/jni/JNIInterface.java" />
         <option value="$PROJECT_DIR$/java/jni/GLInterface.java" />
-        <option value="$PROJECT_DIR$/jni.sh" />
         <option value="$PROJECT_DIR$/build.sh" />
+        <option value="$PROJECT_DIR$/java/jni/CubeModel.java" />
+        <option value="$PROJECT_DIR$/java/jni/Cube.java" />
+        <option value="$PROJECT_DIR$/jni.sh" />
+        <option value="$PROJECT_DIR$/java/jni/ShapeType.java" />
+        <option value="$PROJECT_DIR$/java/jni/Vector.java" />
+        <option value="$PROJECT_DIR$/java/jni/Vector3.java" />
+        <option value="$PROJECT_DIR$/java/jni/Shape.java" />
+        <option value="$PROJECT_DIR$/java/jni/Model.java" />
         <option value="$PROJECT_DIR$/java/jni/GLWrapper.java" />
         <option value="$PROJECT_DIR$/java/Main.scala" />
       </list>
@@ -118,7 +209,7 @@
             <path>
               <item name="OpenGLProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="OpenGLProject" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="OpenGLProject" type="b2602c69:ProjectViewProjectNode" />
@@ -210,18 +301,18 @@
       <workItem from="1554545699511" duration="1588000" />
       <workItem from="1554637297234" duration="728000" />
       <workItem from="1554646994125" duration="9869000" />
-      <workItem from="1554723568896" duration="1998000" />
+      <workItem from="1554723568896" duration="12969000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21607000" />
+    <option name="totallyTimeSpent" value="32578000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1044" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1292735" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1292735" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -229,8 +320,8 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32711306" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32930845" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49946582" visible="true" weight="0.32711306" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -239,7 +330,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32930845" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32930845" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5005342" side_tool="true" weight="0.32711306" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32930845" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -286,10 +377,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/out/production/OpenGLProject/hs_err_pid18878.log" />
     <entry file="file://$PROJECT_DIR$/module_openglproject.xml" />
-    <entry file="file://$PROJECT_DIR$/java/Main.scala">
+    <entry file="file://$PROJECT_DIR$/java/shapes/Shape.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+        <state relative-caret-position="32">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/shapes/Cube.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/jni/Cube.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/jni/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/jni/CubeModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="2" column="38" lean-forward="true" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -300,25 +419,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/jni.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/jni/Vector3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/jni/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/jni/Shape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="32" column="43" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
+          <folding>
+            <element signature="e#112#113#0" expanded="true" />
+            <element signature="e#152#153#0" expanded="true" />
+            <element signature="e#188#189#0" expanded="true" />
+            <element signature="e#262#263#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/java/jni/GLWrapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="38" column="47" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
+        <state relative-caret-position="701">
+          <caret line="98" column="43" selection-start-line="98" selection-start-column="43" selection-end-line="98" selection-end-column="43" />
           <folding>
             <element signature="docComment;class#GLWrapper#0" />
             <element signature="docComment;method#preInit#0;class#GLWrapper#0" />
             <element signature="docComment;method#init#0;class#GLWrapper#0" />
-            <element signature="docComment;method#frame#0;class#GLWrapper#0" />
-            <element signature="docComment;method#shouldClose#0;class#GLWrapper#0" />
             <element signature="docComment;method#close#0;class#GLWrapper#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jni.sh">
+    <entry file="file://$PROJECT_DIR$/assets/container.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/dirt.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/Main.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+        <state relative-caret-position="96">
+          <caret line="6" column="54" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

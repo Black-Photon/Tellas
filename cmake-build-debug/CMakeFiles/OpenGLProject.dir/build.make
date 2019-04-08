@@ -96,35 +96,9 @@ CMakeFiles/OpenGLProject.dir/classes/Shader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpenGLProject.dir/classes/Shader.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shader.cpp -o CMakeFiles/OpenGLProject.dir/classes/Shader.cpp.s
 
-CMakeFiles/OpenGLProject.dir/classes/Shape.cpp.o: CMakeFiles/OpenGLProject.dir/flags.make
-CMakeFiles/OpenGLProject.dir/classes/Shape.cpp.o: ../classes/Shape.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/OpenGLProject.dir/classes/Shape.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OpenGLProject.dir/classes/Shape.cpp.o -c /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shape.cpp
-
-CMakeFiles/OpenGLProject.dir/classes/Shape.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpenGLProject.dir/classes/Shape.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shape.cpp > CMakeFiles/OpenGLProject.dir/classes/Shape.cpp.i
-
-CMakeFiles/OpenGLProject.dir/classes/Shape.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpenGLProject.dir/classes/Shape.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shape.cpp -o CMakeFiles/OpenGLProject.dir/classes/Shape.cpp.s
-
-CMakeFiles/OpenGLProject.dir/classes/Cube.cpp.o: CMakeFiles/OpenGLProject.dir/flags.make
-CMakeFiles/OpenGLProject.dir/classes/Cube.cpp.o: ../classes/Cube.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/OpenGLProject.dir/classes/Cube.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OpenGLProject.dir/classes/Cube.cpp.o -c /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Cube.cpp
-
-CMakeFiles/OpenGLProject.dir/classes/Cube.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpenGLProject.dir/classes/Cube.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Cube.cpp > CMakeFiles/OpenGLProject.dir/classes/Cube.cpp.i
-
-CMakeFiles/OpenGLProject.dir/classes/Cube.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpenGLProject.dir/classes/Cube.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Cube.cpp -o CMakeFiles/OpenGLProject.dir/classes/Cube.cpp.s
-
 CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.o: CMakeFiles/OpenGLProject.dir/flags.make
 CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.o: ../classes/Camera.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.o -c /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Camera.cpp
 
 CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.i: cmake_force
@@ -135,14 +109,40 @@ CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Camera.cpp -o CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.s
 
+CMakeFiles/OpenGLProject.dir/classes/Model.cpp.o: CMakeFiles/OpenGLProject.dir/flags.make
+CMakeFiles/OpenGLProject.dir/classes/Model.cpp.o: ../classes/Model.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/OpenGLProject.dir/classes/Model.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OpenGLProject.dir/classes/Model.cpp.o -c /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Model.cpp
+
+CMakeFiles/OpenGLProject.dir/classes/Model.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpenGLProject.dir/classes/Model.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Model.cpp > CMakeFiles/OpenGLProject.dir/classes/Model.cpp.i
+
+CMakeFiles/OpenGLProject.dir/classes/Model.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpenGLProject.dir/classes/Model.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Model.cpp -o CMakeFiles/OpenGLProject.dir/classes/Model.cpp.s
+
+CMakeFiles/OpenGLProject.dir/classes/CubeModel.cpp.o: CMakeFiles/OpenGLProject.dir/flags.make
+CMakeFiles/OpenGLProject.dir/classes/CubeModel.cpp.o: ../classes/CubeModel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/OpenGLProject.dir/classes/CubeModel.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OpenGLProject.dir/classes/CubeModel.cpp.o -c /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/CubeModel.cpp
+
+CMakeFiles/OpenGLProject.dir/classes/CubeModel.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpenGLProject.dir/classes/CubeModel.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/CubeModel.cpp > CMakeFiles/OpenGLProject.dir/classes/CubeModel.cpp.i
+
+CMakeFiles/OpenGLProject.dir/classes/CubeModel.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpenGLProject.dir/classes/CubeModel.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/CubeModel.cpp -o CMakeFiles/OpenGLProject.dir/classes/CubeModel.cpp.s
+
 # Object files for target OpenGLProject
 OpenGLProject_OBJECTS = \
 "CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.o" \
 "CMakeFiles/OpenGLProject.dir/src/glad.c.o" \
 "CMakeFiles/OpenGLProject.dir/classes/Shader.cpp.o" \
-"CMakeFiles/OpenGLProject.dir/classes/Shape.cpp.o" \
-"CMakeFiles/OpenGLProject.dir/classes/Cube.cpp.o" \
-"CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.o"
+"CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.o" \
+"CMakeFiles/OpenGLProject.dir/classes/Model.cpp.o" \
+"CMakeFiles/OpenGLProject.dir/classes/CubeModel.cpp.o"
 
 # External object files for target OpenGLProject
 OpenGLProject_EXTERNAL_OBJECTS =
@@ -150,9 +150,9 @@ OpenGLProject_EXTERNAL_OBJECTS =
 libOpenGLProject.so: CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.o
 libOpenGLProject.so: CMakeFiles/OpenGLProject.dir/src/glad.c.o
 libOpenGLProject.so: CMakeFiles/OpenGLProject.dir/classes/Shader.cpp.o
-libOpenGLProject.so: CMakeFiles/OpenGLProject.dir/classes/Shape.cpp.o
-libOpenGLProject.so: CMakeFiles/OpenGLProject.dir/classes/Cube.cpp.o
 libOpenGLProject.so: CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.o
+libOpenGLProject.so: CMakeFiles/OpenGLProject.dir/classes/Model.cpp.o
+libOpenGLProject.so: CMakeFiles/OpenGLProject.dir/classes/CubeModel.cpp.o
 libOpenGLProject.so: CMakeFiles/OpenGLProject.dir/build.make
 libOpenGLProject.so: include/glfw-3.2.1/src/libglfw3.a
 libOpenGLProject.so: /usr/lib/librt.so

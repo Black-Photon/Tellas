@@ -204,22 +204,22 @@
 		<Unit filename="/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Camera.h">
 			<Option target="OpenGLProject"/>
 		</Unit>
-		<Unit filename="/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Cube.cpp">
+		<Unit filename="/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/CubeModel.cpp">
 			<Option target="OpenGLProject"/>
 		</Unit>
-		<Unit filename="/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Cube.h">
+		<Unit filename="/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/CubeModel.h">
+			<Option target="OpenGLProject"/>
+		</Unit>
+		<Unit filename="/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Model.cpp">
+			<Option target="OpenGLProject"/>
+		</Unit>
+		<Unit filename="/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Model.h">
 			<Option target="OpenGLProject"/>
 		</Unit>
 		<Unit filename="/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shader.cpp">
 			<Option target="OpenGLProject"/>
 		</Unit>
 		<Unit filename="/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shader.h">
-			<Option target="OpenGLProject"/>
-		</Unit>
-		<Unit filename="/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shape.cpp">
-			<Option target="OpenGLProject"/>
-		</Unit>
-		<Unit filename="/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shape.h">
 			<Option target="OpenGLProject"/>
 		</Unit>
 		<Unit filename="/home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/include/glfw-3.2.1/src/glfw_config.h">
