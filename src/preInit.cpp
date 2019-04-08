@@ -56,30 +56,11 @@ namespace core {
         yoffset *= sensitivity;
 
         // Adjusts the yaw and pitch according to the mouse movement
-        yaw += xoffset;
-        pitch += yoffset;
-
-        // Stops you looking below or above
-        if (pitch > 89.0f)
-            pitch = 89.0f;
-        if (pitch < -89.0f)
-            pitch = -89.0f;
-
-        // Applies as a vector to the camera forward direction
-        glm::vec3 direction;
-        direction.x = cos(glm::radians(pitch)) * cos(glm::radians(yaw));
-        direction.y = sin(glm::radians(pitch));
-        direction.z = cos(glm::radians(pitch)) * sin(glm::radians(yaw));
-        cameraFront = glm::normalize(direction);
+        Data.camera->rotate(YAW, xoffset);
+        Data.camera->rotate(PITCH, yoffset);
     }
 
     void scroll_callback(GLFWwindow *window, double xoffset, double yoffset) {
-        // Adjusts the fov depending on scroll
-        if (fov >= 1.0f && fov <= 45.0f)
-            fov -= yoffset;
-        if (fov <= 1.0f)
-            fov = 1.0f;
-        if (fov >= 45.0f)
-            fov = 45.0f;
+        //Data.camera->zoom(-yoffset);
     }
 }

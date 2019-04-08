@@ -6,18 +6,9 @@
 
 #include "include.cpp"
 #include "../classes/Shader.h"
+#include "../classes/Camera.h"
 
 namespace core {
-
-    // TODO Remove loose variables
-    glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
-    glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, 1.0f);
-    glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
-
-    float pitch = 0;
-    float yaw = 0;
-
-    float fov = 45.0f;
 
     /**
      * Holds Screen and Program data
@@ -28,6 +19,7 @@ namespace core {
         float lastFrame = 0.0f;
         GLFWwindow *window = nullptr;
         Shader *shader = nullptr;
+        Camera *camera = nullptr;
         unsigned int texture[2];
     } Data;
 
@@ -44,7 +36,7 @@ namespace core {
      * Holds variables relating to mouse movement
      */
     struct Mouse {
-        float lastX = 400, lastY = 300;
+        float lastX, lastY;
         bool first = true;
     } Mouse;
 

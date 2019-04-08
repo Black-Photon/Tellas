@@ -1,5 +1,6 @@
 #include "data.cpp"
 #include "../classes/Shader.h"
+#include "../classes/Camera.h"
 
 /**
  * Methods used from frame to frame
@@ -35,15 +36,14 @@ namespace core {
         if (glfwGetKey(Data.window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
             glfwSetWindowShouldClose(Data.window, true);
 
-        float cameraSpeed = 5.0f * deltaT; // adjust accordingly
         if (glfwGetKey(Data.window, GLFW_KEY_W) == GLFW_PRESS)
-            cameraPos += cameraSpeed * cameraFront;
+            Data.camera->moveOnPlane(FORWARD, Y, deltaT);
         if (glfwGetKey(Data.window, GLFW_KEY_S) == GLFW_PRESS)
-            cameraPos -= cameraSpeed * cameraFront;
+            Data.camera->moveOnPlane(BACKWARD, Y, deltaT);
         if (glfwGetKey(Data.window, GLFW_KEY_A) == GLFW_PRESS)
-            cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+            Data.camera->moveOnPlane(LEFT, Y, deltaT);
         if (glfwGetKey(Data.window, GLFW_KEY_D) == GLFW_PRESS)
-            cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+            Data.camera->moveOnPlane(RIGHT, Y, deltaT);
 
         glfwSetInputMode(Data.window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     }
@@ -113,13 +113,8 @@ namespace core {
     }
 
     void makeModel(Shader shader) {
-
-        glm::mat4 view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
-        // note that we're translating the scene in the reverse direction of where we want to move
-        //view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
-
-        glm::mat4 projection;
-        projection = glm::perspective(glm::radians(fov), 1920.0f / 1080.0f, 0.1f, 100.0f);
+        glm::mat4 view = Data.camera->getTransformation();
+        glm::mat4 projection = Data.camera->getPerspectiveTransformation();
 
         shader.use();
         int viewLoc = glGetUniformLocation(shader.ID, "view");

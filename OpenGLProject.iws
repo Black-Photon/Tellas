@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c8a1e91b-82b9-4223-acfe-9dc474231d0a" name="Default Changelist" comment="" />
+    <list default="true" id="c8a1e91b-82b9-4223-acfe-9dc474231d0a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/OpenGLProject.iws" beforeDir="false" afterPath="$PROJECT_DIR$/OpenGLProject.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Camera.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Camera.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Camera.h" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Camera.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/libOpenGLProject.so" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/libOpenGLProject.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/data.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frame.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/frame.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/preInit.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/preInit.cpp" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,8 +31,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/java/Main.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+            <state relative-caret-position="304">
+              <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -36,7 +50,7 @@
         <entry file="file://$PROJECT_DIR$/java/jni/GLWrapper.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="400">
-              <caret line="38" column="47" lean-forward="true" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
+              <caret line="38" column="47" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
               <folding>
                 <element signature="docComment;class#GLWrapper#0" />
                 <element signature="docComment;method#preInit#0;class#GLWrapper#0" />
@@ -78,12 +92,12 @@
         <option value="$PROJECT_DIR$/java/jni/GLInterface.java" />
         <option value="$PROJECT_DIR$/jni.sh" />
         <option value="$PROJECT_DIR$/build.sh" />
-        <option value="$PROJECT_DIR$/java/Main.scala" />
         <option value="$PROJECT_DIR$/java/jni/GLWrapper.java" />
+        <option value="$PROJECT_DIR$/java/Main.scala" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="673" />
     <option name="width" value="954" />
     <option name="height" value="1039" />
@@ -93,7 +107,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -101,6 +114,11 @@
             <path>
               <item name="OpenGLProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="OpenGLProject" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OpenGLProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OpenGLProject" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="OpenGLProject" type="b2602c69:ProjectViewProjectNode" />
@@ -117,6 +135,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -190,18 +209,19 @@
       <workItem from="1554475504974" duration="2814000" />
       <workItem from="1554545699511" duration="1588000" />
       <workItem from="1554637297234" duration="728000" />
-      <workItem from="1554646994125" duration="9074000" />
+      <workItem from="1554646994125" duration="9869000" />
+      <workItem from="1554723568896" duration="1998000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18814000" />
+    <option name="totallyTimeSpent" value="21607000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1044" extended-state="6" />
+    <frame x="0" y="0" width="1920" height="1044" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12767094" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1292735" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -210,7 +230,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32711306" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32711306" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -264,25 +284,14 @@
     <entry file="file://$PROJECT_DIR$/java/jni_GLWrapper.cpp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/jni.sh">
+    <entry file="file://$PROJECT_DIR$/out/production/OpenGLProject/hs_err_pid18878.log" />
+    <entry file="file://$PROJECT_DIR$/module_openglproject.xml" />
+    <entry file="file://$PROJECT_DIR$/java/Main.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+        <state relative-caret-position="304">
+          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/OpenGLProject/hs_err_pid18878.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="256">
-          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="-346" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module_openglproject.xml">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/build.sh">
       <provider selected="true" editor-type-id="text-editor">
@@ -294,7 +303,7 @@
     <entry file="file://$PROJECT_DIR$/java/jni/GLWrapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
-          <caret line="38" column="47" lean-forward="true" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
+          <caret line="38" column="47" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
           <folding>
             <element signature="docComment;class#GLWrapper#0" />
             <element signature="docComment;method#preInit#0;class#GLWrapper#0" />
@@ -306,10 +315,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java/Main.scala">
+    <entry file="file://$PROJECT_DIR$/jni.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+        <state relative-caret-position="112">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
         </state>
       </provider>
     </entry>

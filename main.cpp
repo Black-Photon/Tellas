@@ -94,6 +94,10 @@ namespace core {
         glViewport(0, 0, Data.SCR_WIDTH, Data.SCR_HEIGHT);
 
         Data.lastFrame = glfwGetTime();
+
+        auto *camera = new Camera(1920.0f/1080.0f);
+        Data.camera = camera;
+        Data.camera->rotate(YAW, -90.0f);
     }
 
     bool shouldClose() {
@@ -125,6 +129,7 @@ namespace core {
         glDeleteBuffers(1, Buffers.VBO);
 
         delete (Data.shader);
+        delete (Data.camera);
 
         glfwTerminate();
     }

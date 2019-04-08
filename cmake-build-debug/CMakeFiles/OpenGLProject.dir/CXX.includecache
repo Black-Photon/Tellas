@@ -1480,9 +1480,7 @@ intrin.h
 arm_neon.h
 -
 
-/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shader.cpp
-Shader.h
-/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shader.h
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Camera.h
 
 /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shader.h
 glad/glad.h
@@ -1525,12 +1523,16 @@ include.cpp
 /home/joseph/Documents/Programming/Graphics/OpenGLProject/src/include.cpp
 ../classes/Shader.h
 /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shader.h
+../classes/Camera.h
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Camera.h
 
 /home/joseph/Documents/Programming/Graphics/OpenGLProject/src/frame.cpp
 data.cpp
 /home/joseph/Documents/Programming/Graphics/OpenGLProject/src/data.cpp
 ../classes/Shader.h
 /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shader.h
+../classes/Camera.h
+/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Camera.h
 
 /home/joseph/Documents/Programming/Graphics/OpenGLProject/src/include.cpp
 iostream
