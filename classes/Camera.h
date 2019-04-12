@@ -22,12 +22,12 @@ enum Rotation {
 // Minimum possible FOV value
 const float MIN_FOV = 1.0f;
 // Maximum possible FOV value
-const float MAX_FOV = 45.0f;
+const float MAX_FOV = 90.0f;
 
 // Distance beyond which objects will be shown
 const float MIN_DISTANCE = 0.1f;
 // Distance beyond which objects won't be shown
-const float MAX_DISTANCE = 100.0f;
+const float MAX_DISTANCE = 50.0f;
 
 // Camera Speed
 const float SPEED = 5.0f;
@@ -43,7 +43,7 @@ public:
 
     float pitch = 0;
     float yaw = 0;
-    float fov = 45.0f;
+    float fov = 80.0f;
 
     // Display Aspect Ratio
     float ASPECT_RATIO;

@@ -15,6 +15,22 @@ extern "C" {
 JNIEXPORT void JNICALL Java_jni_Shape_drawN
   (JNIEnv *, jobject, jfloat, jfloat, jfloat, jint);
 
+/*
+ * Class:     jni_Shape
+ * Method:    bindBufferN
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_jni_Shape_bindBufferN
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     jni_Shape
+ * Method:    activateShader
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_jni_Shape_activateShader
+  (JNIEnv *, jobject);
+
 #ifdef __cplusplus
 }
 #endif

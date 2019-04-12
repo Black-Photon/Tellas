@@ -1,21 +1,26 @@
-import jni.{GLWrapper, Model, Shape, Vector3}
-import Model.CUBE
+import java.nio.file.FileSystems
+
+import jni.{GLWrapper, Shape, Vector3}
 
 object Main extends App{
-  val model: Model = CUBE
-  val cube: Shape = new Shape(new Vector3(0, -0.5f, 0))
-  val cube2: Shape = new Shape(new Vector3(0.5f, -0.5f, 0))
+  // Loads the C++
+  System.load(
+    FileSystems.getDefault
+      .getPath("../../../cmake-build-debug/libOpenGLProject.so") // Dynamic link
+      .normalize.toAbsolutePath.toString)
+
+  GLWrapper.test()
 
   message("Pre-Initialisation")
   GLWrapper.preInit(1920, 1080, "Tellas")
   message("Initialisation")
   GLWrapper.init()
 
-  val texture: Int = GLWrapper.generateTexture("dirt.jpg", false)
+  addBlocks()
 
   message("Drawing")
-  while(!GLWrapper.shouldClose()) {
-    val deltaT = GLWrapper.deltaT()
+  while(!GLWrapper.shouldClose) {
+    val deltaT = GLWrapper.deltaT
     GLWrapper.processInput(deltaT)
     GLWrapper.prerender(0.2f, 0.2f, 0.7f)
 
@@ -29,11 +34,22 @@ object Main extends App{
   message("Closing")
   GLWrapper.close()
 
-  def draw(): Unit = {
-    GLWrapper.useTexture(texture, 0)
+  def addBlocks(): Unit = {
+    for(x <- -100 to 100; z <- -100 to 100) {
+      new Dirt(Vector3(x, -2, z))
+    }
+    new Dirt(Vector3(12, -1, 3))
+    new Dirt(Vector3(12, 0, 3))
+    new Dirt(Vector3(12, 1, 3))
+    new Dirt(Vector3(10, -1, 3))
+    new Dirt(Vector3(10, 0, 3))
+    new Dirt(Vector3(10, 1, 3))
+    new Dirt(Vector3(11, 1, 3))
+  }
 
-    cube.draw(model)
-    cube2.draw(model)
+  def draw(): Unit = {
+    Shape.activateShader()
+    Dirt.draw()
   }
 
   def message(message: String): Unit = {

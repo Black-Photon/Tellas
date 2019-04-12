@@ -2,9 +2,16 @@
 #include "../main.cpp"
 #include "jni_Shape.cpp"
 
+// Test
+JNIEXPORT void JNICALL Java_jni_GLWrapper_test
+  (JNIEnv *, jobject)
+{
+    std::cout << "INFO::JNI::LINK_ESTABLISHED" << std::endl;
+}
+
 // Pre-Init
 JNIEXPORT void JNICALL Java_jni_GLWrapper_preInit
-        (JNIEnv * env, jclass self, jint width, jint height, jstring jname)
+        (JNIEnv * env, jobject self, jint width, jint height, jstring jname)
 {
     const char *chars = env->GetStringUTFChars(jname, NULL);
     std::string title = std::string(chars);
@@ -14,27 +21,27 @@ JNIEXPORT void JNICALL Java_jni_GLWrapper_preInit
 
 // Init
 JNIEXPORT void JNICALL Java_jni_GLWrapper_init
-        (JNIEnv *, jclass)
+        (JNIEnv *, jobject)
 {
     core::init();
 }
 
 // Should Close
 JNIEXPORT jboolean JNICALL Java_jni_GLWrapper_shouldClose
-        (JNIEnv *, jclass)
+        (JNIEnv *, jobject)
 {
     return core::shouldClose();
 }
 
 // Close
 JNIEXPORT void JNICALL Java_jni_GLWrapper_close
-        (JNIEnv *, jclass)
+        (JNIEnv *, jobject)
 {
     core::close();
 }
 
 JNIEXPORT jfloat JNICALL Java_jni_GLWrapper_deltaT
-        (JNIEnv *, jclass)
+        (JNIEnv *, jobject)
 {
     float currentFrame = glfwGetTime();
     float deltaTime = currentFrame - core::Data.lastFrame;
@@ -43,37 +50,37 @@ JNIEXPORT jfloat JNICALL Java_jni_GLWrapper_deltaT
 }
 
 JNIEXPORT void JNICALL Java_jni_GLWrapper_processInput
-        (JNIEnv *, jclass, jfloat deltaTime)
+        (JNIEnv *, jobject, jfloat deltaTime)
 {
     core::processInput(deltaTime);
 }
 
 JNIEXPORT void JNICALL Java_jni_GLWrapper_prerender
-        (JNIEnv *, jclass, jfloat r, jfloat g, jfloat b)
+        (JNIEnv *, jobject, jfloat r, jfloat g, jfloat b)
 {
     core::prerender(r, g, b);
 }
 
 JNIEXPORT void JNICALL Java_jni_GLWrapper_postrender
-        (JNIEnv *, jclass)
+        (JNIEnv *, jobject)
 {
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 }
 
 JNIEXPORT void JNICALL Java_jni_GLWrapper_swapBuffers
-        (JNIEnv *, jclass)
+        (JNIEnv *, jobject)
 {
     glfwSwapBuffers(core::Data.window);
 }
 
 JNIEXPORT void JNICALL Java_jni_GLWrapper_pollEvents
-        (JNIEnv *, jclass)
+        (JNIEnv *, jobject)
 {
     glfwPollEvents();
 }
 
 JNIEXPORT jint JNICALL Java_jni_GLWrapper_generateTexture
-        (JNIEnv * env, jclass, jstring jpath, jboolean isPNG)
+        (JNIEnv * env, jobject, jstring jpath, jboolean isPNG)
 {
     const char *path= env->GetStringUTFChars(jpath, 0);
 
@@ -85,7 +92,7 @@ JNIEXPORT jint JNICALL Java_jni_GLWrapper_generateTexture
 }
 
 JNIEXPORT void JNICALL Java_jni_GLWrapper_useTexture
-        (JNIEnv *, jclass, jint texture, jint location)
+        (JNIEnv *, jobject, jint texture, jint location)
 {
     switch (location) {
         case 0: glActiveTexture(GL_TEXTURE0);
@@ -159,7 +166,7 @@ JNIEXPORT void JNICALL Java_jni_GLWrapper_useTexture
 }
 
 JNIEXPORT void JNICALL Java_jni_GLWrapper_checkError
-        (JNIEnv *, jclass)
+        (JNIEnv *, jobject)
 {
     core::glCheckError();
 }

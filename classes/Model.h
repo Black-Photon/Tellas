@@ -37,10 +37,14 @@ public:
      */
     virtual void draw(glm::vec3 position, Shader shader) = 0;
 
+    /**
+     * Binds the VAO
+     */
+    void bind();
+
 protected:
     unsigned int VAO;
     unsigned int VBO;
-    unsigned int EBO;
 };
 
 

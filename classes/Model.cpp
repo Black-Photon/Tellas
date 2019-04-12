@@ -28,8 +28,6 @@ Model::~Model()
 
 void Model::draw(glm::vec3 position, Shader shader, int vertices)
 {
-    glBindVertexArray(VAO);
-
     // Creates the model matrix by translating by coordinates
     glm::mat4 model = glm::mat4(1.0f);
     model = glm::translate(model, position);
@@ -40,4 +38,9 @@ void Model::draw(glm::vec3 position, Shader shader, int vertices)
 
     // Draws the model
     glDrawArrays(GL_TRIANGLES, 0, vertices);
+}
+
+void Model::bind()
+{
+    glBindVertexArray(VAO);
 }

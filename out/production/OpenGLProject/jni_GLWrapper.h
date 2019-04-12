@@ -9,11 +9,19 @@ extern "C" {
 #endif
 /*
  * Class:     jni_GLWrapper
+ * Method:    test
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_jni_GLWrapper_test
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     jni_GLWrapper
  * Method:    preInit
  * Signature: (IILjava/lang/String;)V
  */
 JNIEXPORT void JNICALL Java_jni_GLWrapper_preInit
-  (JNIEnv *, jclass, jint, jint, jstring);
+  (JNIEnv *, jobject, jint, jint, jstring);
 
 /*
  * Class:     jni_GLWrapper
@@ -21,7 +29,7 @@ JNIEXPORT void JNICALL Java_jni_GLWrapper_preInit
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_jni_GLWrapper_init
-  (JNIEnv *, jclass);
+  (JNIEnv *, jobject);
 
 /*
  * Class:     jni_GLWrapper
@@ -29,7 +37,7 @@ JNIEXPORT void JNICALL Java_jni_GLWrapper_init
  * Signature: ()Z
  */
 JNIEXPORT jboolean JNICALL Java_jni_GLWrapper_shouldClose
-  (JNIEnv *, jclass);
+  (JNIEnv *, jobject);
 
 /*
  * Class:     jni_GLWrapper
@@ -37,7 +45,7 @@ JNIEXPORT jboolean JNICALL Java_jni_GLWrapper_shouldClose
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_jni_GLWrapper_close
-  (JNIEnv *, jclass);
+  (JNIEnv *, jobject);
 
 /*
  * Class:     jni_GLWrapper
@@ -45,7 +53,7 @@ JNIEXPORT void JNICALL Java_jni_GLWrapper_close
  * Signature: ()F
  */
 JNIEXPORT jfloat JNICALL Java_jni_GLWrapper_deltaT
-  (JNIEnv *, jclass);
+  (JNIEnv *, jobject);
 
 /*
  * Class:     jni_GLWrapper
@@ -53,7 +61,7 @@ JNIEXPORT jfloat JNICALL Java_jni_GLWrapper_deltaT
  * Signature: (F)V
  */
 JNIEXPORT void JNICALL Java_jni_GLWrapper_processInput
-  (JNIEnv *, jclass, jfloat);
+  (JNIEnv *, jobject, jfloat);
 
 /*
  * Class:     jni_GLWrapper
@@ -61,7 +69,7 @@ JNIEXPORT void JNICALL Java_jni_GLWrapper_processInput
  * Signature: (FFF)V
  */
 JNIEXPORT void JNICALL Java_jni_GLWrapper_prerender
-  (JNIEnv *, jclass, jfloat, jfloat, jfloat);
+  (JNIEnv *, jobject, jfloat, jfloat, jfloat);
 
 /*
  * Class:     jni_GLWrapper
@@ -69,7 +77,7 @@ JNIEXPORT void JNICALL Java_jni_GLWrapper_prerender
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_jni_GLWrapper_postrender
-  (JNIEnv *, jclass);
+  (JNIEnv *, jobject);
 
 /*
  * Class:     jni_GLWrapper
@@ -77,7 +85,7 @@ JNIEXPORT void JNICALL Java_jni_GLWrapper_postrender
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_jni_GLWrapper_swapBuffers
-  (JNIEnv *, jclass);
+  (JNIEnv *, jobject);
 
 /*
  * Class:     jni_GLWrapper
@@ -85,7 +93,7 @@ JNIEXPORT void JNICALL Java_jni_GLWrapper_swapBuffers
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_jni_GLWrapper_pollEvents
-  (JNIEnv *, jclass);
+  (JNIEnv *, jobject);
 
 /*
  * Class:     jni_GLWrapper
@@ -93,7 +101,7 @@ JNIEXPORT void JNICALL Java_jni_GLWrapper_pollEvents
  * Signature: (Ljava/lang/String;Z)I
  */
 JNIEXPORT jint JNICALL Java_jni_GLWrapper_generateTexture
-  (JNIEnv *, jclass, jstring, jboolean);
+  (JNIEnv *, jobject, jstring, jboolean);
 
 /*
  * Class:     jni_GLWrapper
@@ -101,7 +109,7 @@ JNIEXPORT jint JNICALL Java_jni_GLWrapper_generateTexture
  * Signature: (II)V
  */
 JNIEXPORT void JNICALL Java_jni_GLWrapper_useTexture
-  (JNIEnv *, jclass, jint, jint);
+  (JNIEnv *, jobject, jint, jint);
 
 /*
  * Class:     jni_GLWrapper
@@ -109,7 +117,7 @@ JNIEXPORT void JNICALL Java_jni_GLWrapper_useTexture
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_jni_GLWrapper_checkError
-  (JNIEnv *, jclass);
+  (JNIEnv *, jobject);
 
 #ifdef __cplusplus
 }
