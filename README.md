@@ -29,10 +29,10 @@ It was decided to use such an interface between languages primarily to learn bot
 If you are attempting to run yourself, you will need to change the location in CMakeLists.txt to whereever you clone it. Other than that it should run fine out of the box, so long as you have Java, Scala and CMake installed. It is recommended to use IntelliJ to build as it is currently the only method of building the Java/Scala side of the project to my knowledge without editing paths.
 
 The process for running should be:
-1) IF any native definitions have changed:
-   - Run jni.sh to update the .h file
-2) IF any Java/Scala has been changed
+1) IF any Java/Scala has been changed
    - Build the Java/Scala. You may need to specify the output folder as PROJECT/out in IntelliJ
+2) IF any native definitions have changed:
+   - Run jni.sh to update the .h file
 3) Run build.sh to build the C++ and run the project
 
 Unfortunately, as the project is run from the Scala side, it is impossible (to my knowledge) to run debugging on the C++ side. The Java side might be debugged by closing the project as soon as build.sh runs, and rerunning in a debugger. Otherwise, both cout and println are printed to the console, so debugging in this manner is always possible.
