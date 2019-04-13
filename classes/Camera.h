@@ -29,9 +29,6 @@ const float MIN_DISTANCE = 0.1f;
 // Distance beyond which objects won't be shown
 const float MAX_DISTANCE = 50.0f;
 
-// Camera Speed
-const float SPEED = 5.0f;
-
 /**
  * Controls the camera
  */
@@ -57,43 +54,10 @@ public:
      */
     Camera(float aspectRatio);
     /**
-     * Moves the camera in the relative direction given
-     * @param direction Direction to move
-     * @param deltaT Time since last frame
+     * Moves the camera to the given position
+     * @param position Position to move to
      */
-    void moveRelative(Direction direction, float deltaT);
-    /**
-     * Moves the camera in the relative direction given by the distance given
-     * @param direction Direction to move
-     * @param distance Distance to move
-     */
-    void moveByRelative(Direction direction, float distance);
-    /**
-     * Moves the camera in the absolute direction given
-     * @param direction Direction to move
-     * @param deltaT Time since last frame
-     */
-    void move(Axis direction, float deltaT);
-    /**
-     * Moves the camera in the absolute direction given by the distance given
-     * @param direction Direction to move
-     * @param distance Distance to move
-     */
-    void moveBy(Axis direction, float distance);
-    /**
-     * Moves the camera in the relative direction given on the plane given
-     * @param direction Direction to move
-     * @param plane Axis on which there will be no movement
-     * @param deltaT Time since last frame
-     */
-    void moveOnPlane(Direction direction, Axis plane, float deltaT);
-    /**
-     * Moves the camera in the relative direction given on the plane given by the distance given
-     * @param direction Direction to move
-     * @param plane Axis on which there will be no movement
-     * @param distance Distance to move
-     */
-    void moveByOnPlane(Direction direction, Axis plane, float distance);
+    void setPosition(glm::vec3 position);
     /**
      * Rotates the camera in the direction specified by the angle specified
      * @param rotation Direction to rotate
@@ -121,6 +85,7 @@ public:
      * @return Matrix describing the above transformation
      */
     glm::mat4 getPerspectiveTransformation();
+    glm::vec3 getLooking();
 
 private:
     /**

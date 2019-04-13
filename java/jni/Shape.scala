@@ -1,5 +1,7 @@
 package jni
 
+import src.{Model, Vector3}
+
 /**
   * Defines a shape that can be drawn to the screen
   */
@@ -25,7 +27,7 @@ class Shape {
     * @param model Model to use to draw to the screen
     */
   def draw(model: Model): Unit = {
-    drawN(position.x / 2, position.y / 2, position.z / 2, model.ordinal)
+    drawN(position.x, position.y, position.z, model.ordinal)
   }
 
   /**

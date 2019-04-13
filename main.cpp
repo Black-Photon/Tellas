@@ -66,7 +66,7 @@ namespace core {
         Data.window = window;
     }
 
-    void init() {
+    void init(bool capture) {
         glEnable(GL_DEPTH_TEST);
 
         // Program
@@ -90,6 +90,10 @@ namespace core {
 
         Model *model = new CubeModel();
         Data.models.push_back(model);
+
+        if(capture) {
+            glfwSetInputMode(Data.window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+        }
     }
 
     bool shouldClose() {

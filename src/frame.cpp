@@ -30,17 +30,6 @@ namespace core {
         // Pretty Straightforward
         if (glfwGetKey(Data.window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
             glfwSetWindowShouldClose(Data.window, true);
-
-        if (glfwGetKey(Data.window, GLFW_KEY_W) == GLFW_PRESS)
-            Data.camera->moveOnPlane(FORWARD, Y, deltaT);
-        if (glfwGetKey(Data.window, GLFW_KEY_S) == GLFW_PRESS)
-            Data.camera->moveOnPlane(BACKWARD, Y, deltaT);
-        if (glfwGetKey(Data.window, GLFW_KEY_A) == GLFW_PRESS)
-            Data.camera->moveOnPlane(LEFT, Y, deltaT);
-        if (glfwGetKey(Data.window, GLFW_KEY_D) == GLFW_PRESS)
-            Data.camera->moveOnPlane(RIGHT, Y, deltaT);
-
-        glfwSetInputMode(Data.window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     }
 
     void prerender(float r, float g, float b) {

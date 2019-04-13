@@ -17,8 +17,9 @@ class GLWrapper {
 
   /**
     * Initialises any data required for the application to function
+    * @param capture Capture mouse or not
     */
-  @native def init(): Unit
+  @native def init(capture: Boolean): Unit
 
   /**
     * Checks if the application should close

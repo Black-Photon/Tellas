@@ -303,32 +303,32 @@ classes/Shader.cpp.s:
 	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Shader.cpp.s
 .PHONY : classes/Shader.cpp.s
 
-java/jni_GLWrapper.o: java/jni_GLWrapper.cpp.o
+java/cpp/jni_GLWrapper.o: java/cpp/jni_GLWrapper.cpp.o
 
-.PHONY : java/jni_GLWrapper.o
+.PHONY : java/cpp/jni_GLWrapper.o
 
 # target to build an object file
-java/jni_GLWrapper.cpp.o:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.o
-.PHONY : java/jni_GLWrapper.cpp.o
+java/cpp/jni_GLWrapper.cpp.o:
+	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/java/cpp/jni_GLWrapper.cpp.o
+.PHONY : java/cpp/jni_GLWrapper.cpp.o
 
-java/jni_GLWrapper.i: java/jni_GLWrapper.cpp.i
+java/cpp/jni_GLWrapper.i: java/cpp/jni_GLWrapper.cpp.i
 
-.PHONY : java/jni_GLWrapper.i
+.PHONY : java/cpp/jni_GLWrapper.i
 
 # target to preprocess a source file
-java/jni_GLWrapper.cpp.i:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.i
-.PHONY : java/jni_GLWrapper.cpp.i
+java/cpp/jni_GLWrapper.cpp.i:
+	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/java/cpp/jni_GLWrapper.cpp.i
+.PHONY : java/cpp/jni_GLWrapper.cpp.i
 
-java/jni_GLWrapper.s: java/jni_GLWrapper.cpp.s
+java/cpp/jni_GLWrapper.s: java/cpp/jni_GLWrapper.cpp.s
 
-.PHONY : java/jni_GLWrapper.s
+.PHONY : java/cpp/jni_GLWrapper.s
 
 # target to generate assembly for a file
-java/jni_GLWrapper.cpp.s:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.s
-.PHONY : java/jni_GLWrapper.cpp.s
+java/cpp/jni_GLWrapper.cpp.s:
+	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/java/cpp/jni_GLWrapper.cpp.s
+.PHONY : java/cpp/jni_GLWrapper.cpp.s
 
 src/glad.o: src/glad.c.o
 
@@ -384,9 +384,9 @@ help:
 	@echo "... classes/Shader.o"
 	@echo "... classes/Shader.i"
 	@echo "... classes/Shader.s"
-	@echo "... java/jni_GLWrapper.o"
-	@echo "... java/jni_GLWrapper.i"
-	@echo "... java/jni_GLWrapper.s"
+	@echo "... java/cpp/jni_GLWrapper.o"
+	@echo "... java/cpp/jni_GLWrapper.i"
+	@echo "... java/cpp/jni_GLWrapper.s"
 	@echo "... src/glad.o"
 	@echo "... src/glad.i"
 	@echo "... src/glad.s"

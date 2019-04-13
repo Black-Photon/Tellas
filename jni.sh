@@ -6,17 +6,24 @@ CP=$LIBS_HOME/scala-library.jar
 
 cd out/production/OpenGLProject
 echo -- INFO -- Starting JNI
-javah -cp $CP:. jni.GLWrapper
-if [[ $? -eq 0 ]]; then
-    mv jni_GLWrapper.h ../../../java/
+FILES="$(ls jni | grep -v '\$' | sed 's/.class//')"
 
-    javah -cp $CP:. jni.Shape
-    if [[ $? -eq 0 ]]; then
-        mv jni_Shape.h ../../../java/
-        echo -- INFO -- Success
+for l in $FILES
+do
+    javah -cp $CP:. jni.$l
+
+    if [[ $? -eq 0 ]]; then echo Creating header for $l...
     else
         echo -- INFO -- Failure
+        exit -1
     fi
-else
-    echo -- INFO -- Failure
-fi
+
+    mv jni_$l.h ../../../java/cpp
+    if [[ $? -eq 0 ]]; then :
+    else
+        echo -- INFO -- Failure
+        exit -1
+    fi
+done
+echo -- INFO -- Success
+exit 0

@@ -57,18 +57,18 @@ include CMakeFiles/OpenGLProject.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/OpenGLProject.dir/flags.make
 
-CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.o: CMakeFiles/OpenGLProject.dir/flags.make
-CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.o: ../java/jni_GLWrapper.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.o -c /home/joseph/Documents/Programming/Graphics/OpenGLProject/java/jni_GLWrapper.cpp
+CMakeFiles/OpenGLProject.dir/java/cpp/jni_GLWrapper.cpp.o: CMakeFiles/OpenGLProject.dir/flags.make
+CMakeFiles/OpenGLProject.dir/java/cpp/jni_GLWrapper.cpp.o: ../java/cpp/jni_GLWrapper.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/OpenGLProject.dir/java/cpp/jni_GLWrapper.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OpenGLProject.dir/java/cpp/jni_GLWrapper.cpp.o -c /home/joseph/Documents/Programming/Graphics/OpenGLProject/java/cpp/jni_GLWrapper.cpp
 
-CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joseph/Documents/Programming/Graphics/OpenGLProject/java/jni_GLWrapper.cpp > CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.i
+CMakeFiles/OpenGLProject.dir/java/cpp/jni_GLWrapper.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpenGLProject.dir/java/cpp/jni_GLWrapper.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joseph/Documents/Programming/Graphics/OpenGLProject/java/cpp/jni_GLWrapper.cpp > CMakeFiles/OpenGLProject.dir/java/cpp/jni_GLWrapper.cpp.i
 
-CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joseph/Documents/Programming/Graphics/OpenGLProject/java/jni_GLWrapper.cpp -o CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.s
+CMakeFiles/OpenGLProject.dir/java/cpp/jni_GLWrapper.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpenGLProject.dir/java/cpp/jni_GLWrapper.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joseph/Documents/Programming/Graphics/OpenGLProject/java/cpp/jni_GLWrapper.cpp -o CMakeFiles/OpenGLProject.dir/java/cpp/jni_GLWrapper.cpp.s
 
 CMakeFiles/OpenGLProject.dir/src/glad.c.o: CMakeFiles/OpenGLProject.dir/flags.make
 CMakeFiles/OpenGLProject.dir/src/glad.c.o: ../src/glad.c
@@ -137,7 +137,7 @@ CMakeFiles/OpenGLProject.dir/classes/CubeModel.cpp.s: cmake_force
 
 # Object files for target OpenGLProject
 OpenGLProject_OBJECTS = \
-"CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.o" \
+"CMakeFiles/OpenGLProject.dir/java/cpp/jni_GLWrapper.cpp.o" \
 "CMakeFiles/OpenGLProject.dir/src/glad.c.o" \
 "CMakeFiles/OpenGLProject.dir/classes/Shader.cpp.o" \
 "CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.o" \
@@ -147,7 +147,7 @@ OpenGLProject_OBJECTS = \
 # External object files for target OpenGLProject
 OpenGLProject_EXTERNAL_OBJECTS =
 
-libOpenGLProject.so: CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.o
+libOpenGLProject.so: CMakeFiles/OpenGLProject.dir/java/cpp/jni_GLWrapper.cpp.o
 libOpenGLProject.so: CMakeFiles/OpenGLProject.dir/src/glad.c.o
 libOpenGLProject.so: CMakeFiles/OpenGLProject.dir/classes/Shader.cpp.o
 libOpenGLProject.so: CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.o

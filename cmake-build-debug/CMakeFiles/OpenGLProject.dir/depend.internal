@@ -542,7 +542,11 @@ CMakeFiles/OpenGLProject.dir/classes/Shader.cpp.o
  ../include/glad/glad.h
  /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shader.cpp
  /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shader.h
-CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.o
+CMakeFiles/OpenGLProject.dir/java/cpp/jni_GLWrapper.cpp.o
+ ../classes/Camera.h
+ ../classes/CubeModel.h
+ ../classes/Model.h
+ ../classes/Shader.h
  ../include/glad/glad.h
  ../include/glfw-3.2.1/include/GLFW/glfw3.h
  ../include/glm/./detail/setup.hpp
@@ -747,19 +751,19 @@ CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.o
  ../include/glm/vec4.hpp
  ../include/glm/vector_relational.hpp
  ../include/stb_image.h
- /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Camera.h
- /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/CubeModel.h
- /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Model.h
- /home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Shader.h
- /home/joseph/Documents/Programming/Graphics/OpenGLProject/java/jni_GLWrapper.cpp
- /home/joseph/Documents/Programming/Graphics/OpenGLProject/java/jni_GLWrapper.h
- /home/joseph/Documents/Programming/Graphics/OpenGLProject/java/jni_Shape.cpp
- /home/joseph/Documents/Programming/Graphics/OpenGLProject/java/jni_Shape.h
- /home/joseph/Documents/Programming/Graphics/OpenGLProject/main.cpp
- /home/joseph/Documents/Programming/Graphics/OpenGLProject/src/data.cpp
- /home/joseph/Documents/Programming/Graphics/OpenGLProject/src/frame.cpp
- /home/joseph/Documents/Programming/Graphics/OpenGLProject/src/include.cpp
- /home/joseph/Documents/Programming/Graphics/OpenGLProject/src/init.cpp
- /home/joseph/Documents/Programming/Graphics/OpenGLProject/src/preInit.cpp
+ ../main.cpp
+ ../src/data.cpp
+ ../src/frame.cpp
+ ../src/include.cpp
+ ../src/init.cpp
+ ../src/preInit.cpp
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/java/cpp/jni_GLWrapper.cpp
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/java/cpp/jni_GLWrapper.h
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/java/cpp/jni_KeyListener.cpp
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/java/cpp/jni_KeyListener.h
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/java/cpp/jni_Player.cpp
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/java/cpp/jni_Player.h
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/java/cpp/jni_Shape.cpp
+ /home/joseph/Documents/Programming/Graphics/OpenGLProject/java/cpp/jni_Shape.h
  /usr/lib/jvm/default/include/jni.h
  /usr/lib/jvm/default/include/linux/jni_md.h

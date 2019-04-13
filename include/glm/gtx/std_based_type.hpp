@@ -30,35 +30,35 @@ namespace glm
 	/// @addtogroup gtx_std_based_type
 	/// @{
 
-	/// jni.Vector3 type based of one std::size_t component.
+	/// Vector3 type based of one std::size_t component.
 	/// @see GLM_GTX_std_based_type
 	typedef vec<1, std::size_t, defaultp>		size1;
 
-	/// jni.Vector3 type based of two std::size_t components.
+	/// Vector3 type based of two std::size_t components.
 	/// @see GLM_GTX_std_based_type
 	typedef vec<2, std::size_t, defaultp>		size2;
 
-	/// jni.Vector3 type based of three std::size_t components.
+	/// Vector3 type based of three std::size_t components.
 	/// @see GLM_GTX_std_based_type
 	typedef vec<3, std::size_t, defaultp>		size3;
 
-	/// jni.Vector3 type based of four std::size_t components.
+	/// Vector3 type based of four std::size_t components.
 	/// @see GLM_GTX_std_based_type
 	typedef vec<4, std::size_t, defaultp>		size4;
 
-	/// jni.Vector3 type based of one std::size_t component.
+	/// Vector3 type based of one std::size_t component.
 	/// @see GLM_GTX_std_based_type
 	typedef vec<1, std::size_t, defaultp>		size1_t;
 
-	/// jni.Vector3 type based of two std::size_t components.
+	/// Vector3 type based of two std::size_t components.
 	/// @see GLM_GTX_std_based_type
 	typedef vec<2, std::size_t, defaultp>		size2_t;
 
-	/// jni.Vector3 type based of three std::size_t components.
+	/// Vector3 type based of three std::size_t components.
 	/// @see GLM_GTX_std_based_type
 	typedef vec<3, std::size_t, defaultp>		size3_t;
 
-	/// jni.Vector3 type based of four std::size_t components.
+	/// Vector3 type based of four std::size_t components.
 	/// @see GLM_GTX_std_based_type
 	typedef vec<4, std::size_t, defaultp>		size4_t;
 

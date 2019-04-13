@@ -1,8 +1,9 @@
 import java.nio.file.FileSystems
 
-import jni.{GLWrapper, Shape, Vector3}
+import jni.{GLWrapper, KeyListener, Shape}
+import src.{Chunk, Data, Dirt, Vector3}
 
-object Main extends App{
+object Main extends App {
   // Loads the C++
   System.load(
     FileSystems.getDefault
@@ -14,17 +15,23 @@ object Main extends App{
   message("Pre-Initialisation")
   GLWrapper.preInit(1920, 1080, "Tellas")
   message("Initialisation")
-  GLWrapper.init()
+  GLWrapper.init(true)
 
   addBlocks()
+
+  Data.player.setPosition(Vector3(3, -2, 0))
 
   message("Drawing")
   while(!GLWrapper.shouldClose) {
     val deltaT = GLWrapper.deltaT
-    GLWrapper.processInput(deltaT)
+    KeyListener.processInput(deltaT)
     GLWrapper.prerender(0.2f, 0.2f, 0.7f)
 
+    Data.player.frame(deltaT)
+
     draw()
+
+    if (Data.player.getPosition.y < -50) Data.player.setPosition(Vector3(3, -2, 0))
 
     GLWrapper.postrender()
     GLWrapper.swapBuffers()
@@ -35,7 +42,7 @@ object Main extends App{
   GLWrapper.close()
 
   def addBlocks(): Unit = {
-    for(x <- -100 to 100; z <- -100 to 100) {
+    for(x <- -20 to 20; z <- -20 to 20) {
       new Dirt(Vector3(x, -2, z))
     }
     new Dirt(Vector3(12, -1, 3))
@@ -45,6 +52,11 @@ object Main extends App{
     new Dirt(Vector3(10, 0, 3))
     new Dirt(Vector3(10, 1, 3))
     new Dirt(Vector3(11, 1, 3))
+
+    for(z <- -20 to 20; y <- -1 to 10) {
+      if(z != 0)
+      new Dirt(Vector3(5, y, z))
+    }
   }
 
   def draw(): Unit = {

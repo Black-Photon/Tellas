@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/OpenGLProject.dir/java/jni_GLWrapper.cpp.o"
+  "CMakeFiles/OpenGLProject.dir/java/cpp/jni_GLWrapper.cpp.o"
   "CMakeFiles/OpenGLProject.dir/src/glad.c.o"
   "CMakeFiles/OpenGLProject.dir/classes/Shader.cpp.o"
   "CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.o"

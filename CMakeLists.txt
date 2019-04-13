@@ -11,7 +11,7 @@ include_directories(${JNI_INCLUDE_DIRS})
 include_directories(include)
 
 set(SOURCE_FILES
-        java/jni_GLWrapper.cpp
+        java/cpp/jni_GLWrapper.cpp
         src/glad.c
         include/glad/glad.h
         classes/Shader.cpp classes/Camera.cpp classes/Model.cpp classes/CubeModel.cpp classes/CubeModel.h)
