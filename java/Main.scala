@@ -13,7 +13,7 @@ object Main extends App {
   GLWrapper.test()
 
   message("Pre-Initialisation")
-  GLWrapper.preInit(1920, 1080, "Tellas")
+  GLWrapper.preInit(1000, 600, "Tellas")
   message("Initialisation")
   GLWrapper.init(true)
 
@@ -44,18 +44,6 @@ object Main extends App {
   def addBlocks(): Unit = {
     for(x <- -20 to 20; z <- -20 to 20) {
       new Dirt(Vector3(x, -2, z))
-    }
-    new Dirt(Vector3(12, -1, 3))
-    new Dirt(Vector3(12, 0, 3))
-    new Dirt(Vector3(12, 1, 3))
-    new Dirt(Vector3(10, -1, 3))
-    new Dirt(Vector3(10, 0, 3))
-    new Dirt(Vector3(10, 1, 3))
-    new Dirt(Vector3(11, 1, 3))
-
-    for(z <- -20 to 20; y <- -1 to 10) {
-      if(z != 0)
-      new Dirt(Vector3(5, y, z))
     }
   }
 

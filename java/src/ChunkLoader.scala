@@ -16,6 +16,10 @@ object ChunkLoader {
     }
   }
 
+  def getBlock(position: Vector3): Block = {
+    getChunk(position).getBlock(position % 16)
+  }
+
   def isBlock(position: Vector3): Boolean = {
     getChunk(position).getBlock(position % 16) match {
       case _: Air         => false

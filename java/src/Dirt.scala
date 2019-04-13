@@ -10,6 +10,16 @@ class Dirt(position: Vector3) extends Block(position) {
 
   Dirt.blocks += this
 
+  def break(): Unit = {
+    ChunkLoader.addBlock(Air(position), position)
+    for(i <- 0 to Dirt.blocks.length) {
+      if(Dirt.blocks(i).position == position) {
+        Dirt.blocks -= this
+        return
+      }
+    }
+  }
+
   override def drawBlock(): Unit = {
     shape.draw(Dirt.model)
   }
@@ -17,7 +27,7 @@ class Dirt(position: Vector3) extends Block(position) {
 
 object Dirt {
   val model: Model = CUBE
-  val blocks: mutable.MutableList[Dirt] = mutable.MutableList()
+  val blocks: mutable.ListBuffer[Dirt] = mutable.ListBuffer()
   val texture: Int = GLWrapper.generateTexture("dirt.jpg", isPNG = false)
 
   def draw(): Unit = {

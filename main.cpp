@@ -56,6 +56,7 @@ namespace core {
         glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
         glfwSetCursorPosCallback(window, mouse_callback);
         glfwSetScrollCallback(window, scroll_callback);
+        glfwSetMouseButtonCallback(window, click_callback);
 
         // Sets up GLAD
         if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {

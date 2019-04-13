@@ -63,4 +63,13 @@ namespace core {
     void scroll_callback(GLFWwindow *window, double xoffset, double yoffset) {
         //Data.camera->zoom(-yoffset);
     }
+
+    void click_callback(GLFWwindow *window, int button, int action, int mods) {
+        if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS) {
+           Mouse.rightClick = true;
+        }
+        if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS) {
+            Mouse.leftClick = true;
+        }
+    }
 }

@@ -144,20 +144,6 @@ type_mat3x2.inl
 
 ../include/glm/./detail/type_mat3x2.inl
 
-../include/glm/./detail/type_mat3x3.hpp
-type_vec3.hpp
-../include/glm/./detail/type_vec3.hpp
-limits
--
-cstddef
--
-type_mat3x3.inl
-../include/glm/./detail/type_mat3x3.inl
-
-../include/glm/./detail/type_mat3x3.inl
-glm/matrix.hpp
-../include/glm/./detail/glm/matrix.hpp
-
 ../include/glm/./detail/type_mat3x4.hpp
 type_vec3.hpp
 ../include/glm/./detail/type_vec3.hpp
@@ -200,24 +186,6 @@ type_mat4x3.inl
 
 ../include/glm/./detail/type_mat4x3.inl
 
-../include/glm/./detail/type_mat4x4.hpp
-type_vec4.hpp
-../include/glm/./detail/type_vec4.hpp
-limits
--
-cstddef
--
-type_mat4x4.inl
-../include/glm/./detail/type_mat4x4.inl
-
-../include/glm/./detail/type_mat4x4.inl
-glm/matrix.hpp
-../include/glm/./detail/glm/matrix.hpp
-type_mat4x4_simd.inl
-../include/glm/./detail/type_mat4x4_simd.inl
-
-../include/glm/./detail/type_mat4x4_simd.inl
-
 ../include/glm/./detail/type_vec2.hpp
 qualifier.hpp
 ../include/glm/./detail/qualifier.hpp
@@ -229,30 +197,6 @@ cstddef
 -
 type_vec2.inl
 ../include/glm/./detail/type_vec2.inl
-
-../include/glm/./detail/type_vec3.hpp
-qualifier.hpp
-../include/glm/./detail/qualifier.hpp
-_swizzle.hpp
-../include/glm/./detail/_swizzle.hpp
-_swizzle_func.hpp
-../include/glm/./detail/_swizzle_func.hpp
-cstddef
--
-type_vec3.inl
-../include/glm/./detail/type_vec3.inl
-
-../include/glm/./detail/type_vec4.hpp
-qualifier.hpp
-../include/glm/./detail/qualifier.hpp
-_swizzle.hpp
-../include/glm/./detail/_swizzle.hpp
-_swizzle_func.hpp
-../include/glm/./detail/_swizzle_func.hpp
-cstddef
--
-type_vec4.inl
-../include/glm/./detail/type_vec4.inl
 
 ../include/glm/./ext/matrix_double2x2.hpp
 ../detail/type_mat2x2.hpp
@@ -1627,20 +1571,6 @@ data.cpp
 ../src/preInit.cpp
 data.cpp
 ../src/data.cpp
-
-/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Camera.cpp
-glm/glm.hpp
--
-glm/gtc/matrix_transform.hpp
--
-stdexcept
--
-iostream
--
-Camera.h
-/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Camera.h
-
-/home/joseph/Documents/Programming/Graphics/OpenGLProject/classes/Camera.h
 
 /home/joseph/Documents/Programming/Graphics/OpenGLProject/java/cpp/jni_GLWrapper.cpp
 jni_GLWrapper.h

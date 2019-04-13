@@ -64,5 +64,34 @@ case class Vector3 (var x: Float, var y: Float, var z: Float) {
     z = z / mag
   }
 
+  /**
+    * Finds the block that the vector position is inside
+    * @return A vector3 rounded to exactly block coordinates
+    */
+  def nearestBlock: Vector3 = {
+    Vector3(x.round, y.round, z.round)
+  }
+
+  /**
+    * Dot product
+    */
+  def :*(v: Vector3): Float = x * v.x + y * v.y + z * v.z
+
+  /**
+    * Cross product
+    */
+  def :+(v: Vector3): Vector3 = Vector3(y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x)
+
+  def angleBetween(v: Vector3): Float = {
+    Math.acos((this :* v) / (this.mag * v.mag)).asInstanceOf[Float] * signOf(this :* v)
+  }
+
+  def mag: Float = Math.sqrt (x*x + y*y + z*z).toFloat
+
+  private def signOf(v: Float): Int = {
+    if(v < 0) -1
+    else 1
+  }
+
   private val positive: Float => Float = (float: Float) => if (float < 0) positive (float + 16) else float
 }

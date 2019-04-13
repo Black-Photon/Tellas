@@ -30,6 +30,8 @@ namespace core {
     struct Mouse {
         float lastX, lastY;
         bool first = true;
+        bool rightClick = false;
+        bool leftClick = false;
     } Mouse;
 
     /**

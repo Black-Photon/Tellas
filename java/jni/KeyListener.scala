@@ -1,20 +1,21 @@
 package jni
 
-import src.Data
-import Player.Direction.{BACKWARDS, FORWARD, LEFT, RIGHT}
+import src.{ChunkLoader, Data, Dirt}
+import Player.Direction.{BACKWARDS, FORWARD, LEFT, RIGHT, UP}
 
 class KeyListener {
   @native def wPressed: Boolean
   @native def aPressed: Boolean
   @native def sPressed: Boolean
   @native def dPressed: Boolean
+  @native def spacePressed: Boolean
+  @native def rcPressed: Boolean
+  @native def lcPressed: Boolean
 }
 
 object KeyListener extends KeyListener {
   def processInput(deltaT: Float): Unit = {
     GLWrapper.processInput(deltaT)
-
-    val SPEED = Data.player.speed
 
     if (wPressed) {
       Data.player.moveDirection(FORWARD, deltaT)
@@ -27,6 +28,21 @@ object KeyListener extends KeyListener {
     }
     if (dPressed) {
       Data.player.moveDirection(RIGHT, deltaT)
+    }
+    if (rcPressed) {
+      Data.player.getNewBlockPosition match {
+        case Some(position)    => new Dirt(position)
+        case None              => Unit
+      }
+    }
+    if (lcPressed) {
+      Data.player.getLookBlockPosition match {
+        case Some(position)    => ChunkLoader.getBlock(position).break()
+        case None              => Unit
+      }
+    }
+    if (spacePressed) {
+      Data.player.moveDirection(UP, deltaT)
     }
   }
 }
