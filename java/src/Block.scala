@@ -1,11 +1,6 @@
 package src
 
-abstract class Block(p: Vector3) {
-  val position = p
-  def drawBlock(): Unit
-  def break(): Unit
-
-  if(!this.isInstanceOf[Air]) {
-    ChunkLoader.addBlock(this, position floor)
-  }
+abstract class Block(p: Vector3I) {
+  val position: Vector3I = p
+  val self: BlockInstance
 }

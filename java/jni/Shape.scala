@@ -1,32 +1,18 @@
 package jni
 
-import src.{Model, Vector3}
+import src.{Model, Vector3I}
 
 /**
   * Defines a shape that can be drawn to the screen
   */
 class Shape {
-  /**
-    * Location of the shape
-    */
-  var position: Vector3 = new Vector3()
-
-  /**
-    * Creates a shape at the given position
-    *
-    * @param position Position to create shape at
-    */
-  def this(position: Vector3) {
-    this()
-    this.position = position
-  }
 
   /**
     * Draws the shape to the screen using the given model
     *
     * @param model Model to use to draw to the screen
     */
-  def draw(model: Model): Unit = {
+  def draw(model: Model, position: Vector3I): Unit = {
     drawN(position.x, position.y, position.z, model.ordinal)
   }
 

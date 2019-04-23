@@ -37,7 +37,7 @@ object KeyListener extends KeyListener {
     }
     if (lcPressed) {
       Data.player.getLookBlockPosition match {
-        case Some(position)    => ChunkLoader.getBlock(position).break()
+        case Some(position)    => ChunkLoader.getBlock(position).break(position)
         case None              => Unit
       }
     }

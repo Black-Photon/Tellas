@@ -1,33 +1,33 @@
 package src
 
 object ChunkLoader {
-  val chunks: Landscape[Chunk] = new Landscape[Chunk]
+  val chunks: HashLandscape[Chunk] = new HashLandscape[Chunk]
 
-  def getChunk(position: Vector3): Chunk = {
-    chunks.get(position / 16) match {
-      case None           =>
-        chunks.set(Chunk(position / 16 floor), position / 16)
-        chunks.get(position / 16) match {
-          case Some(x)    => x
-          case None       => throw new RuntimeException("Cannot access position set")
+  def getChunk(position: Vector3I): Chunk = {
+    chunks.get(position / 16 floor) match {
+      case null           =>
+        chunks.set(Chunk(position / 16 floor), position / 16 floor)
+        chunks.get(position / 16 floor) match {
+          case null       => throw new RuntimeException("Cannot access position set")
+          case x          => x
         }
 
-      case Some(value)    => value
+      case value          => value
     }
   }
 
-  def getBlock(position: Vector3): Block = {
+  def getBlock(position: Vector3I): BlockInstance = {
     getChunk(position).getBlock(position % 16)
   }
 
-  def isBlock(position: Vector3): Boolean = {
+  def isBlock(position: Vector3I): Boolean = {
     getChunk(position).getBlock(position % 16) match {
-      case _: Air         => false
+      case Air            => false
       case _              => true
     }
   }
 
-  def addBlock(block: Block, position: Vector3): Unit = {
+  def addBlock(block: BlockInstance, position: Vector3I): Unit = {
     getChunk(position).setBlock(block, position % 16)
   }
 }

@@ -1,7 +1,7 @@
 import java.nio.file.FileSystems
 
 import jni.{GLWrapper, KeyListener, Shape}
-import src.{Chunk, Data, Dirt, Vector3}
+import src.{Air, Data, Dirt, Vector3F, Vector3I}
 
 object Main extends App {
   // Loads the C++
@@ -13,13 +13,18 @@ object Main extends App {
   GLWrapper.test()
 
   message("Pre-Initialisation")
-  GLWrapper.preInit(1000, 600, "Tellas")
+  GLWrapper.preInit(1920, 1080, "Tellas")
   message("Initialisation")
   GLWrapper.init(true)
 
   addBlocks()
 
-  Data.player.setPosition(Vector3(3, -2, 0))
+  Data.player.setPosition(Vector3F(3, -2, 0))
+
+  Data.blocks += Air
+  Data.blocks += Dirt
+
+  var time = 0.0f
 
   message("Drawing")
   while(!GLWrapper.shouldClose) {
@@ -29,9 +34,14 @@ object Main extends App {
 
     Data.player.frame(deltaT)
 
+    time = time + deltaT
+    if((time - deltaT).floor < time.floor) {
+      println("FPS currently at " + (1 / deltaT).toInt)
+    }
+
     draw()
 
-    if (Data.player.getPosition.y < -50) Data.player.setPosition(Vector3(3, -2, 0))
+    if (Data.player.getPosition.y < -50) Data.player.setPosition(Vector3F(3, -2, 0))
 
     GLWrapper.postrender()
     GLWrapper.swapBuffers()
@@ -43,7 +53,7 @@ object Main extends App {
 
   def addBlocks(): Unit = {
     for(x <- -20 to 20; z <- -20 to 20) {
-      new Dirt(Vector3(x, -2, z))
+      new Dirt(Vector3I(x, -2, z))
     }
   }
 

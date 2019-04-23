@@ -1,13 +1,13 @@
 package jni
 
 import jni.Player.Direction.Direction
-import src.{ChunkLoader, Collidable, Vector3}
+import src.{ChunkLoader, Collidable, Vector3F, Vector3I}
 import Player.Direction.{BACKWARDS, FORWARD, LEFT, RIGHT, UP}
 
 class Player extends Collidable {
-  protected var position: Vector3 = new Vector3()
+  protected var position: Vector3F = new Vector3F()
   val height = 1.8f
-  var velocity = Vector3(0, 0, 0)
+  var velocity = Vector3F(0, 0, 0)
   val gravityStrength: Float = 0.01f
   val speed: Float = 7
   var verticalSpeed = 0.0f
@@ -28,17 +28,17 @@ class Player extends Collidable {
 
   }
 
-  def getPosition: Vector3 = {
+  def getPosition: Vector3F = {
     position
   }
 
-  def setPosition(vector: Vector3): Unit = {
+  def setPosition(vector: Vector3F): Unit = {
     position = vector
     setPositionN(vector.x, vector.y + height, vector.z)
   }
 
   def moveDirection(direction: Direction, speedMod: Float): Unit = {
-    val lookDirection = Vector3(getLookingDirectionX, getLookingDirectionY, getLookingDirectionZ)
+    val lookDirection = Vector3F(getLookingDirectionX, getLookingDirectionY, getLookingDirectionZ)
 
     if(direction == FORWARD || direction == BACKWARDS) {
       var moveDirection = lookDirection.copy()
@@ -65,7 +65,7 @@ class Player extends Collidable {
 
       moveDirection.normalize()
 
-      moveDirection = moveDirection :+ Vector3(0, 1, 0)
+      moveDirection = moveDirection :+ Vector3F(0, 1, 0)
 
       if(direction == LEFT) moveDirection *= -1
 
@@ -83,8 +83,8 @@ class Player extends Collidable {
     }
   }
 
-  def getLookBlockPosition: Option[Vector3] = {
-    val lookDirection = Vector3(getLookingDirectionX, getLookingDirectionY, getLookingDirectionZ)
+  def getLookBlockPosition: Option[Vector3I] = {
+    val lookDirection = Vector3F(getLookingDirectionX, getLookingDirectionY, getLookingDirectionZ)
     val camera = position py height
     lookDirection.normalize()
 
@@ -97,8 +97,8 @@ class Player extends Collidable {
     None
   }
 
-  def getNewBlockPosition: Option[Vector3] = {
-    val lookDirection = Vector3(getLookingDirectionX, getLookingDirectionY, getLookingDirectionZ)
+  def getNewBlockPosition: Option[Vector3I] = {
+    val lookDirection = Vector3F(getLookingDirectionX, getLookingDirectionY, getLookingDirectionZ)
     val camera = position py height
     lookDirection.normalize()
 
@@ -107,7 +107,7 @@ class Player extends Collidable {
       if(checkPos != position.nearestBlock)
 
       if(ChunkLoader.isBlock(checkPos)) {
-        val vector = checkPos - (camera + lookDirection * (i.toFloat / 16.0f))
+        val vector = checkPos.toFloat - (camera + lookDirection * (i.toFloat / 16.0f))
 
         val x: Float = Math.abs(vector.x)
         val y: Float = Math.abs(vector.y)
