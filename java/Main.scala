@@ -1,7 +1,9 @@
 import java.nio.file.FileSystems
 
 import jni.{GLWrapper, KeyListener, Shape}
-import src.{Air, Data, Dirt, Vector3F, Vector3I}
+import src.block.{Air, Dirt, Grass}
+import src.util.{Vector3F, Vector3I}
+import src.Data
 
 object Main extends App {
   // Loads the C++
@@ -15,7 +17,7 @@ object Main extends App {
   message("Pre-Initialisation")
   GLWrapper.preInit(1920, 1080, "Tellas")
   message("Initialisation")
-  GLWrapper.init(true)
+  GLWrapper.init(false)
 
   addBlocks()
 
@@ -23,6 +25,7 @@ object Main extends App {
 
   Data.blocks += Air
   Data.blocks += Dirt
+  Data.blocks += Grass
 
   var time = 0.0f
 
@@ -53,13 +56,14 @@ object Main extends App {
 
   def addBlocks(): Unit = {
     for(x <- -20 to 20; z <- -20 to 20) {
-      new Dirt(Vector3I(x, -2, z))
+      new Grass(Vector3I(x, -2, z))
     }
   }
 
   def draw(): Unit = {
     Shape.activateShader()
     Dirt.draw()
+    Grass.draw()
   }
 
   def message(message: String): Unit = {

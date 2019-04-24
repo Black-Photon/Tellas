@@ -1,8 +1,15 @@
-package src
+package src.util
 
 import scala.collection.mutable
 
+/**
+  * A landscape of variable size
+  * @tparam A Type of data to hold
+  */
 class HashLandscape[A >: Null] extends Landscape[A] {
+  /**
+    * Actual data structure
+    */
   val landscape: mutable.HashMap[Int, mutable.HashMap[Int, mutable.HashMap[Int, A]]] = mutable.HashMap()
 
   override def set(content: A, vector3: Vector3I): Unit = {
@@ -12,9 +19,9 @@ class HashLandscape[A >: Null] extends Landscape[A] {
 
     // If x-layer already has this value
     if(landscape.contains(x)) {
-      val yLayer = landscape.apply(x)
+      val yLayer = landscape(x)
       if(yLayer.contains(y)) {
-        val zLayer = yLayer.apply(y)
+        val zLayer = yLayer(y)
         zLayer += (z -> content)
       } else {
         yLayer += (y -> mutable.HashMap((z, content)))
@@ -24,6 +31,11 @@ class HashLandscape[A >: Null] extends Landscape[A] {
     }
   }
 
+  /**
+    * Checks if a location exists
+    * @param vector3 Location to check
+    * @return True if location is filled
+    */
   def is(vector3: Vector3I): Boolean = {
     val x = vector3.x.floor.asInstanceOf[Int]
     val y = vector3.y.floor.asInstanceOf[Int]
@@ -31,9 +43,9 @@ class HashLandscape[A >: Null] extends Landscape[A] {
 
     // If x-layer already has this value
     if(landscape.contains(x)) {
-      val yLayer = landscape.apply(x)
+      val yLayer = landscape(x)
       if(yLayer.contains(y)) {
-        val zLayer = yLayer.apply(y)
+        val zLayer = yLayer(y)
         if(zLayer.contains(z)) {
           true
         } else {

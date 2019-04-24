@@ -1,6 +1,7 @@
 package jni
 
-import src.{Model, Vector3I}
+import src.block.Model
+import src.util.Vector3I
 
 /**
   * Defines a shape that can be drawn to the screen

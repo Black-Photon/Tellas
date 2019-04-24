@@ -1,4 +1,4 @@
-import src.{FixedLandscape, HashLandscape, Vector3I}
+import src.FixedLandscape
 
 object LandscapeTest extends App {
   /*

@@ -1,7 +1,8 @@
 package jni
 
-import src.{ChunkLoader, Data, Dirt}
+import src.{ChunkLoader, Data}
 import Player.Direction.{BACKWARDS, FORWARD, LEFT, RIGHT, UP}
+import src.block.{Air, Dirt}
 
 class KeyListener {
   @native def wPressed: Boolean
@@ -37,7 +38,7 @@ object KeyListener extends KeyListener {
     }
     if (lcPressed) {
       Data.player.getLookBlockPosition match {
-        case Some(position)    => ChunkLoader.getBlock(position).break(position)
+        case Some(position)    => ChunkLoader.addBlock(Air, position)
         case None              => Unit
       }
     }

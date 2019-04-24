@@ -1,8 +1,9 @@
 package jni
 
 import jni.Player.Direction.Direction
-import src.{ChunkLoader, Collidable, Vector3F, Vector3I}
+import src.{ChunkLoader, Collidable}
 import Player.Direction.{BACKWARDS, FORWARD, LEFT, RIGHT, UP}
+import src.util.{Vector3F, Vector3I}
 
 class Player extends Collidable {
   protected var position: Vector3F = new Vector3F()
@@ -88,7 +89,7 @@ class Player extends Collidable {
     val camera = position py height
     lookDirection.normalize()
 
-    for (i <- 2 to 160) {
+    for (i <- 2 to 100) {
       val checkPos = (camera + lookDirection * (i.toFloat / 16.0f)).nearestBlock
       if(ChunkLoader.isBlock(checkPos)) {
         return Some(checkPos)
@@ -102,7 +103,7 @@ class Player extends Collidable {
     val camera = position py height
     lookDirection.normalize()
 
-    for (i <- 20 to 160) {
+    for (i <- 20 to 100) {
       val checkPos = (camera + lookDirection * (i.toFloat / 16.0f)).nearestBlock
       if(checkPos != position.nearestBlock)
 

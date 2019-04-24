@@ -1,5 +1,4 @@
-package src
-
+package src.util
 
 /**
   * Represents a 3-Dimensional Vector
@@ -37,10 +36,6 @@ case class Vector3I (var x: Int, var y: Int, var z: Int) extends Vector3[Int, Ve
     Vector3F(x / v, y / v, z / v)
   }
 
-  def %(v: Int): Vector3I = {
-    Vector3I(positive (x % v), positive (y % v), positive (z % v))
-  }
-
   def px(v: Int): Vector3I = {
     Vector3I(x + v, y, z)
   }
@@ -53,6 +48,17 @@ case class Vector3I (var x: Int, var y: Int, var z: Int) extends Vector3[Int, Ve
     Vector3I(x, y, z + v)
   }
 
+  def mag: Float = Math.sqrt (x*x + y*y + z*z).toFloat
+
+  /**
+    * Finds the modulus vector
+    * @param v Value to modulo by
+    * @return Vector with each component modulo-d
+    */
+  def %(v: Int): Vector3I = {
+    Vector3I(positive (x % v), positive (y % v), positive (z % v))
+  }
+
   /**
     * Dot product
     */
@@ -63,20 +69,35 @@ case class Vector3I (var x: Int, var y: Int, var z: Int) extends Vector3[Int, Ve
     */
   def :+(v: Vector3I): Vector3I = Vector3I(y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x)
 
+  /**
+    * Finds the angle between two vectors
+    * @param v Vector to find angle between
+    * @return Angle between vectors in radians
+    */
   def angleBetween(v: Vector3I): Float = {
     Math.acos((this :* v) / (this.mag * v.mag)).asInstanceOf[Float] * signOf(this :* v)
   }
 
-  def mag: Float = Math.sqrt (x*x + y*y + z*z).toFloat
-
-  def toFloat: Vector3F = {
-    Vector3F(x.toFloat, y.toFloat, z.toFloat)
-  }
-
+  /**
+    * Finds the sign of a value
+    * @param v Value input
+    * @return 1 if positive or -1 if negative
+    */
   protected def signOf(v: Float): Int = {
     if(v < 0) -1
     else 1
   }
 
+  /**
+    * Converts to an Vector3F
+    * @return The same vector as a Vector3F
+    */
+  def toFloat: Vector3F = {
+    Vector3F(x.toFloat, y.toFloat, z.toFloat)
+  }
+
+  /**
+    * Makes the input the first positive number found by adding 16
+    */
   protected val positive: Int => Int = (int: Int) => if (int < 0) positive (int + 16) else int
 }

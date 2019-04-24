@@ -1,4 +1,4 @@
-package src
+package src.util
 
 /**
   * Represents a 3-Dimensional Vector
@@ -48,10 +48,19 @@ case class Vector3F (var x: Float, var y: Float, var z: Float) extends Vector3[F
     Vector3F(x, y, z + v)
   }
 
+  def mag: Float = Math.sqrt (x*x + y*y + z*z).toFloat
+
+  /**
+    * Floors all components of the vector
+    * @return An integer vector of all components floored
+    */
   def floor: Vector3I = {
     Vector3I(x.floor toInt, y.floor toInt, z.floor toInt)
   }
 
+  /**
+    * Normalises the vector (makes the magnitude 1)
+    */
   def normalize(): Unit = {
     val mag = Math.sqrt (x*x + y*y + z*z).toFloat
 
@@ -78,12 +87,20 @@ case class Vector3F (var x: Float, var y: Float, var z: Float) extends Vector3[F
     */
   def :+(v: Vector3F): Vector3F = Vector3F(y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x)
 
+  /**
+    * Finds the angle between two vectors
+    * @param v Vector to find angle between
+    * @return Angle between vectors in radians
+    */
   def angleBetween(v: Vector3F): Float = {
     Math.acos((this :* v) / (this.mag * v.mag)).asInstanceOf[Float] * signOf(this :* v)
   }
 
-  def mag: Float = Math.sqrt (x*x + y*y + z*z).toFloat
-
+  /**
+    * Finds the sign of a value
+    * @param v Value input
+    * @return 1 if positive or -1 if negative
+    */
   protected def signOf(v: Float): Int = {
     if(v < 0) -1
     else 1

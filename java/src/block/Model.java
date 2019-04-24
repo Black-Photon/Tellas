@@ -1,4 +1,4 @@
-package src;
+package src.block;
 
 /**
  * Represents different types of models
