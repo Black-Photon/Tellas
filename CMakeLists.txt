@@ -14,7 +14,7 @@ set(SOURCE_FILES
         java/cpp/jni_GLWrapper.cpp
         src/glad.c
         include/glad/glad.h
-        classes/Shader.cpp classes/Camera.cpp classes/Model.cpp classes/CubeModel.cpp classes/CubeModel.h)
+        classes/Shader.cpp classes/Camera.cpp classes/Model.cpp classes/CubeModel.cpp)
 add_library(OpenGLProject SHARED ${SOURCE_FILES})
 
 # GLFW
@@ -23,5 +23,5 @@ set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
-add_subdirectory("/home/joseph/Documents/Programming/Graphics/OpenGLProject/include/glfw-3.2.1/")
+add_subdirectory("/run/media/u1800015/USB-ALPHA/Tellas/include/glfw-3.2.1")
 target_link_libraries(OpenGLProject glfw)

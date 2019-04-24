@@ -38,7 +38,7 @@ namespace core {
      * Holds path pre-pends for different locations
      */
     struct Path {
-        std::string root = "../../../";
+        std::string root = "";
         std::string assets = root + "assets/";
         std::string shaders = root + "shaders/";
     } Path;

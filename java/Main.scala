@@ -7,7 +7,7 @@ object Main extends App {
   // Loads the C++
   System.load(
     FileSystems.getDefault
-      .getPath("../../../cmake-build-debug/libOpenGLProject.so") // Dynamic link
+      .getPath("cmake-build-debug/libOpenGLProject.so") // Dynamic link ../../../
       .normalize.toAbsolutePath.toString)
 
   GLWrapper.test()

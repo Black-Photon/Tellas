@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC -g  -shared -Wl,-soname,libOpenGLProject.so.so -o libOpenGLProject.so.so CMakeFiles/OpenGLProject.so.dir/java/jni_Utilities.cpp.o 
