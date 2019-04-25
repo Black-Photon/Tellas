@@ -3,7 +3,7 @@
 echo -- INFO -- Starting Build
 cd cmake-build-debug
 echo $'\n'-- INFO -- Running CMake
-../../clion-2018.3.4/bin/cmake/linux/bin/cmake ../
+../../clion-2019.1.2/bin/cmake/linux/bin/cmake ../
 if [[ $? != 0 ]]; then
     exit 1
 fi

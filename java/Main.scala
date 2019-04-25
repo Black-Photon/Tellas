@@ -17,7 +17,7 @@ object Main extends App {
   message("Pre-Initialisation")
   GLWrapper.preInit(1920, 1080, "Tellas")
   message("Initialisation")
-  GLWrapper.init(false)
+  GLWrapper.init(true)
 
   addBlocks()
 
@@ -62,8 +62,8 @@ object Main extends App {
 
   def draw(): Unit = {
     Shape.activateShader()
-    Dirt.draw()
     Grass.draw()
+    Dirt.draw()
   }
 
   def message(message: String): Unit = {

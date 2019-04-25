@@ -16,6 +16,6 @@ object Air extends BlockInstance(null, false) {
   override val ID: Int = 0
 
   // Don't draw anything
-  override def draw[_](): Unit = {}
+  override def draw(): Unit = {}
   override def drawBlock(position: Vector3I): Unit = {}
 }

@@ -9,7 +9,7 @@ class Player extends Collidable {
   protected var position: Vector3F = new Vector3F()
   val height = 1.8f
   var velocity = Vector3F(0, 0, 0)
-  val gravityStrength: Float = 0.01f
+  val gravityStrength: Float = 0.03f
   val speed: Float = 7
   var verticalSpeed = 0.0f
 
@@ -80,7 +80,7 @@ class Player extends Collidable {
     }
 
     if(direction == UP) {
-      if(yCollisionN) verticalSpeed = 0.15f
+      if(yCollisionN) verticalSpeed = 0.25f
     }
   }
 
