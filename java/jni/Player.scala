@@ -4,41 +4,70 @@ import jni.Player.Direction.Direction
 import src.{ChunkLoader, Collidable}
 import Player.Direction.{BACKWARDS, FORWARD, LEFT, RIGHT, UP}
 import jni.Player.Axis.{Axis, X, Y, Z}
-import src.util.{Vector3, Vector3F, Vector3I}
+import src.util.{Vector3F, Vector3I}
 
+/**
+  * Represents the player
+  */
 class Player extends Collidable {
+  // Feet Position of player
   protected var position: Vector3F = new Vector3F()
+  // Height
   val height = 1.8f
-  var velocity = Vector3F(0, 0, 0)
+  // Gravity strength
   val gravityStrength: Float = 0.03f
+  // Speed of all movement
   val speed: Float = 7
+  // Current vertical speed
   var verticalSpeed = 0.0f
 
+  /**
+    * Moves the player forward one frame
+    * @param deltaT Time since last frame
+    */
   def frame(deltaT: Float): Unit = {
+    // If block below, vertical speed = 0
     if (yCollisionN) {
       if (verticalSpeed < 0) verticalSpeed = 0
     } else verticalSpeed -= gravityStrength
+    // Max fall speed
     if(verticalSpeed <= -2) verticalSpeed = -2
 
+    // If Moving up and block above
     if (yCollisionP && verticalSpeed > 0) verticalSpeed = 0
 
+    // Applies velocity
     setPosition(position py verticalSpeed)
 
+    // In case slightly in block, moves out
     if (yCollisionN) {
       position.y = position.nearestBlock.y
     }
 
   }
 
+  /**
+    * Gets the position of the players feet
+    * @return Player position
+    */
   def getPosition: Vector3F = {
     position
   }
 
+  /**
+    * Sets the position of the players feet
+    * @param vector New player position
+    */
   def setPosition(vector: Vector3F): Unit = {
     position = vector
     setPositionN(vector.x, vector.y + height, vector.z)
   }
 
+  /**
+    * Moves in the specified direction by the given relative speed
+    * @param direction Direction to move
+    * @param speedMod How fast to move (multiplied by player speed)
+    */
   def moveDirection(direction: Direction, speedMod: Float): Unit = {
     val lookDirection = Vector3F(getLookingDirectionX, getLookingDirectionY, getLookingDirectionZ)
 
@@ -85,9 +114,15 @@ class Player extends Collidable {
     }
   }
 
+  /**
+    * Gets the block the player is looking at
+    * @return Block player looking at (Or None if none found or raycast fails)
+    */
   def getLookBlockPosition: Option[Vector3I] = {
     val lookDirection = Vector3F(getLookingDirectionX, getLookingDirectionY, getLookingDirectionZ)
     val camera = position py height
+
+    // If inside block, destroy it
     if(ChunkLoader.isBlock(camera nearestBlock)) {
       return Some(camera nearestBlock)
     }
@@ -101,9 +136,14 @@ class Player extends Collidable {
     location
   }
 
+  /**
+    * Gets the block before the block the player is looking at
+    * @return New block vector (Or None if none found or raycast fails)
+    */
   def getNewBlockPosition: Option[Vector3I] = {
     val lookDirection = Vector3F(getLookingDirectionX, getLookingDirectionY, getLookingDirectionZ)
 
+    // Performs a raycast to find block looking at
     val block = raycastBlock()
     val location: Option[Vector3I] = block match {
       case Some((v, _)) => Some(v)
@@ -114,6 +154,7 @@ class Player extends Collidable {
       case None => None
     }
 
+    // Finds the block before that
     for{
       v <- getFromAxis(axis)(lookDirection)
       here <- location
@@ -121,6 +162,10 @@ class Player extends Collidable {
     } yield last.nearestBlock
   }
 
+  /**
+    * Performs a Raycast of blocks to find the first block the player is looking at and which axis of the block they are looking at
+    * @return Tuple of block looking at and axis looking at (Or None if none found or raycast fails)
+    */
   def raycastBlock(): Option[(Vector3I, Axis)] = {
     // Direction looking in
     val lookDirection = Vector3F(getLookingDirectionX, getLookingDirectionY, getLookingDirectionZ)
@@ -187,7 +232,7 @@ class Player extends Collidable {
         case None => return None
       }
 
-      // If the current block is a block, return the one previous
+      // Returns this block
       if(ChunkLoader.isBlock(current)) {
         return for{
           plane <- axis
@@ -199,32 +244,78 @@ class Player extends Collidable {
     None
   }
 
+  /**
+    * Finds the magnitude of the input
+    */
   val mag: Float => Float = i => if(i < 0) -i else i
+
+  /**
+    * Finds the sign of the input
+    */
   val sign: Float => Float = i => if(i < 0) -1 else 1
+
+  /**
+    * Asserts that the given float is positive, returning None if not
+    */
   val assertPositive: Option[Float] => Option[Float] = {
     case Some(i) => if (i > 0) Some(i) else None
     case None => None
   }
+
+  /**
+    * Adds a value to the given axis of the given vector, returning none if no axis
+    */
   val addAxis: Vector3F => Option[Axis] => Float => Option[Vector3F] = vector => axis => v => axis match {
     case Some(X)    => Some(vector px v)
     case Some(Y)    => Some(vector py v)
     case Some(Z)    => Some(vector pz v)
     case None       => None
   }
+
+  /**
+    * Gets a value from the axis component of the given vector
+    */
   val getFromAxis: Option[Axis] => Vector3F => Option[Float] = {
     case Some(X) => vector => Some(vector.x)
     case Some(Y) => vector => Some(vector.y)
     case Some(Z) => vector => Some(vector.z)
     case None    => _      => None
   }
+
+  /**
+    * Reduces a double option to an option
+    * @tparam A Type of option
+    * @return a singular option
+    */
   def reduce[A]: Option[Option[A]] => Option[A] = {
     case Some(a) => a
     case None => None
   }
 
+  /**
+    * Sets the position of the camera on the native side
+    * @param x x-location
+    * @param y y-location
+    * @param z z-location
+    */
   @native private def setPositionN(x: Float, y: Float, z: Float): Unit
+
+  /**
+    * Finds the x-component of the vector looking in
+    * @return X-Component
+    */
   @native private def getLookingDirectionX: Float
+
+  /**
+    * Finds the y-component of the vector looking in
+    * @return Y-Component
+    */
   @native private def getLookingDirectionY: Float
+
+  /**
+    * Finds the z-component of the vector looking in
+    * @return Z-Component
+    */
   @native private def getLookingDirectionZ: Float
 }
 
