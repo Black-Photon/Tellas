@@ -6,13 +6,13 @@ The development process consists of phases:
 
 Phase 1: Pure C++ to create basic OpenGL (Completed)
 
-Phase 2: Shift the workload onto a Java/Scala program which makes use of abstracted C++ (In Progress)
+Phase 2: Shift the workload onto a Java/Scala program which makes use of abstracted C++ (Competed)
 
 Phase 3: Use this to create a basic world that can be recognised as Minecraft
 
 Phase 4: Using the structure now created, define new blocks to diversify the world
 
-Phase 5: Return to C++ to improve on Graphical Aspects learning new specific features to improve the world and add lighting
+Phase 5: Return to C++ to improve on Graphical Aspects learning new specific features to improve the world and add lighting (In Progress)
 
 Phase 6: Add support for inventories, items and GUI's in general
 
