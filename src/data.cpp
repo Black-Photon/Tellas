@@ -19,7 +19,8 @@ namespace core {
         unsigned int SCR_HEIGHT = 600;
         float lastFrame = 0.0f;
         GLFWwindow *window = nullptr;
-        Shader *shader = nullptr;
+        Shader *shader3d = nullptr;
+        Shader *shader2d = nullptr;
         Camera *camera = nullptr;
         std::vector<Model*> models;
     } Data;

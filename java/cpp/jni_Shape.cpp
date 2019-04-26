@@ -4,7 +4,7 @@
 JNIEXPORT void JNICALL Java_jni_Shape_drawN
         (JNIEnv * env, jobject, jfloat x, jfloat y, jfloat z, jint jmodel)
 {
-    Shader *shader = core::Data.shader;
+    Shader *shader = core::Data.shader3d;
 
     // Sets the position
     glm::vec3 position(x, y, z);
@@ -24,7 +24,7 @@ JNIEXPORT void JNICALL Java_jni_Shape_bindBufferN
 JNIEXPORT void JNICALL Java_jni_Shape_activateShader
         (JNIEnv *, jobject)
 {
-    // Sets the shader to use (Currently only one)
-    Shader *shader = core::Data.shader;
+    // Sets the shader3d to use (Currently only one)
+    Shader *shader = core::Data.shader3d;
     core::makeModel(*shader);
 }

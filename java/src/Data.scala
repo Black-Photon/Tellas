@@ -13,4 +13,8 @@ object Data {
   val player: Player = new Player
   // List of all block types
   val blocks: mutable.MutableList[BlockInstance] = new mutable.MutableList[BlockInstance]
+  // Screen Width
+  val width: Int = 1920
+  // Screen Height
+  val height: Int = 1080
 }

@@ -85,7 +85,7 @@ class GLWrapper {
   @native def generateTexture(texture: String, isPNG: Boolean): Int
 
   /**
-    * Sets the texture as the primary texture in a certain texture slot to be used by the shader
+    * Sets the texture as the primary texture in a certain texture slot to be used by the shader3d
     *
     * @param texture  Texture reference number
     * @param location Location to store texture for rendering (0 to 31)

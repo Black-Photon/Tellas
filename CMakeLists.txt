@@ -14,7 +14,7 @@ set(SOURCE_FILES
         java/cpp/jni_GLWrapper.cpp
         src/glad.c
         include/glad/glad.h
-        classes/Shader.cpp classes/Camera.cpp classes/Model.cpp classes/CubeModel.cpp)
+        classes/Shader.cpp classes/Camera.cpp classes/Model.cpp classes/CubeModel.cpp classes/SquareModel.cpp)
 add_library(OpenGLProject SHARED ${SOURCE_FILES})
 
 # GLFW

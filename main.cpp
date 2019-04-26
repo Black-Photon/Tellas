@@ -7,6 +7,7 @@
 #include "src/init.cpp"
 #include "src/frame.cpp"
 #include "classes/CubeModel.h"
+#include "classes/SquareModel.h"
 
 namespace core {
 
@@ -20,7 +21,7 @@ namespace core {
     /**
      * Performs all operations that are required for drawing
      */
-    void init();
+    void init(bool capture);
 
     /**
      * Checks if the window has received a close signal
@@ -70,15 +71,19 @@ namespace core {
     void init(bool capture) {
         glEnable(GL_DEPTH_TEST);
 
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        glEnable(GL_BLEND);
+
         // Program
-        auto *shader = new Shader("vertexShader.vert", "fragmentShader.frag", Path.shaders);
-        Data.shader = shader;
+        auto *shader3d = new Shader("vertexShader.vert", "fragmentShader.frag", Path.shaders);
+        Data.shader3d = shader3d;
+
+        auto *shader2d = new Shader("2dImage.vert", "2dImage.frag", Path.shaders);
+        Data.shader2d = shader2d;
 
         stbi_set_flip_vertically_on_load(true);
 
-        shader->use(); // Must activate shader to use uniforms
-        shader->setInt("ourTexture", 0);
-        shader->setInt("otherTexture", 1);
+        shader3d->use(); // Must activate shader3d to use uniforms
 
         // Creates the actual main viewport, and makes it adjust for window size changes
         glViewport(0, 0, Data.SCR_WIDTH, Data.SCR_HEIGHT);
@@ -91,6 +96,8 @@ namespace core {
 
         Model *model = new CubeModel();
         Data.models.push_back(model);
+        model = new SquareModel();
+        Data.models.push_back(model);
 
         if(capture) {
             glfwSetInputMode(Data.window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
@@ -102,7 +109,7 @@ namespace core {
     }
 
     void close() {
-        delete (Data.shader);
+        delete (Data.shader3d);
         delete (Data.camera);
 
         glfwTerminate();

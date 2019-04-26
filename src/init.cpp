@@ -37,7 +37,7 @@ namespace core {
 
         if (data) {
             // Target Dimension, Mipmap level, Texture Format, width, height, 0, Format, Data Type, Image
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, useAlpha, GL_UNSIGNED_BYTE, data);
+            glTexImage2D(GL_TEXTURE_2D, 0, useAlpha, width, height, 0, useAlpha, GL_UNSIGNED_BYTE, data);
             glGenerateMipmap(GL_TEXTURE_2D);
         } else {
             std::cerr << "Failed to load texture" << std::endl;

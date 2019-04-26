@@ -303,6 +303,33 @@ classes/Shader.cpp.s:
 	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Shader.cpp.s
 .PHONY : classes/Shader.cpp.s
 
+classes/SquareModel.o: classes/SquareModel.cpp.o
+
+.PHONY : classes/SquareModel.o
+
+# target to build an object file
+classes/SquareModel.cpp.o:
+	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/SquareModel.cpp.o
+.PHONY : classes/SquareModel.cpp.o
+
+classes/SquareModel.i: classes/SquareModel.cpp.i
+
+.PHONY : classes/SquareModel.i
+
+# target to preprocess a source file
+classes/SquareModel.cpp.i:
+	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/SquareModel.cpp.i
+.PHONY : classes/SquareModel.cpp.i
+
+classes/SquareModel.s: classes/SquareModel.cpp.s
+
+.PHONY : classes/SquareModel.s
+
+# target to generate assembly for a file
+classes/SquareModel.cpp.s:
+	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/SquareModel.cpp.s
+.PHONY : classes/SquareModel.cpp.s
+
 java/cpp/jni_GLWrapper.o: java/cpp/jni_GLWrapper.cpp.o
 
 .PHONY : java/cpp/jni_GLWrapper.o
@@ -384,6 +411,9 @@ help:
 	@echo "... classes/Shader.o"
 	@echo "... classes/Shader.i"
 	@echo "... classes/Shader.s"
+	@echo "... classes/SquareModel.o"
+	@echo "... classes/SquareModel.i"
+	@echo "... classes/SquareModel.s"
 	@echo "... java/cpp/jni_GLWrapper.o"
 	@echo "... java/cpp/jni_GLWrapper.i"
 	@echo "... java/cpp/jni_GLWrapper.s"

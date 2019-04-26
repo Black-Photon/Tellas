@@ -44,7 +44,7 @@ class Shape {
   @native private def bindBufferN(model: Int): Unit
 
   /**
-    * Activates the shader for use - quite slow
+    * Activates the shader3d for use - quite slow
     */
   @native def activateShader(): Unit
 }

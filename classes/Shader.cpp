@@ -93,7 +93,7 @@ void Shader::linkShaders(unsigned int * shaderProgram, unsigned int vertexShader
     // SHADER LINKING
     // Creates a basic program object
     *shaderProgram = glCreateProgram();
-    // Attaches a compiled shader object to a program
+    // Attaches a compiled shader3d object to a program
     glAttachShader(*shaderProgram, vertexShader);
     glAttachShader(*shaderProgram, fragmentShader);
     // Links all the shaders in the program together
@@ -115,16 +115,16 @@ void Shader::linkShaders(unsigned int * shaderProgram, unsigned int vertexShader
 unsigned int Shader::createVertexShader(const char * vertexShaderSource)
 {
     // VERTEX SHADERS
-    // Makes an empty vertex shader
+    // Makes an empty vertex shader3d
     unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    // Replaces the current shader source code with that given by the .vert files
+    // Replaces the current shader3d source code with that given by the .vert files
     glShaderSource(vertexShader, 1, &vertexShaderSource, nullptr);
-    // Compiles the shader object using source code just given
+    // Compiles the shader3d object using source code just given
     glCompileShader(vertexShader);
 
     int success;
     char infoLog[512];
-    // Gets specific info about an element of a shader
+    // Gets specific info about an element of a shader3d
     glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
 
     if(!success)

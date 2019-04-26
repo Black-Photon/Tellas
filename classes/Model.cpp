@@ -33,7 +33,7 @@ void Model::draw(glm::vec3 position, Shader shader, int vertices)
     model = glm::translate(model, position);
     int modelLoc = glGetUniformLocation(shader.ID, "model");
 
-    // Sets the relative shader uniform
+    // Sets the relative shader3d uniform
     glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
     // Draws the model

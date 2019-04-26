@@ -194,6 +194,12 @@
 		<Unit filename="/run/media/u1800015/USB-ALPHA/Tellas/classes/Shader.h">
 			<Option target="OpenGLProject"/>
 		</Unit>
+		<Unit filename="/run/media/u1800015/USB-ALPHA/Tellas/classes/SquareModel.cpp">
+			<Option target="OpenGLProject"/>
+		</Unit>
+		<Unit filename="/run/media/u1800015/USB-ALPHA/Tellas/classes/SquareModel.h">
+			<Option target="OpenGLProject"/>
+		</Unit>
 		<Unit filename="/run/media/u1800015/USB-ALPHA/Tellas/cmake-build-debug/include/glfw-3.2.1/src/glfw_config.h">
 			<Option target="glfw"/>
 		</Unit>

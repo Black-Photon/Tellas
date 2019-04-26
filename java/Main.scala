@@ -3,7 +3,7 @@ import java.nio.file.FileSystems
 import jni.{GLWrapper, KeyListener, Shape}
 import src.block.{Air, Dirt, Grass}
 import src.util.{Vector3F, Vector3I}
-import src.Data
+import src.{Data, Image}
 
 object Main extends App {
   // Loads the C++
@@ -15,7 +15,7 @@ object Main extends App {
   GLWrapper.test()
 
   message("Pre-Initialisation")
-  GLWrapper.preInit(1920, 1080, "Tellas")
+  GLWrapper.preInit(Data.width, Data.height, "Tellas")
   message("Initialisation")
   GLWrapper.init(true)
 
@@ -28,6 +28,8 @@ object Main extends App {
   Data.blocks += Grass
 
   var time = 0.0f
+
+  val crosshair: Image = new Image("crosshair.png", true)
 
   message("Drawing")
   while(!GLWrapper.shouldClose) {
@@ -64,6 +66,7 @@ object Main extends App {
     Shape.activateShader()
     Grass.draw()
     Dirt.draw()
+    crosshair.draw(1000, 500)
   }
 
   def message(message: String): Unit = {
