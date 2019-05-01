@@ -10,14 +10,14 @@ JNIEXPORT void JNICALL Java_jni_Shape_drawN
     glm::vec3 position(x, y, z);
 
     // Draws the model
-    Model *model = core::Data.models.at(jmodel);
+    Model3D *model = core::Data.models3d.at(jmodel);
     model->draw(position, *shader);
 }
 
 JNIEXPORT void JNICALL Java_jni_Shape_bindBufferN
         (JNIEnv *, jobject, jint jmodel)
 {
-    Model *model = core::Data.models.at(jmodel);
+    Model3D *model = core::Data.models3d.at(jmodel);
     model->bind();
 }
 

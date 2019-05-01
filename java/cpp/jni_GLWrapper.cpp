@@ -5,6 +5,7 @@
 #include "jni_KeyListener.cpp"
 #include "jni_Player.cpp"
 #include "jni_Viewport.cpp"
+#include "jni_Cube.cpp"
 
 // Test
 JNIEXPORT void JNICALL Java_jni_GLWrapper_test

@@ -2,7 +2,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include "SquareModel.h"
 
-SquareModel::SquareModel() : Model((float*) sq_vertices, 30)
+SquareModel::SquareModel() : Model2D((float*) sq_vertices, 30)
 {
     // Position
     // Tells OpenGL how to interpret the vertex buffer data

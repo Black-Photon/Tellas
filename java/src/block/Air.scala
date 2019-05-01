@@ -11,7 +11,7 @@ case class Air(override val position: Vector3I) extends Block(Air, position)
 /**
   * Air Block Type
   */
-object Air extends BlockInstance(null, false) {
+object Air extends BlockInstance() {
   // Air ID
   override val ID: Int = 0
 

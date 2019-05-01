@@ -7,7 +7,9 @@
 #include "include.cpp"
 #include "../classes/Shader.h"
 #include "../classes/Camera.h"
-#include "../classes/Model.h"
+#include "../classes/Model3D.h"
+#include "../classes/Model2D.h"
+#include "../classes/CubeModel.h"
 
 namespace core {
 
@@ -22,7 +24,9 @@ namespace core {
         Shader *shader3d = nullptr;
         Shader *shader2d = nullptr;
         Camera *camera = nullptr;
-        std::vector<Model*> models;
+        std::vector<Model3D*> models3d;
+        std::vector<Model2D*> models2d;
+        CubeModel *cube;
     } Data;
 
     /**

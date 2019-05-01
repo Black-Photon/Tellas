@@ -2,7 +2,7 @@
 #define OPENGLPROJECT_SQUAREMODEL_H
 
 
-#include "Model.h"
+#include "Model2D.h"
 
 static constexpr float SQ_SIZE = 1.0f;
 
@@ -17,15 +17,11 @@ static constexpr float sq_vertices[] = {
         SQ_SIZE,  SQ_SIZE, 0, 1.0f, 1.0f,
 };
 
-class SquareModel: public Model {
+class SquareModel: public Model2D {
 public:
 
     SquareModel();
 
-    /**
-     * DO NOT USE - This is specifically for 3D Models
-     */
-    void draw(glm::vec3 position, Shader shader){};
     void draw(glm::vec2 position, glm::vec2 screen, glm::vec2 size, Shader shader);
 };
 

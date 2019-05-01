@@ -1,6 +1,6 @@
 #include "CubeModel.h"
 
-CubeModel::CubeModel() : Model((float*) vertices, 180)
+CubeModel::CubeModel() : Model3D((float*) vertices, 180)
 {
     // Position
     // Tells OpenGL how to interpret the vertex buffer data
@@ -27,5 +27,10 @@ CubeModel::CubeModel() : Model((float*) vertices, 180)
 
 void CubeModel::draw(glm::vec3 position, Shader shader)
 {
-    Model::draw(position, shader, 36);
+    Model3D::draw(position, shader, 0, 36);
+}
+
+void CubeModel::drawSide(glm::vec3 position, Shader shader, int side)
+{
+    Model3D::draw(position, shader, 6 * side, 6);
 }

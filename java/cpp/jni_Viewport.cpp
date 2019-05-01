@@ -12,6 +12,6 @@ JNIEXPORT void JNICALL Java_jni_Viewport_drawImage
     glm::vec2 size(width*50, height*50);
 
     // Draws the model
-    Model *model = core::Data.models.at(1);
+    Model2D *model = core::Data.models2d.at(0);
     model->draw(position, screen, size, *shader);
 }

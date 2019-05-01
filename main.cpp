@@ -75,7 +75,7 @@ namespace core {
         glEnable(GL_BLEND);
 
         // Program
-        auto *shader3d = new Shader("vertexShader.vert", "fragmentShader.frag", Path.shaders);
+        auto *shader3d = new Shader("3dImage.vert", "3dImage.frag", Path.shaders);
         Data.shader3d = shader3d;
 
         auto *shader2d = new Shader("2dImage.vert", "2dImage.frag", Path.shaders);
@@ -94,10 +94,11 @@ namespace core {
         Data.camera = camera;
         Data.camera->rotate(YAW, -90.0f);
 
-        Model *model = new CubeModel();
-        Data.models.push_back(model);
-        model = new SquareModel();
-        Data.models.push_back(model);
+        auto *cube = new CubeModel();
+        Data.cube = cube;
+        Data.models3d.push_back(cube);
+        Model2D *model = new SquareModel();
+        Data.models2d.push_back(model);
 
         if(capture) {
             glfwSetInputMode(Data.window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
@@ -111,6 +112,7 @@ namespace core {
     void close() {
         delete (Data.shader3d);
         delete (Data.camera);
+        delete (Data.cube);
 
         glfwTerminate();
     }

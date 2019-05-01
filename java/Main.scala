@@ -59,6 +59,7 @@ object Main extends App {
   def addBlocks(): Unit = {
     for(x <- -20 to 20; z <- -20 to 20) {
       new Grass(Vector3I(x, -2, z))
+      new Dirt(Vector3I(x, -3, z))
     }
   }
 
