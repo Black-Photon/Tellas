@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /run/media/u1800015/USB-ALPHA/clion-2019.1.2/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = /run/media/u1800015/USB-ALPHA/clion-2019.1.2/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/joseph/Documents/Programming/Graphics/OpenGLProject
+CMAKE_SOURCE_DIR = /run/media/u1800015/USB-ALPHA/Tellas
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug
+CMAKE_BINARY_DIR = /run/media/u1800015/USB-ALPHA/Tellas/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,19 +59,19 @@ CMAKE_BINARY_DIR = /home/joseph/Documents/Programming/Graphics/OpenGLProject/cma
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/run/media/u1800015/USB-ALPHA/clion-2019.1.2/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip
 
 # Special rule for the target install/strip
 install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/run/media/u1800015/USB-ALPHA/clion-2019.1.2/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/cmake-gui -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -82,7 +82,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/run/media/u1800015/USB-ALPHA/clion-2019.1.2/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -103,32 +103,32 @@ list_install_components/fast: list_install_components
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/run/media/u1800015/USB-ALPHA/clion-2019.1.2/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
 # Special rule for the target install/local
 install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/run/media/u1800015/USB-ALPHA/clion-2019.1.2/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
+	/run/media/u1800015/USB-ALPHA/clion-2019.1.2/bin/cmake/linux/bin/cmake -P cmake_install.cmake
 .PHONY : install
 
 # Special rule for the target install
 install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
+	/run/media/u1800015/USB-ALPHA/clion-2019.1.2/bin/cmake/linux/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/CMakeFiles /home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /run/media/u1800015/USB-ALPHA/Tellas/cmake-build-debug/CMakeFiles /run/media/u1800015/USB-ALPHA/Tellas/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /run/media/u1800015/USB-ALPHA/Tellas/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -357,6 +357,33 @@ classes/SquareModel.cpp.s:
 	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/SquareModel.cpp.s
 .PHONY : classes/SquareModel.cpp.s
 
+classes/WorldModel.o: classes/WorldModel.cpp.o
+
+.PHONY : classes/WorldModel.o
+
+# target to build an object file
+classes/WorldModel.cpp.o:
+	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/WorldModel.cpp.o
+.PHONY : classes/WorldModel.cpp.o
+
+classes/WorldModel.i: classes/WorldModel.cpp.i
+
+.PHONY : classes/WorldModel.i
+
+# target to preprocess a source file
+classes/WorldModel.cpp.i:
+	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/WorldModel.cpp.i
+.PHONY : classes/WorldModel.cpp.i
+
+classes/WorldModel.s: classes/WorldModel.cpp.s
+
+.PHONY : classes/WorldModel.s
+
+# target to generate assembly for a file
+classes/WorldModel.cpp.s:
+	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/WorldModel.cpp.s
+.PHONY : classes/WorldModel.cpp.s
+
 java/cpp/jni_GLWrapper.o: java/cpp/jni_GLWrapper.cpp.o
 
 .PHONY : java/cpp/jni_GLWrapper.o
@@ -444,6 +471,9 @@ help:
 	@echo "... classes/SquareModel.o"
 	@echo "... classes/SquareModel.i"
 	@echo "... classes/SquareModel.s"
+	@echo "... classes/WorldModel.o"
+	@echo "... classes/WorldModel.i"
+	@echo "... classes/WorldModel.s"
 	@echo "... java/cpp/jni_GLWrapper.o"
 	@echo "... java/cpp/jni_GLWrapper.i"
 	@echo "... java/cpp/jni_GLWrapper.s"

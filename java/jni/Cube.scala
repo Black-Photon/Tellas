@@ -33,6 +33,11 @@ class Cube extends Shape {
     * @param face  Model reference to draw
     */
   @native private def drawFaceN(x: Float, y: Float, z: Float, face: Int): Unit
+
+  /**
+    * Activates the skybox shader for use - quite slow
+    */
+  @native def activateShader(angle: Float): Unit
 }
 
 object Cube extends Cube {

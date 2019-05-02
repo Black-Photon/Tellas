@@ -15,6 +15,14 @@ extern "C" {
 JNIEXPORT void JNICALL Java_jni_Cube_drawFaceN
   (JNIEnv *, jobject, jfloat, jfloat, jfloat, jint);
 
+/*
+ * Class:     jni_Cube
+ * Method:    activateShader
+ * Signature: (F)V
+ */
+JNIEXPORT void JNICALL Java_jni_Cube_activateShader
+  (JNIEnv *, jobject, jfloat);
+
 #ifdef __cplusplus
 }
 #endif

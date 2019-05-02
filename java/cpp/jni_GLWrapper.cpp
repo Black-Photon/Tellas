@@ -6,6 +6,7 @@
 #include "jni_Player.cpp"
 #include "jni_Viewport.cpp"
 #include "jni_Cube.cpp"
+#include "jni_SkyBox.cpp"
 
 // Test
 JNIEXPORT void JNICALL Java_jni_GLWrapper_test

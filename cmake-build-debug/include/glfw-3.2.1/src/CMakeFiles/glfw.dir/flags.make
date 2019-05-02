@@ -6,5 +6,5 @@ C_FLAGS = -g -fPIC   -Wall
 
 C_DEFINES = -D_GLFW_USE_CONFIG_H
 
-C_INCLUDES = -I/usr/lib/jvm/default/include -I/usr/lib/jvm/default/include/linux -I/home/joseph/Documents/Programming/Graphics/OpenGLProject/include -I/home/joseph/Documents/Programming/Graphics/OpenGLProject/include/glfw-3.2.1/include -I/home/joseph/Documents/Programming/Graphics/OpenGLProject/include/glfw-3.2.1/src -I/home/joseph/Documents/Programming/Graphics/OpenGLProject/cmake-build-debug/include/glfw-3.2.1/src 
+C_INCLUDES = -I/usr/java/default/include -I/usr/java/default/include/linux -I/run/media/u1800015/USB-ALPHA/Tellas/include -I/run/media/u1800015/USB-ALPHA/Tellas/include/glfw-3.2.1/include -I/run/media/u1800015/USB-ALPHA/Tellas/include/glfw-3.2.1/src -I/run/media/u1800015/USB-ALPHA/Tellas/cmake-build-debug/include/glfw-3.2.1/src 
 

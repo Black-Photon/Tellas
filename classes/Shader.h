@@ -7,6 +7,7 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <glm/vec3.hpp>
 
 class Shader
 {
@@ -43,6 +44,12 @@ public:
      * @param value Float value
      */
     void setFloat(const std::string &name, float value) const;
+    /**
+     * Sets a vec3 uniform to the given value
+     * @param name Variable name
+     * @param value Vector value
+     */
+    void setVec3(const std::string &name, glm::vec3 value) const;
 
 private:
     /**

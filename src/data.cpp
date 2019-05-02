@@ -23,6 +23,7 @@ namespace core {
         GLFWwindow *window = nullptr;
         Shader *shader3d = nullptr;
         Shader *shader2d = nullptr;
+        Shader *shaderSkyBox = nullptr;
         Camera *camera = nullptr;
         std::vector<Model3D*> models3d;
         std::vector<Model2D*> models2d;

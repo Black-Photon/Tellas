@@ -8,6 +8,7 @@
 #include "src/frame.cpp"
 #include "classes/CubeModel.h"
 #include "classes/SquareModel.h"
+#include "classes/WorldModel.h"
 
 namespace core {
 
@@ -81,6 +82,9 @@ namespace core {
         auto *shader2d = new Shader("2dImage.vert", "2dImage.frag", Path.shaders);
         Data.shader2d = shader2d;
 
+        auto *shaderSkyBox = new Shader("skyBox.vert", "basic.frag", Path.shaders);
+        Data.shaderSkyBox = shaderSkyBox;
+
         stbi_set_flip_vertically_on_load(true);
 
         shader3d->use(); // Must activate shader3d to use uniforms
@@ -97,6 +101,8 @@ namespace core {
         auto *cube = new CubeModel();
         Data.cube = cube;
         Data.models3d.push_back(cube);
+        auto *worldModel = new WorldModel();
+        Data.models3d.push_back(worldModel);
         Model2D *model = new SquareModel();
         Data.models2d.push_back(model);
 

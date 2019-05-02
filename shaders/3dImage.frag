@@ -4,8 +4,27 @@ out vec4 FragColor;
 in vec2 TexCoords;
 
 uniform sampler2D utexture;
+uniform float uangle;
+
+float mag(float i);
 
 void main()
 {
-    FragColor = texture(utexture, TexCoords);
+    float ambientStrength = 0.2f;
+
+    float angle;
+    if(uangle > 180) angle = uangle - 360;
+    else angle = uangle;
+    float brightness = min(max(1 - (mag(angle))/90, 0.0f), 1 - ambientStrength);
+    vec3 diffuse = vec3(brightness);
+
+    vec3 ambient = vec3(ambientStrength);
+
+    FragColor = texture(utexture, TexCoords) * vec4(diffuse + ambient, 1.0f);
+}
+
+float mag(float i)
+{
+    if(i < 0) return -i;
+    else return i;
 }

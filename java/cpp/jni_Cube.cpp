@@ -12,3 +12,11 @@ JNIEXPORT void JNICALL Java_jni_Cube_drawFaceN
     auto *model = core::Data.cube;
     model->drawSide(position, *shader, side);
 }
+
+JNIEXPORT void JNICALL Java_jni_Cube_activateShader
+        (JNIEnv *, jobject, jfloat angle)
+{
+    Shader *shader = core::Data.shader3d;
+    core::makeModel(*shader);
+    shader->setFloat("uangle", angle);
+}

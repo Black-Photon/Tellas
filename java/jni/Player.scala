@@ -292,6 +292,8 @@ class Player extends Collidable {
     case None => None
   }
 
+  def lookDirection = Vector3F(getLookingDirectionX, getLookingDirectionY, getLookingDirectionZ)
+
   /**
     * Sets the position of the camera on the native side
     * @param x x-location
@@ -304,19 +306,19 @@ class Player extends Collidable {
     * Finds the x-component of the vector looking in
     * @return X-Component
     */
-  @native private def getLookingDirectionX: Float
+  @native def getLookingDirectionX: Float
 
   /**
     * Finds the y-component of the vector looking in
     * @return Y-Component
     */
-  @native private def getLookingDirectionY: Float
+  @native def getLookingDirectionY: Float
 
   /**
     * Finds the z-component of the vector looking in
     * @return Z-Component
     */
-  @native private def getLookingDirectionZ: Float
+  @native def getLookingDirectionZ: Float
 }
 
 object Player {

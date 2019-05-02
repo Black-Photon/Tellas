@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.12)
 project(OpenGLProject)
 
-set(DIRECTORY "/home/joseph/Documents/Programming/Graphics/OpenGLProject/include/glfw-3.2.1")
-#set(DIRECTORY "/run/media/u1800015/USB-ALPHA/Tellas/include/glfw-3.2.1")
+#set(DIRECTORY "/home/joseph/Documents/Programming/Graphics/OpenGLProject/include/glfw-3.2.1")
+set(DIRECTORY "/run/media/u1800015/USB-ALPHA/Tellas/include/glfw-3.2.1")
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -17,7 +17,7 @@ set(SOURCE_FILES
         java/cpp/jni_GLWrapper.cpp
         src/glad.c
         include/glad/glad.h
-        classes/Shader.cpp classes/Camera.cpp classes/Model3D.cpp classes/CubeModel.cpp classes/SquareModel.cpp classes/Model2D.cpp classes/Model2D.h)
+        classes/Shader.cpp classes/Camera.cpp classes/Model3D.cpp classes/CubeModel.cpp classes/SquareModel.cpp classes/Model2D.cpp classes/WorldModel.cpp)
 add_library(OpenGLProject SHARED ${SOURCE_FILES})
 
 # GLFW

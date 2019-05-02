@@ -1,6 +1,6 @@
 package src
 
-import src.block.BlockInstance
+import src.block.{Air, BlockInstance, Dirt, Grass}
 import src.util.{FastFixedLandscape, Vector3I}
 
 /**
@@ -26,11 +26,6 @@ class Chunk {
     */
   def getBlock(position: Vector3I): BlockInstance = {
     val id = blocks.get(position)
-    for(block <- Data.blocks) {
-      if(block.ID == id) {
-        return block
-      }
-    }
-    null
+    Data.blocks(id)
   }
 }

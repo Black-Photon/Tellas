@@ -17,6 +17,6 @@ object Grass extends BlockInstance() {
   override val ID: Int = 2
 
   addTexture("grass.png", true, List(TOP))
-  addTexture("grass_side.jpg", false, List(LEFT, RIGHT, BACK, FRONT))
+  addTexture("grass_side.png", false, List(LEFT, RIGHT, BACK, FRONT)) // For isPNG, see Dirt
   addTexture(Dirt.textures.head._1, List(BOTTOM))
 }
