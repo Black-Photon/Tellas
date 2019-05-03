@@ -77,7 +77,6 @@ object Main extends App {
 
   def draw(time: Float): Unit = {
     val angle = (time * 25) % 360
-    println(angle)
 
     GLWrapper.useTexture(sun, 0)
     SkyBox.bindBuffer()
@@ -111,8 +110,8 @@ object Main extends App {
           playerDir.normalize()
           val objectDir: Vector3F = position.toFloat - (Data.player.getPosition - playerDir*5)
           objectDir.normalize()
-          val angle = Math.acos(playerDir :* objectDir)
-          if(angle < 1 || position.toFloat == Data.player.getPosition) {
+          val angle = playerDir :* objectDir
+          if(angle > 0.5 || position.toFloat == Data.player.getPosition) {
             for ((texture, list) <- block.textures) {
               GLWrapper.useTexture(texture, 0) // Slow
               for (side <- list) {

@@ -292,7 +292,10 @@ class Player extends Collidable {
     case None => None
   }
 
-  def lookDirection = Vector3F(getLookingDirectionX, getLookingDirectionY, getLookingDirectionZ)
+  def lookDirection = {
+    val array = getLookingDirectionN
+    Vector3F(array(0), array(1), array(2))
+  }
 
   /**
     * Sets the position of the camera on the native side
@@ -319,6 +322,12 @@ class Player extends Collidable {
     * @return Z-Component
     */
   @native def getLookingDirectionZ: Float
+
+  /**
+    * Finds the direction of the vector looking in
+    * @return Array of x y z
+    */
+  @native def getLookingDirectionN: Array[Float]
 }
 
 object Player {

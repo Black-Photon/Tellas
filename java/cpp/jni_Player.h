@@ -39,6 +39,14 @@ JNIEXPORT jfloat JNICALL Java_jni_Player_getLookingDirectionY
 JNIEXPORT jfloat JNICALL Java_jni_Player_getLookingDirectionZ
   (JNIEnv *, jobject);
 
+/*
+ * Class:     jni_Player
+ * Method:    getLookingDirectionN
+ * Signature: ()[F
+ */
+JNIEXPORT jfloatArray JNICALL Java_jni_Player_getLookingDirectionN
+  (JNIEnv *, jobject);
+
 #ifdef __cplusplus
 }
 #endif
