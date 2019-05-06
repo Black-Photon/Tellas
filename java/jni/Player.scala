@@ -15,9 +15,9 @@ class Player extends Collidable {
   // Height
   val height = 1.8f
   // Gravity strength
-  val gravityStrength: Float = 0.03f
+  val gravityStrength: Float = 0.015f
   // Speed of all movement
-  val speed: Float = 7
+  val speed: Float = 6
   // Current vertical speed
   var verticalSpeed = 0.0f
 

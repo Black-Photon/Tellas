@@ -18,5 +18,5 @@ trait Landscape [A] {
     * @param vector3 Location of value
     * @return Value at location
     */
-  def get(vector3: Vector3I): A
+  def get(vector3: Vector3I): Option[A]
 }

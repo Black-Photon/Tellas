@@ -67,16 +67,18 @@ object Main extends App {
   GLWrapper.close()
 
   def addBlocks(): Unit = {
-    for(x <- -20 to 20; z <- -20 to 20) {
-      new Grass(Vector3I(x, -2, z))
+    val cubeDims = 64
+    for(x <- -cubeDims to cubeDims; z <- -cubeDims to cubeDims) {
+      new Grass(Vector3I(x, -2, z), false)
+
     }
-    for(x <- -20 to 20; y <- -20 to -3; z <- -20 to 20) {
-      new Dirt(Vector3I(x, y, z))
+    for(x <- -cubeDims to cubeDims; y <- -cubeDims to -3; z <- -cubeDims to cubeDims) {
+      new Dirt(Vector3I(x, y, z), false)
     }
   }
 
   def draw(time: Float): Unit = {
-    val angle = (time * 25) % 360
+    val angle = 0//time % 360
 
     GLWrapper.useTexture(sun, 0)
     SkyBox.bindBuffer()
@@ -99,26 +101,54 @@ object Main extends App {
     */
   def drawBlocks(): Unit = {
     Shape.bindBuffer(Model.CUBE)
-    for (cx <- -2 to 2; cy <- -2 to 2; cz <- -2 to 2) {
-      val chunk = ChunkLoader.getChunk(Vector3I(cx * 16, cy * 16, cz * 16))
-      for (x <- 0 to 15; y <- 0 to 15; z <- 0 to 15) {
-        val block = chunk.getBlock(Vector3I(x, y, z)) // More Slow
-        if (block.ID != 0) {
-          val position = Vector3I(16 * cx + x, 16 * cy + y, 16 * cz + z)
+    val chunkDepth = 3
+    val playerChunk = Data.player.getPosition / 16 floor
 
-          val playerDir: Vector3F = Data.player.lookDirection
-          playerDir.normalize()
-          val objectDir: Vector3F = position.toFloat - (Data.player.getPosition - playerDir*5)
-          objectDir.normalize()
-          val angle = playerDir :* objectDir
-          if(angle > 0.5 || position.toFloat == Data.player.getPosition) {
-            for ((texture, list) <- block.textures) {
-              GLWrapper.useTexture(texture, 0) // Slow
-              for (side <- list) {
-                if (!ChunkLoader.isBlock(shiftPos(position, side)))
-                  drawFace(position, side)
+    for (cx <- -chunkDepth + playerChunk.x to chunkDepth + playerChunk.x; cy <- -chunkDepth + playerChunk.y to chunkDepth + playerChunk.y; cz <- -chunkDepth + playerChunk.z to chunkDepth + playerChunk.z) {
+      // Checks if the chunk is viewable
+      val playerDir: Vector3F = Data.player.lookDirection
+      playerDir.normalize()
+      var cAngle = -1.0f
+      val corners = List(0, 4, 8, 12, 16)
+      for(xMod <- corners; yMod <- corners; zMod <- corners) {
+        val chunkDir: Vector3F = Vector3F(cx * 16 + xMod, cy * 16 + yMod, cz * 16 + zMod) - (Data.player.getPosition - playerDir * 5)
+        chunkDir.normalize()
+        cAngle = Math.max(playerDir :* chunkDir, cAngle)
+      }
+
+      if(cAngle > 0.6) {
+        val chunk = ChunkLoader.getChunk(Vector3I(cx * 16, cy * 16, cz * 16))
+
+        if(!chunk.isLoaded) {
+          chunk.updateVisible()
+          chunk.isLoaded = true
+        }
+
+
+        for(block <- chunk.visibleBlocks) {
+          val x = block.position.x
+          val y = block.position.y
+          val z = block.position.z
+          ChunkLoader.getBlock(Vector3I(x, y, z)) match {
+            case None => Unit
+            case Some(block) =>
+              val position = block.position
+
+              // Checks if the block is viewable
+              val playerDir: Vector3F = Data.player.lookDirection
+              playerDir.normalize()
+              val objectDir: Vector3F = position.toFloat - (Data.player.getPosition - playerDir * 5)
+              objectDir.normalize()
+              val angle = playerDir :* objectDir
+              if (angle > 0.5 || position.toFloat == Data.player.getPosition) {
+                for ((texture, list) <- block.self.textures) {
+                  GLWrapper.useTexture(texture, 0)
+                  for (side <- list) {
+                    if (!block.isSide(side))
+                      drawFace(position, side)
+                  }
+                }
               }
-            }
           }
         }
       }

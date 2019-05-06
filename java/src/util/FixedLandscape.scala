@@ -19,7 +19,7 @@ class FixedLandscape[A : ClassTag](x: Int, y: Int, z: Int) extends Landscape[A] 
     landscape(vector3.x)(vector3.y)(vector3.z) = content
   }
 
-  override def get(vector3: Vector3I): A = {
-    landscape(vector3.x)(vector3.y)(vector3.z)
+  override def get(vector3: Vector3I): Option[A] = {
+    Option(landscape(vector3.x)(vector3.y)(vector3.z))
   }
 }

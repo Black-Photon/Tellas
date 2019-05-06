@@ -17,7 +17,7 @@ class FastFixedLandscape[A : ClassTag](x: Int, y: Int, z: Int) extends Landscape
 
   override def set(content: A, vector3: Vector3I): Unit = landscape(findValue(vector3)) = content
 
-  override def get(vector3: Vector3I): A = landscape(findValue(vector3))
+  override def get(vector3: Vector3I): Option[A] = Option(landscape(findValue(vector3)))
 
   val findValue: Vector3I => Int = v => v.x  +  x * v.y  +  x * y * v.z
 }

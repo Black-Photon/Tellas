@@ -7,7 +7,9 @@ import src.util.Vector3I
   * Grass Block
   * @param position Position of block in world space
   */
-class Grass(position: Vector3I) extends Block(Grass, position)
+class Grass(position: Vector3I, update: Boolean) extends Block(Grass, position, update) {
+  def this(position: Vector3I) = this(position, true)
+}
 
 /**
   * Grass Block Type

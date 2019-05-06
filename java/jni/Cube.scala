@@ -42,14 +42,30 @@ class Cube extends Shape {
 
 object Cube extends Cube {
   object Side extends Enumeration {
-    type Side = Value
+    type Side = ComplexVal
 
-    val FRONT       = Value(0)
-    val BACK        = Value(1)
-    val LEFT        = Value(2)
-    val RIGHT       = Value(3)
-    val BOTTOM      = Value(4)
-    val TOP         = Value(5)
+    val FRONT: Side       = new ComplexVal(0) {
+      override def opposite: Side = BACK
+    }
+    val BACK: Side        = new ComplexVal(1) {
+      override def opposite: Side = FRONT
+    }
+    val LEFT: Side        = new ComplexVal(2) {
+      override def opposite: Side = RIGHT
+    }
+    val RIGHT: Side       = new ComplexVal(3) {
+      override def opposite: Side = LEFT
+    }
+    val BOTTOM: Side      = new ComplexVal(4) {
+      override def opposite: Side = TOP
+    }
+    val TOP: Side         = new ComplexVal(5) {
+      override def opposite: Side = BOTTOM
+    }
+
+    abstract class ComplexVal(index: Int) extends Val(index) {
+      def opposite: Side
+    }
 
     val ALL: List[Side] = List(FRONT, BACK, LEFT, RIGHT, BOTTOM, TOP)
   }

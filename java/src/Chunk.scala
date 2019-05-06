@@ -1,6 +1,6 @@
 package src
 
-import src.block.{Air, BlockInstance, Dirt, Grass}
+import src.block.{Air, Block, BlockInstance, Dirt, Grass}
 import src.util.{FastFixedLandscape, Vector3I}
 
 /**
@@ -8,15 +8,40 @@ import src.util.{FastFixedLandscape, Vector3I}
   */
 class Chunk {
   // Landscape of blocks
-  val blocks: FastFixedLandscape[Int] = new FastFixedLandscape(16, 16, 16)
+  val blocks: FastFixedLandscape[Block] = new FastFixedLandscape(16, 16, 16)
+  val top: FastFixedLandscape[Block] = new FastFixedLandscape(16, 1, 16)
+  var visibleBlocks: List[Block] = List()
+  var isLoaded: Boolean = false
 
   /**
     * Sets a block in the chunk
     * @param block Block to set
     * @param position Position to set block
     */
-  def setBlock(block: BlockInstance, position: Vector3I): Unit = {
-     blocks.set(block.ID, position)
+  def setBlock(block: Block, position: Vector3I): Unit = {
+    visibleBlocks = visibleBlocks.filterNot(testBlock => testBlock.position % 16 == position)
+    val original = blocks.get(position)
+    setBlockNoUpdate(block, position)
+    if(block != null && block.isVisible) {
+      visibleBlocks = visibleBlocks.::(block)
+    }
+  }
+
+  def setBlockNoUpdate(block: Block, position: Vector3I): Unit = {
+    blocks.set(block, position)
+
+//    if(block == null) {
+//      for(y <- position.y - 32 to position.y + 32) {
+//        val pos = Vector3I(position.x, y, position.z)
+//        if(ChunkLoader.getBlock(pos))
+//      }
+//    }
+  }
+
+  def updateBlockVisibility(block: Block): Unit = {
+    if(block != null && block.isVisible) {
+      visibleBlocks = visibleBlocks.::(block)
+    }
   }
 
   /**
@@ -24,8 +49,17 @@ class Chunk {
     * @param position Position to look in
     * @return Block at position
     */
-  def getBlock(position: Vector3I): BlockInstance = {
-    val id = blocks.get(position)
-    Data.blocks(id)
+  def getBlock(position: Vector3I): Option[Block] = {
+    blocks.get(position)
+  }
+
+  def updateVisible(): Unit = {
+    visibleBlocks = List()
+    for(x <- 0 to 15; y <- 0 to 15; z <- 0 to 15) {
+      getBlock(Vector3I(x, y, z)) match {
+        case None => Unit
+        case Some(block) => if(block.isVisible) visibleBlocks = visibleBlocks.::(block)
+      }
+    }
   }
 }

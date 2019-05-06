@@ -1,6 +1,6 @@
 package src
 
-import src.block.{Air, BlockInstance}
+import src.block.{Air, Block, BlockInstance}
 import src.util.{HashLandscape, Vector3I}
 
 /**
@@ -22,15 +22,15 @@ object ChunkLoader {
     // Attempts to retrieve chunk at position
     chunks.get(position / 16 floor) match {
         // If fail
-      case null           =>
+      case None =>
         // Create chunk and retrieve this new chunk
         chunks.set(new Chunk, position / 16 floor)
         chunks.get(position / 16 floor) match {
-          case null       => throw new RuntimeException("Cannot access position set")
-          case x          => x
+          case None             => throw new RuntimeException("Cannot access position set")
+          case Some(x)          => x
         }
 
-      case value          => value
+      case Some(value)          => value
     }
   }
 
@@ -39,7 +39,7 @@ object ChunkLoader {
     * @param position Location of block
     * @return Block at location
     */
-  def getBlock(position: Vector3I): BlockInstance = {
+  def getBlock(position: Vector3I): Option[Block] = {
     getChunk(position).getBlock(position % 16)
   }
 
@@ -50,7 +50,7 @@ object ChunkLoader {
     */
   def isBlock(position: Vector3I): Boolean = {
     getChunk(position).getBlock(position % 16) match {
-      case Air            => false
+      case None           => false
       case _              => true
     }
   }
@@ -60,7 +60,28 @@ object ChunkLoader {
     * @param block Block type to add
     * @param position Position of the block
     */
-  def addBlock(block: BlockInstance, position: Vector3I): Unit = {
+  def addBlock(block: Block, position: Vector3I): Unit = {
     getChunk(position).setBlock(block, position % 16)
+  }
+
+  def addBlockNoUpdate(block: Block, position: Vector3I): Unit = {
+    getChunk(position).setBlockNoUpdate(block, position % 16)
+  }
+
+  def updateBlockVisibility(maybeBlock: Option[Block]): Unit = {
+    maybeBlock match {
+      case None => Unit
+      case Some(block) =>   val chunk = getChunk(block.position)
+                            chunk.updateBlockVisibility(block)
+    }
+  }
+
+  def updateSurroundingVisibility(position: Vector3I): Unit = {
+      ChunkLoader.updateBlockVisibility(ChunkLoader.getBlock(position px 1))
+      ChunkLoader.updateBlockVisibility(ChunkLoader.getBlock(position px -1))
+      ChunkLoader.updateBlockVisibility(ChunkLoader.getBlock(position py 1))
+      ChunkLoader.updateBlockVisibility(ChunkLoader.getBlock(position py -1))
+      ChunkLoader.updateBlockVisibility(ChunkLoader.getBlock(position pz 1))
+      ChunkLoader.updateBlockVisibility(ChunkLoader.getBlock(position pz -1))
   }
 }

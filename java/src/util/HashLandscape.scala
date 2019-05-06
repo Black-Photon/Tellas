@@ -59,15 +59,15 @@ class HashLandscape[A >: Null] extends Landscape[A] {
     }
   }
 
-  override def get(vector3: Vector3I): A = {
+  override def get(vector3: Vector3I): Option[A] = {
     val x = vector3.x.floor.asInstanceOf[Int]
     val y = vector3.y.floor.asInstanceOf[Int]
     val z = vector3.z.floor.asInstanceOf[Int]
 
     if(is(vector3)) {
-      landscape(x)(y)(z)
+      Some(landscape(x)(y)(z))
     } else {
-      null
+      None
     }
   }
 }

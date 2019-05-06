@@ -7,7 +7,9 @@ import src.util.Vector3I
   * Dirt Block
   * @param position Position of block in world space
   */
-class Dirt(position: Vector3I) extends Block(Dirt, position)
+class Dirt(position: Vector3I, update: Boolean) extends Block(Dirt, position, update) {
+  def this(position: Vector3I) = this(position, true)
+}
 
 /**
   * Dirt Block Type
