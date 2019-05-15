@@ -4,7 +4,7 @@ import jni.Cube.Side.{BACK, BOTTOM, FRONT, LEFT, RIGHT, Side, TOP}
 import jni.{Cube, GLWrapper, KeyListener, Shape, SkyBox}
 import src.block.{Air, Dirt, Grass, Model}
 import src.util.{Vector3F, Vector3I}
-import src.{ChunkLoader, Data, Image}
+import src.{Chunk, ChunkLoader, Data, Image}
 
 object Main extends App {
   type Texture = Int
@@ -56,7 +56,7 @@ object Main extends App {
 
     draw(time)
 
-    if (Data.player.getPosition.y < -50) Data.player.setPosition(Vector3F(3, -2, 0))
+    if (Data.player.getPosition.y < -100) Data.player.setPosition(Vector3F(3, -2, 0))
 
     GLWrapper.postrender()
     GLWrapper.swapBuffers()
@@ -101,55 +101,62 @@ object Main extends App {
     */
   def drawBlocks(): Unit = {
     Shape.bindBuffer(Model.CUBE)
-    val chunkDepth = 3
+    val chunkDepth = 8
     val playerChunk = Data.player.getPosition / 16 floor
+    val playerDir: Vector3F = Data.player.lookDirection
 
-    for (cx <- -chunkDepth + playerChunk.x to chunkDepth + playerChunk.x; cy <- -chunkDepth + playerChunk.y to chunkDepth + playerChunk.y; cz <- -chunkDepth + playerChunk.z to chunkDepth + playerChunk.z) {
-      // Checks if the chunk is viewable
-      val playerDir: Vector3F = Data.player.lookDirection
-      playerDir.normalize()
-      var cAngle = -1.0f
-      val corners = List(0, 4, 8, 12, 16)
-      for(xMod <- corners; yMod <- corners; zMod <- corners) {
-        val chunkDir: Vector3F = Vector3F(cx * 16 + xMod, cy * 16 + yMod, cz * 16 + zMod) - (Data.player.getPosition - playerDir * 5)
-        chunkDir.normalize()
-        cAngle = Math.max(playerDir :* chunkDir, cAngle)
+    def findAngleToPlayer(position: Vector3F): Float = {
+      val chunkDir: Vector3F = position - (Data.player.getPosition - playerDir * 5)
+      chunkDir.normalize()
+      playerDir :* chunkDir
+    }
+
+    var chunks = Set[Chunk]()
+    // Checks every chunk for viewable.
+    for (cx <- -chunkDepth + playerChunk.x until chunkDepth + playerChunk.x; cy <- -chunkDepth + playerChunk.y until chunkDepth + playerChunk.y; cz <- -chunkDepth + playerChunk.z until chunkDepth + playerChunk.z) {
+      if(findAngleToPlayer(Vector3F(cx, cy, cz) * 16) > 0.6) {
+        val gen = -1 to 0
+        for(x <- gen; y <- gen; z <- gen) {
+          chunks = chunks + ChunkLoader.getChunk(Vector3I(cx + x, cy + y, cz + z) * 16 floor)
+        }
+      }
+    }
+    val playerPos = Data.player.getPosition
+    chunks = chunks + ChunkLoader.getChunk(playerPos nearestBlock)
+    chunks = chunks + ChunkLoader.getChunk((playerPos nearestBlock) py Data.player.height.ceil.toInt)
+
+    for (chunk <- chunks) {
+      if (!chunk.isLoaded) {
+        chunk.updateVisible()
+        chunk.isLoaded = true
       }
 
-      if(cAngle > 0.6) {
-        val chunk = ChunkLoader.getChunk(Vector3I(cx * 16, cy * 16, cz * 16))
 
-        if(!chunk.isLoaded) {
-          chunk.updateVisible()
-          chunk.isLoaded = true
-        }
+      for (block <- chunk.visibleBlocks) {
+        val x = block.position.x
+        val y = block.position.y
+        val z = block.position.z
+        ChunkLoader.getBlock(Vector3I(x, y, z)) match {
+          case Some(`block`) =>
+            val position = block.position
+            block.tick
 
-
-        for(block <- chunk.visibleBlocks) {
-          val x = block.position.x
-          val y = block.position.y
-          val z = block.position.z
-          ChunkLoader.getBlock(Vector3I(x, y, z)) match {
-            case None => Unit
-            case Some(block) =>
-              val position = block.position
-
-              // Checks if the block is viewable
-              val playerDir: Vector3F = Data.player.lookDirection
-              playerDir.normalize()
-              val objectDir: Vector3F = position.toFloat - (Data.player.getPosition - playerDir * 5)
-              objectDir.normalize()
-              val angle = playerDir :* objectDir
-              if (angle > 0.5 || position.toFloat == Data.player.getPosition) {
-                for ((texture, list) <- block.self.textures) {
-                  GLWrapper.useTexture(texture, 0)
-                  for (side <- list) {
-                    if (!block.isSide(side))
-                      drawFace(position, side)
-                  }
+            // Checks if the block is viewable
+            val playerDir: Vector3F = Data.player.lookDirection
+            playerDir.normalize()
+            val objectDir: Vector3F = position.toFloat - (Data.player.getPosition - playerDir * 5)
+            objectDir.normalize()
+            val angle = playerDir :* objectDir
+            if (angle > 0.5 || position.toFloat == Data.player.getPosition) {
+              for ((texture, list) <- block.self.textures) {
+                GLWrapper.useTexture(texture, 0)
+                for (side <- list) {
+                  if (!block.isSide(side))
+                    drawFace(position, side)
                 }
               }
-          }
+            }
+          case _ => Unit
         }
       }
     }

@@ -15,11 +15,13 @@ class Player extends Collidable {
   // Height
   val height = 1.8f
   // Gravity strength
-  val gravityStrength: Float = 0.015f
+  val gravityStrength: Float = 0.75f
   // Speed of all movement
   val speed: Float = 6
   // Current vertical speed
   var verticalSpeed = 0.0f
+  // Max fall speed
+  val maxFall = 1.867219f
 
   /**
     * Moves the player forward one frame
@@ -29,9 +31,9 @@ class Player extends Collidable {
     // If block below, vertical speed = 0
     if (yCollisionN) {
       if (verticalSpeed < 0) verticalSpeed = 0
-    } else verticalSpeed -= gravityStrength
+    } else verticalSpeed -= gravityStrength * deltaT
     // Max fall speed
-    if(verticalSpeed <= -2) verticalSpeed = -2
+    if(verticalSpeed <= -maxFall) verticalSpeed = -maxFall
 
     // If Moving up and block above
     if (yCollisionP && verticalSpeed > 0) verticalSpeed = 0

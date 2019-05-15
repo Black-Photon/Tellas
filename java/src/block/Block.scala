@@ -45,6 +45,8 @@ abstract class Block(selfI: BlockInstance, p: Vector3I, update: Boolean) {
     false
   }
 
+  def tick: Unit = {}
+
   setIsSide(FRONT, position pz -1)
   setIsSide(BACK, position pz 1)
   setIsSide(LEFT, position px -1)

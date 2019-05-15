@@ -1,6 +1,7 @@
 package src.block
 
 import jni.Cube.Side.ALL
+import src.ChunkLoader
 import src.util.Vector3I
 
 /**
@@ -9,6 +10,21 @@ import src.util.Vector3I
   */
 class Dirt(position: Vector3I, update: Boolean) extends Block(Dirt, position, update) {
   def this(position: Vector3I) = this(position, true)
+
+  override def tick: Unit = {
+    if(ChunkLoader.getBlock(position py 1).isEmpty) {
+      for (x <- -1 to 1; y <- -1 to 1; z <- -1 to 1) {
+        if (!(x.abs == z.abs && x.abs == 1)) {
+          ChunkLoader.getBlock(position + Vector3I(x, y, z)) match {
+            case Some(block: Grass) =>
+              if (Math.random() < 0.00015) ChunkLoader.addBlock(new Grass(position), position)
+
+            case _ => Unit
+          }
+        }
+      }
+    }
+  }
 }
 
 /**
