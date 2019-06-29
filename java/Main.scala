@@ -1,14 +1,13 @@
 import java.nio.file.FileSystems
 
 import jni.Cube.Side.{BACK, BOTTOM, FRONT, LEFT, RIGHT, Side, TOP}
-import jni.{Cube, GLWrapper, KeyListener, Shape, SkyBox}
+import jni.{Cube, Framebuffer, GLWrapper, KeyListener, Shape, SkyBox, Viewport}
 import src.block.{Air, Dirt, Grass, Model}
+import src.util.Types.Texture
 import src.util.{Vector3F, Vector3I}
 import src.{Chunk, ChunkLoader, Data, Image}
 
 object Main extends App {
-  type Texture = Int
-
   // Loads the C++
   System.load(
     FileSystems.getDefault
@@ -34,6 +33,8 @@ object Main extends App {
 
   val crosshair: Image = new Image("crosshair.png", true)
   val sun: Texture = GLWrapper.generateTexture("sun.png", false)
+
+  val framebuffer: Framebuffer = new Framebuffer(4096, 4096, true)
 
   var lastTime = 0.0f
   var iterations = 0
@@ -78,7 +79,15 @@ object Main extends App {
   }
 
   def draw(time: Float): Unit = {
-    val angle = 0//time % 360
+    val angle = 0//time % 360Fi
+
+    framebuffer.start()
+    Shape.bindBuffer(Model.CUBE)
+    Cube.activateShader(angle)
+    GLWrapper.prerender(0.2f, 0.2f, 0.7f)
+    GLWrapper.useTexture(sun, 0)
+    Dirt.drawBlock(Vector3I(3, -1, -2))
+    framebuffer.end()
 
     GLWrapper.useTexture(sun, 0)
     SkyBox.bindBuffer()
@@ -87,8 +96,11 @@ object Main extends App {
 
     Cube.activateShader(angle)
     drawBlocks()
+    GLWrapper.useTexture(framebuffer.texture, 0)
+    Viewport.drawImage(0, 0, Data.width/4, Data.height/4)
 
-    crosshair.draw(1000, 500)
+    val size = 64
+    crosshair.draw(Data.width/2 - size/2, Data.height/2 - size/2, size, size)
   }
 
   def message(message: String): Unit = {
@@ -101,7 +113,7 @@ object Main extends App {
     */
   def drawBlocks(): Unit = {
     Shape.bindBuffer(Model.CUBE)
-    val chunkDepth = 8
+    val chunkDepth = 2
     val playerChunk = Data.player.getPosition / 16 floor
     val playerDir: Vector3F = Data.player.lookDirection
 

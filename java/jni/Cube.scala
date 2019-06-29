@@ -41,7 +41,7 @@ class Cube extends Shape {
 }
 
 object Cube extends Cube {
-  object Side extends Enumeration {
+  object Side extends ComplexEnum {
     type Side = ComplexVal
 
     val FRONT: Side       = new ComplexVal(0) {
@@ -61,10 +61,6 @@ object Cube extends Cube {
     }
     val TOP: Side         = new ComplexVal(5) {
       override def opposite: Side = BOTTOM
-    }
-
-    abstract class ComplexVal(index: Int) extends Val(index) {
-      def opposite: Side
     }
 
     val ALL: List[Side] = List(FRONT, BACK, LEFT, RIGHT, BOTTOM, TOP)

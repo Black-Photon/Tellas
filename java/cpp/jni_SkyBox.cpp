@@ -31,4 +31,5 @@ JNIEXPORT void JNICALL Java_jni_SkyBox_activateShader
 {
     Shader *shader = core::Data.shaderSkyBox;
     core::makeModel(*shader);
+    core::glCheckError();
 }

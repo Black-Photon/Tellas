@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.12)
 project(OpenGLProject)
 
-#set(DIRECTORY "/home/joseph/Documents/Programming/Graphics/OpenGLProject/include/glfw-3.2.1")
-set(DIRECTORY "/run/media/u1800015/USB-ALPHA/Tellas/include/glfw-3.2.1")
+set(DIRECTORY "/home/joseph/Documents/Programming/Graphics/OpenGLProject/include/glfw-3.2.1")
+#set(DIRECTORY "/run/media/u1800015/USB-ALPHA/Tellas/include/glfw-3.2.1")
 
 set(CMAKE_CXX_STANDARD 17)
 

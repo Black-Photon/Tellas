@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-CMAKE=../../clion-2019.1.2/bin/cmake/linux/bin/cmake
-#CMAKE=cmake
+#CMAKE=../../clion-2019.1.2/bin/cmake/linux/bin/cmake
+CMAKE=cmake
 
 echo -- INFO -- Starting Build
 cd cmake-build-debug

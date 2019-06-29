@@ -17,8 +17,8 @@ namespace core {
      * Holds Screen and Program data
      */
     struct Data {
-        unsigned int SCR_WIDTH = 800;
-        unsigned int SCR_HEIGHT = 600;
+        unsigned int SCR_WIDTH;
+        unsigned int SCR_HEIGHT;
         float lastFrame = 0.0f;
         GLFWwindow *window = nullptr;
         Shader *shader3d = nullptr;

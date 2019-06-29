@@ -6,6 +6,7 @@
 #include "src/preInit.cpp"
 #include "src/init.cpp"
 #include "src/frame.cpp"
+#include "src/framebuffer.cpp"
 #include "classes/CubeModel.h"
 #include "classes/SquareModel.h"
 #include "classes/WorldModel.h"

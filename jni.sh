@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
 # javah needs access to scala-library.jar
-LIBS_HOME=/dcs/18/u1800015/.ivy2/cache/org.scala-lang/scala-library/jars
-#LIBS_HOME=/home/joseph/.ivy2/cache/org.scala-lang/scala-library/jars
+#LIBS_HOME=/dcs/18/u1800015/.ivy2/cache/org.scala-lang/scala-library/jars
+LIBS_HOME=/home/joseph/.ivy2/cache/org.scala-lang/scala-library/jars
 
 CP=$LIBS_HOME/scala-library-2.12.8.jar
 
-JAVAH=/usr/java/jdk1.8.0_181-amd64/bin/javah
-#JAVAH=javah
+#JAVAH=/usr/java/jdk1.8.0_181-amd64/bin/javah
+JAVAH=javah
 
-#NAME=OpenGLProject
-NAME=Tellas
+NAME=OpenGLProject
+#NAME=Tellas
 
 cd out/production/$NAME
 echo -- INFO -- Starting JNI
