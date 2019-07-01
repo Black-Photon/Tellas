@@ -39,7 +39,7 @@ void Camera::rotate(Rotation rotation, float angle)
             throw std::invalid_argument("rotation");
     }
 
-    // Applies as a vector to the camera forward direction
+    // Applies as a vector to the mainCamera forward direction
     cameraFront = getLooking();
 }
 
@@ -64,9 +64,19 @@ glm::mat4 Camera::getTransformation()
     return glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
 }
 
-glm::mat4 Camera::getPerspectiveTransformation()
+void Camera::setProjectionType(int type)
 {
-    return glm::perspective(glm::radians(fov), ASPECT_RATIO, MIN_DISTANCE, MAX_DISTANCE);
+    projection = type;
+}
+
+glm::mat4 Camera::getProjectionTransformation()
+{
+    switch (projection) {
+        case 0: return glm::ortho(-orthoDim*ASPECT_RATIO, orthoDim*ASPECT_RATIO, -orthoDim, orthoDim, -500.0f, 500.0f);
+        case 1: return glm::perspective(glm::radians(fov), ASPECT_RATIO, MIN_DISTANCE, MAX_DISTANCE);
+        default: std::cerr << "Could not interpret projection transformation type" << std::endl;
+        throw std::exception();
+    }
 }
 
 glm::vec3 Camera::getLooking()

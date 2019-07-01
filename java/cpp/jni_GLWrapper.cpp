@@ -8,6 +8,7 @@
 #include "jni_Cube.cpp"
 #include "jni_SkyBox.cpp"
 #include "jni_Framebuffer.cpp"
+#include "jni_Camera.cpp"
 
 // Test
 JNIEXPORT void JNICALL Java_jni_GLWrapper_test

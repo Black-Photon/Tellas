@@ -1,8 +1,8 @@
 package src.block
 
-import jni.{Cube, GLWrapper, Shape}
+import jni.{Cube, GLWrapper, Model, Shape}
 import jni.Cube.Side.{ALL, BACK, BOTTOM, FRONT, LEFT, RIGHT, Side, TOP}
-import Model.CUBE
+import jni.Model.{CUBE, Model}
 import src.util.Vector3I
 
 /**

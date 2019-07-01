@@ -8,14 +8,15 @@ import src.util.{Vector3F, Vector3I}
 
 /**
   * Represents the player
+  * @param camera Camera the player views through
   */
-class Player extends Collidable {
+class Player(val camera: Camera) extends Collidable {
   // Feet Position of player
   protected var position: Vector3F = new Vector3F()
   // Height
   val height = 1.8f
   // Gravity strength
-  val gravityStrength: Float = 0.75f
+  val gravityStrength: Float = 2.00f
   // Speed of all movement
   val speed: Float = 6
   // Current vertical speed
@@ -62,7 +63,7 @@ class Player extends Collidable {
     */
   def setPosition(vector: Vector3F): Unit = {
     position = vector
-    setPositionN(vector.x, vector.y + height, vector.z)
+    camera.setPosition(vector.x, vector.y + height, vector.z)
   }
 
   /**
@@ -71,7 +72,7 @@ class Player extends Collidable {
     * @param speedMod How fast to move (multiplied by player speed)
     */
   def moveDirection(direction: Direction, speedMod: Float): Unit = {
-    val lookDirection = Vector3F(getLookingDirectionX, getLookingDirectionY, getLookingDirectionZ)
+    val lookDirection = camera.getLookingDirection
 
     if(direction == FORWARD || direction == BACKWARDS) {
       var moveDirection = lookDirection.copy()
@@ -112,7 +113,7 @@ class Player extends Collidable {
     }
 
     if(direction == UP) {
-      if(yCollisionN) verticalSpeed = 0.25f
+      if(yCollisionN) verticalSpeed = 0.50f
     }
   }
 
@@ -121,12 +122,12 @@ class Player extends Collidable {
     * @return Block player looking at (Or None if none found or raycast fails)
     */
   def getLookBlockPosition: Option[Vector3I] = {
-    val lookDirection = Vector3F(getLookingDirectionX, getLookingDirectionY, getLookingDirectionZ)
-    val camera = position py height
+    val lookDirection = camera.getLookingDirection
+    val cameraPos = position py height
 
     // If inside block, destroy it
-    if(ChunkLoader.isBlock(camera nearestBlock)) {
-      return Some(camera nearestBlock)
+    if(ChunkLoader.isBlock(cameraPos nearestBlock)) {
+      return Some(cameraPos nearestBlock)
     }
 
     val block = raycastBlock()
@@ -143,7 +144,7 @@ class Player extends Collidable {
     * @return New block vector (Or None if none found or raycast fails)
     */
   def getNewBlockPosition: Option[Vector3I] = {
-    val lookDirection = Vector3F(getLookingDirectionX, getLookingDirectionY, getLookingDirectionZ)
+    val lookDirection = camera.getLookingDirection
 
     // Performs a raycast to find block looking at
     val block = raycastBlock()
@@ -170,11 +171,11 @@ class Player extends Collidable {
     */
   def raycastBlock(): Option[(Vector3I, Axis)] = {
     // Direction looking in
-    val lookDirection = Vector3F(getLookingDirectionX, getLookingDirectionY, getLookingDirectionZ)
-    val camera = position py height
+    val lookDirection = camera.getLookingDirection
+    val cameraPos = position py height
     lookDirection.normalize()
 
-    var current = camera.nearestBlock
+    var current = cameraPos.nearestBlock
 
     // Checks up to 10 blocks from the player
     for (i <- 0 to 10) {
@@ -184,9 +185,9 @@ class Player extends Collidable {
       val z = current.z + (if(lookDirection.z < 0) -0.5f else 0.5f)
 
       // Finds the length of the raycast needed to meet that plane
-      val cx = assertPositive(if(lookDirection.x != 0) Some((x-camera.x) / lookDirection.x) else None)
-      val cy = assertPositive(if(lookDirection.y != 0) Some((y-camera.y) / lookDirection.y) else None)
-      val cz = assertPositive(if(lookDirection.z != 0) Some((z-camera.z) / lookDirection.z) else None)
+      val cx = assertPositive(if(lookDirection.x != 0) Some((x-cameraPos.x) / lookDirection.x) else None)
+      val cy = assertPositive(if(lookDirection.y != 0) Some((y-cameraPos.y) / lookDirection.y) else None)
+      val cz = assertPositive(if(lookDirection.z != 0) Some((z-cameraPos.z) / lookDirection.z) else None)
 
       // Finds the plane which is first collided with
       val axis = reduce(for {
@@ -293,43 +294,6 @@ class Player extends Collidable {
     case Some(a) => a
     case None => None
   }
-
-  def lookDirection = {
-    val array = getLookingDirectionN
-    Vector3F(array(0), array(1), array(2))
-  }
-
-  /**
-    * Sets the position of the camera on the native side
-    * @param x x-location
-    * @param y y-location
-    * @param z z-location
-    */
-  @native private def setPositionN(x: Float, y: Float, z: Float): Unit
-
-  /**
-    * Finds the x-component of the vector looking in
-    * @return X-Component
-    */
-  @native def getLookingDirectionX: Float
-
-  /**
-    * Finds the y-component of the vector looking in
-    * @return Y-Component
-    */
-  @native def getLookingDirectionY: Float
-
-  /**
-    * Finds the z-component of the vector looking in
-    * @return Z-Component
-    */
-  @native def getLookingDirectionZ: Float
-
-  /**
-    * Finds the direction of the vector looking in
-    * @return Array of x y z
-    */
-  @native def getLookingDirectionN: Array[Float]
 }
 
 object Player {

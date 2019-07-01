@@ -1,7 +1,6 @@
 package jni
 
 import jni.Cube.Side.Side
-import src.block.Model
 import src.util.Vector3I
 
 class Cube extends Shape {
@@ -34,10 +33,12 @@ class Cube extends Shape {
     */
   @native private def drawFaceN(x: Float, y: Float, z: Float, face: Int): Unit
 
+  @native private def activateShaderN(angle: Float, camera: Int): Unit
+
   /**
-    * Activates the skybox shader for use - quite slow
+    * Activates the cube shader for use - quite slow
     */
-  @native def activateShader(angle: Float): Unit
+  def activateShader(angle: Float, camera: Camera): Unit = activateShaderN(angle, camera.id)
 }
 
 object Cube extends Cube {

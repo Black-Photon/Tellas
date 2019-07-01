@@ -95,9 +95,9 @@ namespace core {
 
         Data.lastFrame = glfwGetTime();
 
-        auto *camera = new Camera(1920.0f/1080.0f);
-        Data.camera = camera;
-        Data.camera->rotate(YAW, -90.0f);
+//        auto *camera = new Camera(1920.0f/1080.0f); TODO Delete when camera finished
+//        Data.mainCamera = camera;
+//        Data.mainCamera->rotate(YAW, -90.0f);
 
         auto *cube = new CubeModel();
         Data.cube = cube;
@@ -118,7 +118,9 @@ namespace core {
 
     void close() {
         delete (Data.shader3d);
-        delete (Data.camera);
+        for(int i = 0; i < Data.cameras.size(); i++) {
+            delete (Data.cameras.at(i));
+        }
         delete (Data.cube);
 
         glfwTerminate();

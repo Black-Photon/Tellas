@@ -63,6 +63,38 @@ JNIEXPORT jboolean JNICALL Java_jni_KeyListener_rcPressed
 JNIEXPORT jboolean JNICALL Java_jni_KeyListener_lcPressed
   (JNIEnv *, jobject);
 
+/*
+ * Class:     jni_KeyListener
+ * Method:    upPressed
+ * Signature: ()Z
+ */
+JNIEXPORT jboolean JNICALL Java_jni_KeyListener_upPressed
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     jni_KeyListener
+ * Method:    rightPressed
+ * Signature: ()Z
+ */
+JNIEXPORT jboolean JNICALL Java_jni_KeyListener_rightPressed
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     jni_KeyListener
+ * Method:    downPressed
+ * Signature: ()Z
+ */
+JNIEXPORT jboolean JNICALL Java_jni_KeyListener_downPressed
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     jni_KeyListener
+ * Method:    leftPressed
+ * Signature: ()Z
+ */
+JNIEXPORT jboolean JNICALL Java_jni_KeyListener_leftPressed
+  (JNIEnv *, jobject);
+
 #ifdef __cplusplus
 }
 #endif

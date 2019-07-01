@@ -25,11 +25,11 @@ JNIEXPORT void JNICALL Java_jni_Shape_bindBufferN
 
 /*
  * Class:     jni_Shape
- * Method:    activateShader
- * Signature: ()V
+ * Method:    activateShaderN
+ * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_jni_Shape_activateShader
-  (JNIEnv *, jobject);
+JNIEXPORT void JNICALL Java_jni_Shape_activateShaderN
+  (JNIEnv *, jobject, jint);
 
 #ifdef __cplusplus
 }

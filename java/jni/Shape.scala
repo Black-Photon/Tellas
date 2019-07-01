@@ -1,6 +1,6 @@
 package jni
 
-import src.block.Model
+import jni.Model.Model
 import src.util.Vector3I
 
 /**
@@ -14,7 +14,7 @@ class Shape {
     * @param model Model to use to draw to the screen
     */
   def draw(model: Model, position: Vector3I): Unit = {
-    drawN(position.x, position.y, position.z, model.ordinal)
+    drawN(position.x, position.y, position.z, model.id)
   }
 
   /**
@@ -33,7 +33,7 @@ class Shape {
     * @param model Model to bind
     */
   def bindBuffer(model: Model): Unit = {
-    bindBufferN(model.ordinal)
+    bindBufferN(model.id)
   }
 
   /**
@@ -46,7 +46,17 @@ class Shape {
   /**
     * Activates the shader3d for use - quite slow
     */
-  @native def activateShader(): Unit
+  def activateShader(camera: Camera): Unit = activateShaderN(camera.id)
+
+  @native private def activateShaderN(camera: Int): Unit
 }
 
 object Shape extends Shape
+
+/**
+  * Represents different types of models
+  */
+object Model extends Enumeration {
+  type Model = Value
+  val CUBE, WORLD_TEXTURE = Value
+}

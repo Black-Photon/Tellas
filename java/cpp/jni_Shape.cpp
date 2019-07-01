@@ -21,10 +21,10 @@ JNIEXPORT void JNICALL Java_jni_Shape_bindBufferN
     model->bind();
 }
 
-JNIEXPORT void JNICALL Java_jni_Shape_activateShader
-        (JNIEnv *, jobject)
+JNIEXPORT void JNICALL Java_jni_Shape_activateShaderN
+        (JNIEnv *, jobject, jint camera)
 {
     // Sets the shader3d to use (Currently only one)
     Shader *shader = core::Data.shader3d;
-    core::makeModel(*shader);
+    core::makeModel(*shader, *core::Data.cameras.at(camera));
 }

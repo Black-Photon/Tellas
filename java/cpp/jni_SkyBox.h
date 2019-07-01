@@ -26,10 +26,10 @@ JNIEXPORT void JNICALL Java_jni_SkyBox_bindBufferN
 /*
  * Class:     jni_SkyBox
  * Method:    activateShader
- * Signature: ()V
+ * Signature: (I)V
  */
 JNIEXPORT void JNICALL Java_jni_SkyBox_activateShader
-  (JNIEnv *, jobject);
+  (JNIEnv *, jobject, jint);
 
 #ifdef __cplusplus
 }

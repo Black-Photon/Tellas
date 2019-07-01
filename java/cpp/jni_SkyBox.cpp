@@ -27,9 +27,9 @@ JNIEXPORT void JNICALL Java_jni_SkyBox_bindBufferN
 }
 
 JNIEXPORT void JNICALL Java_jni_SkyBox_activateShader
-        (JNIEnv *, jobject)
+        (JNIEnv *, jobject, jint camera)
 {
     Shader *shader = core::Data.shaderSkyBox;
-    core::makeModel(*shader);
+    core::makeModel(*shader, *core::Data.cameras.at(camera));
     core::glCheckError();
 }

@@ -56,12 +56,12 @@ namespace core {
         yoffset *= sensitivity;
 
         // Adjusts the yaw and pitch according to the mouse movement
-        Data.camera->rotate(YAW, xoffset);
-        Data.camera->rotate(PITCH, yoffset);
+        Data.movementCam->rotate(YAW, xoffset);
+        Data.movementCam->rotate(PITCH, yoffset);
     }
 
     void scroll_callback(GLFWwindow *window, double xoffset, double yoffset) {
-        //Data.camera->zoom(-yoffset);
+        //Data.mainCamera->zoom(-yoffset);
     }
 
     void click_callback(GLFWwindow *window, int button, int action, int mods) {

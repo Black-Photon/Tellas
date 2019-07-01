@@ -18,10 +18,14 @@ class KeyListener {
   @native def spacePressed: Boolean
   @native def rcPressed: Boolean
   @native def lcPressed: Boolean
+  @native def upPressed: Boolean
+  @native def rightPressed: Boolean
+  @native def downPressed: Boolean
+  @native def leftPressed: Boolean
 }
 
 object KeyListener extends KeyListener {
-  def processInput(deltaT: Float): Unit = {
+  def processInput(deltaT: Float, sunCam: Camera): Unit = {
     GLWrapper.processInput(deltaT)
 
     if (wPressed) {
@@ -54,6 +58,18 @@ object KeyListener extends KeyListener {
     }
     if (spacePressed) {
       Data.player.moveDirection(UP, deltaT)
+    }
+    if(upPressed) {
+      sunCam.rotate(Rotation.PITCH, (deltaT * 100).toInt)
+    }
+    if(rightPressed) {
+      sunCam.rotate(Rotation.YAW, (deltaT * 100).toInt)
+    }
+    if(downPressed) {
+      sunCam.rotate(Rotation.PITCH, -(deltaT * 100).toInt)
+    }
+    if(leftPressed) {
+      sunCam.rotate(Rotation.YAW, -(deltaT * 100).toInt)
     }
   }
 

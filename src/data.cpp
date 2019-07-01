@@ -24,7 +24,8 @@ namespace core {
         Shader *shader3d = nullptr;
         Shader *shader2d = nullptr;
         Shader *shaderSkyBox = nullptr;
-        Camera *camera = nullptr;
+        Camera *movementCam = nullptr;
+        std::vector<Camera*> cameras;
         std::vector<Model3D*> models3d;
         std::vector<Model2D*> models2d;
         CubeModel *cube;

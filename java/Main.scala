@@ -1,11 +1,13 @@
 import java.nio.file.FileSystems
 
 import jni.Cube.Side.{BACK, BOTTOM, FRONT, LEFT, RIGHT, Side, TOP}
-import jni.{Cube, Framebuffer, GLWrapper, KeyListener, Shape, SkyBox, Viewport}
-import src.block.{Air, Dirt, Grass, Model}
+import jni.{Camera, Cube, Framebuffer, GLWrapper, KeyListener, Model, Shape, SkyBox, Viewport}
+import src.block.{Air, Dirt, Grass}
 import src.util.Types.Texture
 import src.util.{Vector3F, Vector3I}
 import src.{Chunk, ChunkLoader, Data, Image}
+import jni.Projection.ORTHOGRAPHIC
+import jni.Rotation.{PITCH, YAW}
 
 object Main extends App {
   // Loads the C++
@@ -36,16 +38,23 @@ object Main extends App {
 
   val framebuffer: Framebuffer = new Framebuffer(4096, 4096, true)
 
+  val sunCam: Camera = new Camera(Data.width, Data.height)
+  sunCam.setProjectionType(ORTHOGRAPHIC)
+  sunCam.rotate(PITCH, -45)
+  sunCam.rotate(YAW, 45)
+  sunCam.lockPitch(false)
+
   var lastTime = 0.0f
   var iterations = 0
 
   message("Drawing")
   while(!GLWrapper.shouldClose) {
     val deltaT = GLWrapper.deltaT
-    KeyListener.processInput(deltaT)
+    KeyListener.processInput(deltaT, sunCam)
     GLWrapper.prerender(0.2f, 0.2f, 0.7f)
 
     Data.player.frame(deltaT)
+    sunCam.setPosition(Data.player.getPosition + Vector3F(-10.0f, 15.0f, 10.0f))
 
     time += deltaT
     iterations += 1
@@ -83,19 +92,20 @@ object Main extends App {
 
     framebuffer.start()
     Shape.bindBuffer(Model.CUBE)
-    Cube.activateShader(angle)
+    Cube.activateShader(angle, sunCam)
     GLWrapper.prerender(0.2f, 0.2f, 0.7f)
-    GLWrapper.useTexture(sun, 0)
-    Dirt.drawBlock(Vector3I(3, -1, -2))
+    drawBlocks(sunCam)
+//    GLWrapper.useTexture(sun, 0)
+//    Dirt.drawBlock(Vector3I(0, -1, 0))
     framebuffer.end()
 
     GLWrapper.useTexture(sun, 0)
     SkyBox.bindBuffer()
-    SkyBox.activateShader()
+    SkyBox.activateShader(Data.player.camera)
     SkyBox.draw(Data.player.getPosition, angle, 15)
 
-    Cube.activateShader(angle)
-    drawBlocks()
+    Cube.activateShader(angle, Data.player.camera)
+    drawBlocks(Data.player.camera)
     GLWrapper.useTexture(framebuffer.texture, 0)
     Viewport.drawImage(0, 0, Data.width/4, Data.height/4)
 
@@ -111,14 +121,14 @@ object Main extends App {
   /**
     * Draws all the blocks of this type
     */
-  def drawBlocks(): Unit = {
+  def drawBlocks(camera: Camera): Unit = {
     Shape.bindBuffer(Model.CUBE)
-    val chunkDepth = 2
-    val playerChunk = Data.player.getPosition / 16 floor
-    val playerDir: Vector3F = Data.player.lookDirection
+    val chunkDepth = 3
+    val playerChunk = camera.getPosition / 16 floor
+    val playerDir: Vector3F = camera.getLookingDirection
 
     def findAngleToPlayer(position: Vector3F): Float = {
-      val chunkDir: Vector3F = position - (Data.player.getPosition - playerDir * 5)
+      val chunkDir: Vector3F = position - (camera.getPosition - playerDir * 5)
       chunkDir.normalize()
       playerDir :* chunkDir
     }
@@ -133,7 +143,7 @@ object Main extends App {
         }
       }
     }
-    val playerPos = Data.player.getPosition
+    val playerPos = camera.getPosition
     chunks = chunks + ChunkLoader.getChunk(playerPos nearestBlock)
     chunks = chunks + ChunkLoader.getChunk((playerPos nearestBlock) py Data.player.height.ceil.toInt)
 
@@ -154,12 +164,12 @@ object Main extends App {
             block.tick
 
             // Checks if the block is viewable
-            val playerDir: Vector3F = Data.player.lookDirection
+            val playerDir: Vector3F = camera.getLookingDirection
             playerDir.normalize()
-            val objectDir: Vector3F = position.toFloat - (Data.player.getPosition - playerDir * 5)
+            val objectDir: Vector3F = position.toFloat - (camera.getPosition - playerDir * 5)
             objectDir.normalize()
             val angle = playerDir :* objectDir
-            if (angle > 0.5 || position.toFloat == Data.player.getPosition) {
+            if (angle > 0.5 || position.toFloat == camera.getPosition) {
               for ((texture, list) <- block.self.textures) {
                 GLWrapper.useTexture(texture, 0)
                 for (side <- list) {

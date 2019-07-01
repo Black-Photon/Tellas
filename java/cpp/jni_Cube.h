@@ -17,11 +17,11 @@ JNIEXPORT void JNICALL Java_jni_Cube_drawFaceN
 
 /*
  * Class:     jni_Cube
- * Method:    activateShader
- * Signature: (F)V
+ * Method:    activateShaderN
+ * Signature: (FI)V
  */
-JNIEXPORT void JNICALL Java_jni_Cube_activateShader
-  (JNIEnv *, jobject, jfloat);
+JNIEXPORT void JNICALL Java_jni_Cube_activateShaderN
+  (JNIEnv *, jobject, jfloat, jint);
 
 #ifdef __cplusplus
 }

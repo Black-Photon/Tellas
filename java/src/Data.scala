@@ -1,20 +1,18 @@
 package src
 
-import jni.Player
+import jni.{Camera, Player}
 import src.block.BlockInstance
-
-import scala.collection.mutable
 
 /**
   * General static data that should be globally accessible
   */
 object Data {
-  // The current player
-  val player: Player = new Player
   // List of all block types
   val blocks: Array[BlockInstance] = new Array(3)
   // Screen Width
   val width: Int = 1920
   // Screen Height
   val height: Int = 1080
+  // The current player
+  val player: Player = new Player(new Camera(width, height))
 }

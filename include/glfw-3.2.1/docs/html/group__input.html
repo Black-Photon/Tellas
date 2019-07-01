@@ -1332,7 +1332,7 @@ Key and button actions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This function sets the position, in screen coordinates, of the cursor relative to the upper-left corner of the client area of the specified window. The window must have input focus. If the window does not have input focus when this function is called, it fails silently.</p>
-<p><b>Do not use this function</b> to implement things like camera controls. GLFW already provides the <code>GLFW_CURSOR_DISABLED</code> cursor mode that hides the cursor, transparently re-centers it and provides unconstrained cursor motion. See <a class="el" href="group__input.html#gaa92336e173da9c8834558b54ee80563b">glfwSetInputMode</a> for more information.</p>
+<p><b>Do not use this function</b> to implement things like mainCamera controls. GLFW already provides the <code>GLFW_CURSOR_DISABLED</code> cursor mode that hides the cursor, transparently re-centers it and provides unconstrained cursor motion. See <a class="el" href="group__input.html#gaa92336e173da9c8834558b54ee80563b">glfwSetInputMode</a> for more information.</p>
 <p>If the cursor mode is <code>GLFW_CURSOR_DISABLED</code> then the cursor position is unconstrained and limited only by the minimum and maximum values of a <code>double</code>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1463,7 +1463,7 @@ Key and button actions</h2></td></tr>
 <p>If the mode is <code>GLFW_CURSOR</code>, the value must be one of the following cursor modes:</p><ul>
 <li><code>GLFW_CURSOR_NORMAL</code> makes the cursor visible and behaving normally.</li>
 <li><code>GLFW_CURSOR_HIDDEN</code> makes the cursor invisible when it is over the client area of the window but does not restrict the cursor from leaving.</li>
-<li><code>GLFW_CURSOR_DISABLED</code> hides and grabs the cursor, providing virtual and unlimited cursor movement. This is useful for implementing for example 3D camera controls.</li>
+<li><code>GLFW_CURSOR_DISABLED</code> hides and grabs the cursor, providing virtual and unlimited cursor movement. This is useful for implementing for example 3D mainCamera controls.</li>
 </ul>
 <p>If the mode is <code>GLFW_STICKY_KEYS</code>, the value must be either <code>GLFW_TRUE</code> to enable sticky keys, or <code>GLFW_FALSE</code> to disable it. If sticky keys are enabled, a key press will ensure that <a class="el" href="group__input.html#gadd341da06bc8d418b4dc3a3518af9ad2">glfwGetKey</a> returns <code>GLFW_PRESS</code> the next time it is called even if the key had been released before the call. This is useful when you are only interested in whether keys have been pressed but not when or in which order.</p>
 <p>If the mode is <code>GLFW_STICKY_MOUSE_BUTTONS</code>, the value must be either <code>GLFW_TRUE</code> to enable sticky mouse buttons, or <code>GLFW_FALSE</code> to disable it. If sticky mouse buttons are enabled, a mouse button press will ensure that <a class="el" href="group__input.html#gac1473feacb5996c01a7a5a33b5066704">glfwGetMouseButton</a> returns <code>GLFW_PRESS</code> the next time it is called even if the mouse button had been released before the call. This is useful when you are only interested in whether mouse buttons have been pressed but not when or in which order.</p>

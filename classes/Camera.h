@@ -48,6 +48,12 @@ public:
     // Whether the pitch is restricted between -90 and 90 degrees
     bool lockPitch = true;
 
+    // Projection Algorithm to use
+    int projection = 1;
+
+    // Orthographic dimensions
+    float orthoDim = 5.0f;
+
     /**
      * Creates a camera of the given aspect ratio
      * @param aspectRatio Screen Display ratio
@@ -84,8 +90,13 @@ public:
      * Gets the transformation to camera coordinates into a perspective viewspace
      * @return Matrix describing the above transformation
      */
-    glm::mat4 getPerspectiveTransformation();
+    glm::mat4 getProjectionTransformation();
     glm::vec3 getLooking();
+    /**
+     * Whether to use Orthographic or Perspective (Perspective by default)
+     * @param type 0 for Orthographic or 1 Perspective
+     */
+    void setProjectionType(int type);
 
 private:
     /**
@@ -94,6 +105,8 @@ private:
      * @return Value after Modulus
      */
     float modulus(float in);
+
+
 };
 
 #endif //OPENGLPROJECT_CAMERA_H

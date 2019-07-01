@@ -13,4 +13,5 @@ void main()
     // Multiplied to 2 means that we can work with whole number coordinates rather than decimals
     gl_Position = projection * view * model * vec4(aPos * 2, 1.0);
     TexCoords = aTexCoords;
+    FragPos = model * vec4(aPos * 2, 1.0);
 }
