@@ -55,6 +55,8 @@ class Camera(width: Int, height: Int) {
 
   def rotate(rotation: Rotation, angle: Int): Unit = rotateN(rotation.id, angle, id)
 
+  def setRotation(rotation: Rotation, angle: Int): Unit = setRotationN(rotation.id, angle, id)
+
   def lockPitch(lock: Boolean): Unit = lockPitchN(lock, id)
 
   def invert(inverted: Boolean): Unit = invertN(inverted, id)
@@ -102,6 +104,8 @@ class Camera(width: Int, height: Int) {
   @native private def setProjectionTypeN(pType: Int, id: Int)
 
   @native private def rotateN(rotation: Int, angle: Int, id: Int)
+
+  @native private def setRotationN(rotation: Int, angle: Int, id: Int)
 
   @native private def lockPitchN(lock: Boolean, id: Int)
 

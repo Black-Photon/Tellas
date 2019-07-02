@@ -89,6 +89,24 @@ JNIEXPORT void JNICALL Java_jni_Camera_rotateN
     }
 }
 
+JNIEXPORT void JNICALL Java_jni_Camera_setRotationN
+        (JNIEnv *, jobject, jint rotation, jint angle, jint id)
+{
+    Camera* camera = core::Data.cameras.at(id);
+
+    switch (rotation) {
+        case 0: camera->pitch = angle;
+            break;
+        case 1: camera->yaw = angle;
+            break;
+        default: std::cerr << "No such rotation type" << std::endl;
+            throw std::exception();
+    }
+
+    // Applies as a vector to the camera forward direction
+    camera->cameraFront = camera->getLooking();
+}
+
 JNIEXPORT void JNICALL Java_jni_Camera_lockPitchN
         (JNIEnv *, jobject, jboolean lock, jint id)
 {

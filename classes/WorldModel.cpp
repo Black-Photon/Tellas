@@ -33,6 +33,7 @@ void WorldModel::draw(glm::vec3 position, float angle, float distance, Shader sh
     // Creates the rotate matrix by rotating
     glm::mat4 rotate = glm::mat4(1.0f);
     rotate = glm::rotate(rotate, angle, glm::vec3(1.0f, 0.0f, 0.0f));
+    rotate = glm::rotate(rotate, angle, glm::vec3(0.0f, -sin(angle), sin(angle)));
     int rotateLoc = glGetUniformLocation(shader.ID, "rotate");
 
     // Sets the relative shader3d uniform
@@ -40,7 +41,7 @@ void WorldModel::draw(glm::vec3 position, float angle, float distance, Shader sh
 
     // Creates the location matrix by translating by coordinates
     glm::mat4 model = glm::mat4(1.0f);
-    model = glm::translate(model, position + glm::vec3(0.0f, distance * cos(angle), distance * sin(angle)));
+    model = glm::translate(model, position + distance * glm::normalize(glm::vec3(-sin(angle), cos(angle), sin(angle))));
     int modelLoc = glGetUniformLocation(shader.ID, "displace");
 
     // Sets the relative shader3d uniform

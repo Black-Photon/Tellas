@@ -81,6 +81,14 @@ JNIEXPORT void JNICALL Java_jni_Camera_rotateN
 
 /*
  * Class:     jni_Camera
+ * Method:    setRotationN
+ * Signature: (III)V
+ */
+JNIEXPORT void JNICALL Java_jni_Camera_setRotationN
+  (JNIEnv *, jobject, jint, jint, jint);
+
+/*
+ * Class:     jni_Camera
  * Method:    lockPitchN
  * Signature: (ZI)V
  */

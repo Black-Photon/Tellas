@@ -59,18 +59,18 @@ object KeyListener extends KeyListener {
     if (spacePressed) {
       Data.player.moveDirection(UP, deltaT)
     }
-    if(upPressed) {
-      sunCam.rotate(Rotation.PITCH, (deltaT * 100).toInt)
-    }
-    if(rightPressed) {
-      sunCam.rotate(Rotation.YAW, (deltaT * 100).toInt)
-    }
-    if(downPressed) {
-      sunCam.rotate(Rotation.PITCH, -(deltaT * 100).toInt)
-    }
-    if(leftPressed) {
-      sunCam.rotate(Rotation.YAW, -(deltaT * 100).toInt)
-    }
+//    if(upPressed) {
+//      sunCam.rotate(Rotation.PITCH, (deltaT * 100).toInt)
+//    }
+//    if(rightPressed) {
+//      sunCam.rotate(Rotation.YAW, (deltaT * 100).toInt)
+//    }
+//    if(downPressed) {
+//      sunCam.rotate(Rotation.PITCH, -(deltaT * 100).toInt)
+//    }
+//    if(leftPressed) {
+//      sunCam.rotate(Rotation.YAW, -(deltaT * 100).toInt)
+//    }
   }
 
   def updateSurroundings(position: Vector3I): Unit = {
