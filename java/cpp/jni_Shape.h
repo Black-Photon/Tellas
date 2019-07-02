@@ -10,10 +10,10 @@ extern "C" {
 /*
  * Class:     jni_Shape
  * Method:    drawN
- * Signature: (FFFI)V
+ * Signature: (FFFII)V
  */
 JNIEXPORT void JNICALL Java_jni_Shape_drawN
-  (JNIEnv *, jobject, jfloat, jfloat, jfloat, jint);
+  (JNIEnv *, jobject, jfloat, jfloat, jfloat, jint, jint);
 
 /*
  * Class:     jni_Shape
@@ -21,14 +21,6 @@ JNIEXPORT void JNICALL Java_jni_Shape_drawN
  * Signature: (I)V
  */
 JNIEXPORT void JNICALL Java_jni_Shape_bindBufferN
-  (JNIEnv *, jobject, jint);
-
-/*
- * Class:     jni_Shape
- * Method:    activateShaderN
- * Signature: (I)V
- */
-JNIEXPORT void JNICALL Java_jni_Shape_activateShaderN
   (JNIEnv *, jobject, jint);
 
 #ifdef __cplusplus

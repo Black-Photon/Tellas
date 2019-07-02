@@ -45,6 +45,11 @@ void Shader::setVec3(const std::string &name, glm::vec3 value) const
     glUniform3fv(glGetUniformLocation(ID, name.c_str()), 1, glm::value_ptr(value));
 }
 
+void Shader::setVec3(const std::string &name, float v1, float v2, float v3) const
+{
+    setVec3(name, glm::vec3(v1, v2, v3));
+}
+
 void Shader::readVertexFile(const char* vertexPath, std::string * vertexCode)
 {
     std::ifstream vShaderFile;

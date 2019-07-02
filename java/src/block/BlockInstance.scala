@@ -1,6 +1,6 @@
 package src.block
 
-import jni.{Cube, GLWrapper, Model, Shape}
+import jni.{Cube, GLWrapper, Model, Shader, Shape}
 import jni.Cube.Side.{ALL, BACK, BOTTOM, FRONT, LEFT, RIGHT, Side, TOP}
 import jni.Model.{CUBE, Model}
 import src.util.Vector3I
@@ -30,12 +30,12 @@ abstract class BlockInstance() {
     * Draws an individual block
     * @param position Location to draw at
     */
-  def drawBlock(position: Vector3I): Unit = {
-    Cube.drawFace(position, FRONT)
-    Cube.drawFace(position, BACK)
-    Cube.drawFace(position, LEFT)
-    Cube.drawFace(position, RIGHT)
-    Cube.drawFace(position, BOTTOM)
-    Cube.drawFace(position, TOP)
+  def drawBlock(position: Vector3I, shader: Shader): Unit = {
+    Cube.drawFace(position, FRONT, shader)
+    Cube.drawFace(position, BACK, shader)
+    Cube.drawFace(position, LEFT, shader)
+    Cube.drawFace(position, RIGHT, shader)
+    Cube.drawFace(position, BOTTOM, shader)
+    Cube.drawFace(position, TOP, shader)
   }
 }

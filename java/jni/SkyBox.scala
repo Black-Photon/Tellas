@@ -40,7 +40,7 @@ class SkyBox extends Shape{
     */
   @native private def activateShader(camera: Int): Unit
 
-  override def activateShader(camera: Camera): Unit = activateShader(camera.id)
+  def activateShader(camera: Camera): Unit = activateShader(camera.id)
 }
 
 object SkyBox extends SkyBox

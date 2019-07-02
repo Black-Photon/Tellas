@@ -2,16 +2,14 @@
 #include "../main.cpp"
 
 JNIEXPORT void JNICALL Java_jni_Shape_drawN
-        (JNIEnv * env, jobject, jfloat x, jfloat y, jfloat z, jint jmodel)
+        (JNIEnv * env, jobject, jfloat x, jfloat y, jfloat z, jint jmodel, jint shader)
 {
-    Shader *shader = core::Data.shader3d;
-
     // Sets the position
     glm::vec3 position(x, y, z);
 
     // Draws the model
     Model3D *model = core::Data.models3d.at(jmodel);
-    model->draw(position, *shader);
+    model->draw(position, *core::Data.shaders.at(shader));
 }
 
 JNIEXPORT void JNICALL Java_jni_Shape_bindBufferN
@@ -19,12 +17,4 @@ JNIEXPORT void JNICALL Java_jni_Shape_bindBufferN
 {
     Model3D *model = core::Data.models3d.at(jmodel);
     model->bind();
-}
-
-JNIEXPORT void JNICALL Java_jni_Shape_activateShaderN
-        (JNIEnv *, jobject, jint camera)
-{
-    // Sets the shader3d to use (Currently only one)
-    Shader *shader = core::Data.shader3d;
-    core::makeModel(*shader, *core::Data.cameras.at(camera));
 }

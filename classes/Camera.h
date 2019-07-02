@@ -52,7 +52,7 @@ public:
     int projection = 1;
 
     // Orthographic dimensions
-    float orthoDim = 5.0f;
+    float orthoDim = 50.0f;
 
     /**
      * Creates a camera of the given aspect ratio

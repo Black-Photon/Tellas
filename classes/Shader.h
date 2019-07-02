@@ -50,6 +50,14 @@ public:
      * @param value Vector value
      */
     void setVec3(const std::string &name, glm::vec3 value) const;
+    /**
+     * Sets a vec3 uniform to the given value
+     * @param name Variable name
+     * @param v1 x-coord
+     * @param v2 y-coord
+     * @param v3 z-coord
+     */
+    void setVec3(const std::string &name, float v1, float v2, float v3) const;
 
 private:
     /**

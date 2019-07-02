@@ -9,8 +9,8 @@ class Cube extends Shape {
     *
     * @param position 3D location to draw the cube
     */
-  def draw(position: Vector3I): Unit = {
-    draw(Model.CUBE, position)
+  def draw(position: Vector3I, shader: Shader): Unit = {
+    draw(Model.CUBE, position, shader)
   }
 
   /**
@@ -19,8 +19,8 @@ class Cube extends Shape {
     * @param position 3D location to draw the cube
     * @param side Side of face to draw
     */
-  def drawFace(position: Vector3I, side: Side): Unit = {
-    drawFaceN(position.x, position.y, position.z, side.id)
+  def drawFace(position: Vector3I, side: Side, shader: Shader): Unit = {
+    drawFaceN(position.x, position.y, position.z, side.id, shader.id)
   }
 
   /**
@@ -31,14 +31,7 @@ class Cube extends Shape {
     * @param z     Z-Coordinate to draw to
     * @param face  Model reference to draw
     */
-  @native private def drawFaceN(x: Float, y: Float, z: Float, face: Int): Unit
-
-  @native private def activateShaderN(angle: Float, camera: Int): Unit
-
-  /**
-    * Activates the cube shader for use - quite slow
-    */
-  def activateShader(angle: Float, camera: Camera): Unit = activateShaderN(angle, camera.id)
+  @native private def drawFaceN(x: Float, y: Float, z: Float, face: Int, shader: Int): Unit
 }
 
 object Cube extends Cube {

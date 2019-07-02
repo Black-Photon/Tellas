@@ -72,7 +72,7 @@ void Camera::setProjectionType(int type)
 glm::mat4 Camera::getProjectionTransformation()
 {
     switch (projection) {
-        case 0: return glm::ortho(-orthoDim*ASPECT_RATIO, orthoDim*ASPECT_RATIO, -orthoDim, orthoDim, -500.0f, 500.0f);
+        case 0: return glm::ortho(-orthoDim*ASPECT_RATIO, orthoDim*ASPECT_RATIO, -orthoDim, orthoDim, 0.0f, 200.0f);
         case 1: return glm::perspective(glm::radians(fov), ASPECT_RATIO, MIN_DISTANCE, MAX_DISTANCE);
         default: std::cerr << "Could not interpret projection transformation type" << std::endl;
         throw std::exception();

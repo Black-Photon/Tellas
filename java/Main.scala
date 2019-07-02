@@ -1,7 +1,7 @@
 import java.nio.file.FileSystems
 
 import jni.Cube.Side.{BACK, BOTTOM, FRONT, LEFT, RIGHT, Side, TOP}
-import jni.{Camera, Cube, Framebuffer, GLWrapper, KeyListener, Model, Shape, SkyBox, Viewport}
+import jni.{Camera, Cube, Framebuffer, GLWrapper, KeyListener, Model, Shader, Shape, SkyBox, Viewport}
 import src.block.{Air, Dirt, Grass}
 import src.util.Types.Texture
 import src.util.{Vector3F, Vector3I}
@@ -36,13 +36,26 @@ object Main extends App {
   val crosshair: Image = new Image("crosshair.png", true)
   val sun: Texture = GLWrapper.generateTexture("sun.png", false)
 
-  val framebuffer: Framebuffer = new Framebuffer(4096, 4096, true)
+  val sunCamDim = 4096 * 3
+  val framebuffer: Framebuffer = new Framebuffer(sunCamDim, sunCamDim, false)
 
-  val sunCam: Camera = new Camera(Data.width, Data.height)
+  val sunCam: Camera = new Camera(sunCamDim, sunCamDim)
   sunCam.setProjectionType(ORTHOGRAPHIC)
   sunCam.rotate(PITCH, -45)
   sunCam.rotate(YAW, 45)
   sunCam.lockPitch(false)
+
+  val shader3d = new Shader("3dImage", "3dImage")
+  shader3d.useShader()
+  shader3d.setFloat("uangle", 0.0f)
+
+  val sunShader = new Shader("3dImage", "empty")
+
+  val shadowShader = new Shader("3dImage", "shadow")
+  shadowShader.useShader()
+//  shadowShader.setFloat("uangle", 0.0f)
+  shadowShader.setVec3("lightDir", Math.sin(-45.0f * Math.PI / 180).toFloat, Math.cos(-45.0f * Math.PI / 180).toFloat, Math.sin(45.0f * Math.PI / 180).toFloat)
+  shadowShader.setInt("shadowMap", 1)
 
   var lastTime = 0.0f
   var iterations = 0
@@ -92,9 +105,8 @@ object Main extends App {
 
     framebuffer.start()
     Shape.bindBuffer(Model.CUBE)
-    Cube.activateShader(angle, sunCam)
     GLWrapper.prerender(0.2f, 0.2f, 0.7f)
-    drawBlocks(sunCam)
+    drawBlocks(sunCam, sunShader)
 //    GLWrapper.useTexture(sun, 0)
 //    Dirt.drawBlock(Vector3I(0, -1, 0))
     framebuffer.end()
@@ -104,10 +116,12 @@ object Main extends App {
     SkyBox.activateShader(Data.player.camera)
     SkyBox.draw(Data.player.getPosition, angle, 15)
 
-    Cube.activateShader(angle, Data.player.camera)
-    drawBlocks(Data.player.camera)
-    GLWrapper.useTexture(framebuffer.texture, 0)
-    Viewport.drawImage(0, 0, Data.width/4, Data.height/4)
+    shadowShader.useShader()
+    shadowShader.simulateCamera("shadowMatrix", sunCam)
+    GLWrapper.useTexture(framebuffer.texture, 1)
+    drawBlocks(Data.player.camera, shadowShader)
+//    GLWrapper.useTexture(framebuffer.texture, 0)
+//    Viewport.drawImage(0, 0, 600, 600)
 
     val size = 64
     crosshair.draw(Data.width/2 - size/2, Data.height/2 - size/2, size, size)
@@ -121,7 +135,10 @@ object Main extends App {
   /**
     * Draws all the blocks of this type
     */
-  def drawBlocks(camera: Camera): Unit = {
+  def drawBlocks(camera: Camera, shader: Shader): Unit = {
+    shader.useShader()
+    shader.makeModel(camera)
+
     Shape.bindBuffer(Model.CUBE)
     val chunkDepth = 3
     val playerChunk = camera.getPosition / 16 floor
@@ -174,7 +191,7 @@ object Main extends App {
                 GLWrapper.useTexture(texture, 0)
                 for (side <- list) {
                   if (!block.isSide(side))
-                    drawFace(position, side)
+                    drawFace(position, side, shader)
                 }
               }
             }
@@ -187,8 +204,8 @@ object Main extends App {
       * Draws an individual block
       * @param position Location to draw at
       */
-    def drawFace(position: Vector3I, face: Side): Unit = {
-      Cube.drawFace(position, face)
+    def drawFace(position: Vector3I, face: Side, shader: Shader): Unit = {
+      Cube.drawFace(position, face, shader)
     }
 
     def shiftPos(pos: Vector3I, side: Side): Vector3I = {

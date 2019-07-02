@@ -21,11 +21,11 @@ namespace core {
         unsigned int SCR_HEIGHT;
         float lastFrame = 0.0f;
         GLFWwindow *window = nullptr;
-        Shader *shader3d = nullptr;
         Shader *shader2d = nullptr;
         Shader *shaderSkyBox = nullptr;
         Camera *movementCam = nullptr;
         std::vector<Camera*> cameras;
+        std::vector<Shader*> shaders;
         std::vector<Model3D*> models3d;
         std::vector<Model2D*> models2d;
         CubeModel *cube;

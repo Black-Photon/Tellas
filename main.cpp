@@ -77,9 +77,6 @@ namespace core {
         glEnable(GL_BLEND);
 
         // Program
-        auto *shader3d = new Shader("3dImage.vert", "3dImage.frag", Path.shaders);
-        Data.shader3d = shader3d;
-
         auto *shader2d = new Shader("2dImage.vert", "2dImage.frag", Path.shaders);
         Data.shader2d = shader2d;
 
@@ -87,8 +84,6 @@ namespace core {
         Data.shaderSkyBox = shaderSkyBox;
 
         stbi_set_flip_vertically_on_load(true);
-
-        shader3d->use(); // Must activate shader3d to use uniforms
 
         // Creates the actual main viewport, and makes it adjust for window size changes
         glViewport(0, 0, Data.SCR_WIDTH, Data.SCR_HEIGHT);
@@ -117,9 +112,11 @@ namespace core {
     }
 
     void close() {
-        delete (Data.shader3d);
         for(int i = 0; i < Data.cameras.size(); i++) {
             delete (Data.cameras.at(i));
+        }
+        for(int i = 0; i < Data.shaders.size(); i++) {
+            delete (Data.shaders.at(i));
         }
         delete (Data.cube);
 

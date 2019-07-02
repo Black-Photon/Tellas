@@ -1,5 +1,6 @@
 package src.block
 
+import jni.Shader
 import src.util.Vector3I
 
 /**
@@ -16,5 +17,5 @@ object Air extends BlockInstance() {
   override val ID: Int = 0
 
   // Don't draw anything
-  override def drawBlock(position: Vector3I): Unit = {}
+  override def drawBlock(position: Vector3I, shader: Shader): Unit = {}
 }

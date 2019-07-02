@@ -10,18 +10,10 @@ extern "C" {
 /*
  * Class:     jni_Cube
  * Method:    drawFaceN
- * Signature: (FFFI)V
+ * Signature: (FFFII)V
  */
 JNIEXPORT void JNICALL Java_jni_Cube_drawFaceN
-  (JNIEnv *, jobject, jfloat, jfloat, jfloat, jint);
-
-/*
- * Class:     jni_Cube
- * Method:    activateShaderN
- * Signature: (FI)V
- */
-JNIEXPORT void JNICALL Java_jni_Cube_activateShaderN
-  (JNIEnv *, jobject, jfloat, jint);
+  (JNIEnv *, jobject, jfloat, jfloat, jfloat, jint, jint);
 
 #ifdef __cplusplus
 }
