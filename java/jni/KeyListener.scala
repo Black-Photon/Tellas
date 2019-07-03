@@ -5,7 +5,7 @@ import Player.Direction.{BACKWARDS, FORWARD, LEFT, RIGHT, UP}
 import jni.Cube.Side
 import jni.Cube.Side.{BACK, BOTTOM, FRONT, LEFT, RIGHT, Side, TOP}
 import jni.Player.Direction
-import src.block.{Air, Block, Dirt}
+import src.block.{Air, Block, Dirt, Stone}
 import src.util.Vector3I
 
 import scala.collection.mutable
@@ -42,7 +42,7 @@ object KeyListener extends KeyListener {
     }
     if (rcPressed) {
       Data.player.getNewBlockPosition match {
-        case Some(position)    => new Dirt(position)
+        case Some(position)    => new Stone(position)
                                   updateSurroundings(position)
                                   ChunkLoader.updateSurroundingVisibility(position)
         case None              => Unit
@@ -59,9 +59,14 @@ object KeyListener extends KeyListener {
     if (spacePressed) {
       Data.player.moveDirection(UP, deltaT)
     }
-//    if(upPressed) {
-//      sunCam.rotate(Rotation.PITCH, (deltaT * 100).toInt)
-//    }
+    if(upPressed) {
+//      Data.player.getNewBlockPosition match {
+//        case Some(position)    => new Stone(position)
+//          updateSurroundings(position)
+//          ChunkLoader.updateSurroundingVisibility(position)
+//        case None              => Unit
+//      }
+    }
 //    if(rightPressed) {
 //      sunCam.rotate(Rotation.YAW, (deltaT * 100).toInt)
 //    }

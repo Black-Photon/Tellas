@@ -40,21 +40,19 @@ object Tellas extends App {
   val sunCamDim = 4096 * 3
   val framebuffer: Framebuffer = new Framebuffer(sunCamDim, sunCamDim, debugSun)
 
-  var testAngle: Float = -90.0f % 360
-
+  var angle: Float = 250.0f % 360
 
   val sunCam: Camera = new Camera(sunCamDim, sunCamDim)
   sunCam.setProjectionType(ORTHOGRAPHIC)
-  sunCam.setRotation(PITCH, -testAngle.toInt)
-  sunCam.setRotation(YAW, -90+testAngle.toInt)
+  sunCam.setRotation(PITCH, -angle.toInt)
+  sunCam.setRotation(YAW, -90+angle.toInt)
   sunCam.lockPitch(false)
 
   val sunShader = new Shader("3dImage", if(debugSun) "3dImage" else "empty")
 
   val shadowShader = new Shader("3dImage", "shadow")
   shadowShader.useShader()
-//  shadowShader.setFloat("uangle", 0.0f)
-  shadowShader.setVec3("lightDir", Math.sin(-testAngle * Math.PI / 180).toFloat, Math.cos(-testAngle * Math.PI / 180).toFloat, Math.sin(testAngle * Math.PI / 180).toFloat)
+  shadowShader.setVec3("lightDir", Math.sin(-angle * Math.PI / 180).toFloat, Math.cos(-angle * Math.PI / 180).toFloat, Math.sin(angle * Math.PI / 180).toFloat)
   shadowShader.setInt("shadowMap", 1)
 
   var lastTime = 0.0f
@@ -64,20 +62,42 @@ object Tellas extends App {
   while(!GLWrapper.shouldClose) {
     val deltaT = GLWrapper.deltaT
     KeyListener.processInput(deltaT, sunCam)
-    GLWrapper.prerender(0.2f, 0.2f, 0.7f)
+    var colour: Vector3F = new Vector3F()
+    var duration = 15.0f
+    if(angle < 90 - 2*duration || angle > 270 + 2*duration) {
+      colour = Vector3F(0.2f, 0.2f, 0.7f)
+    } else if(angle > 90 && angle < 270) {
+      colour = Vector3F(0.0f, 0.0f, 0.0f)
+    } else if(angle < 90 - duration) {
+      val newAngle = (angle - (90 - 2*duration)) / duration
+      colour = Vector3F(0.2f + newAngle / 2, 0.2f, 0.7f - newAngle / 2)
+    } else if(angle < 90) {
+      val newAngle = (angle - (90 - duration)) / duration
+      colour = Vector3F(0.7f - newAngle * 0.7f, 0.2f - newAngle * 0.2f, 0.2f - newAngle * 0.2f)
+    } else if(angle < 270 + duration) {
+      val newAngle = (angle - 270) / duration
+      colour = Vector3F(newAngle * 0.7f, newAngle * 0.2f, newAngle * 0.2f)
+    } else if(angle < 270 + 2*duration) {
+      val newAngle = (angle - (270 + duration)) / duration
+      colour = Vector3F(0.7f - newAngle / 2, 0.2f, 0.2f + newAngle / 2)
+    } else {
+      println("MATH ERROR")
+    }
+    GLWrapper.prerender(colour.x, colour.y, colour.z)
+//    GLWrapper.prerender(0.17f, 0.0f, 0.02f) // Blood Moon Expansion
 
-    testAngle += deltaT * 25
-    testAngle = testAngle % 360
-    if(-testAngle > -180) {
-      sunCam.setRotation(PITCH, testAngle.toInt % 90 + 270)
+    angle += deltaT * 4
+    angle = angle % 360
+    if(-angle > -180) {
+      sunCam.setRotation(PITCH, angle.toInt % 90 + 270)
       sunCam.setRotation(YAW, -45)
     } else {
-      sunCam.setRotation(PITCH, -testAngle.toInt % 90)
+      sunCam.setRotation(PITCH, -angle.toInt % 90)
       sunCam.setRotation(YAW, 135)
     }
 
     shadowShader.useShader()
-    shadowShader.setVec3("lightDir", Math.sin(-testAngle * Math.PI / 180).toFloat, Math.cos(-testAngle * Math.PI / 180).toFloat, Math.sin(testAngle * Math.PI / 180).toFloat)
+    shadowShader.setVec3("lightDir", Math.sin(-angle * Math.PI / 180).toFloat, Math.cos(-angle * Math.PI / 180).toFloat, Math.sin(angle * Math.PI / 180).toFloat)
 
     Data.player.frame(deltaT)
     sunCam.setPosition(Data.player.getPosition + Vector3F(-10.0f, 15.0f, 10.0f))
@@ -114,11 +134,9 @@ object Tellas extends App {
   }
 
   def draw(time: Float): Unit = {
-    val angle = testAngle//time % 360Fi
-
     framebuffer.start()
     Shape.bindBuffer(Model.CUBE)
-    GLWrapper.prerender(0.2f, 0.2f, 0.7f)
+//    GLWrapper.prerender(0.2f, 0.2f, 0.7f)
     drawBlocks(sunCam, sunShader, false)
 //    GLWrapper.useTexture(sun, 0)
 //    Dirt.drawBlock(Vector3I(0, -1, 0))

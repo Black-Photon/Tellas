@@ -29,11 +29,19 @@ WorldModel::WorldModel() : Model3D((float*) wld_vertices, 30)
 void WorldModel::draw(glm::vec3 position, float angle, float distance, Shader shader)
 {
     angle = glm::radians(angle);
+    const float angle45 = glm::radians(45.0f);
 
     // Creates the rotate matrix by rotating
     glm::mat4 rotate = glm::mat4(1.0f);
     rotate = glm::rotate(rotate, angle, glm::vec3(1.0f, 0.0f, 0.0f));
-    rotate = glm::rotate(rotate, angle, glm::vec3(0.0f, -sin(angle), sin(angle)));
+    // Rotation 45 degrees about y-axis (method didn't work for some reason)
+    glm::mat4 yRotate = glm::mat4 {
+        sqrt(2)/2, 0.0f, sqrt(2)/2, 0.0f,
+        0.0f, 1.0f, 0.0f, 0.0f,
+        -sqrt(2)/2, 0.0f, sqrt(2)/2, 0.0f,
+        0.0f, 0.0f, 0.0f, 1.0f
+    };
+    rotate = yRotate * rotate;
     int rotateLoc = glGetUniformLocation(shader.ID, "rotate");
 
     // Sets the relative shader3d uniform
