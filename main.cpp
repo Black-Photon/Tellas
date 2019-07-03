@@ -75,6 +75,7 @@ namespace core {
 
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         glEnable(GL_BLEND);
+        glEnable(GL_CULL_FACE);
 
         // Program
         auto *shader2d = new Shader("2dImage.vert", "2dImage.frag", Path.shaders);

@@ -22,13 +22,6 @@ float shadow(float angle);
 void main()
 {
     float ambientStrength = 0.175f;
-//    float ambientStrength = 0.25f;
-
-//    float angle;
-//    if(uangle > 180) angle = uangle - 360;
-//    else angle = uangle;
-//    float brightness = min(max(1 - (mag(angle))/90, 0.0f), 1 - ambientStrength);
-//    vec3 diffuse = vec3(brightness);
 
     float brightness = min(max(dot(normalize(lightDir), Normal), 0.0f), 1 - ambientStrength);
     vec3 diffuse = vec3(brightness);
@@ -43,9 +36,6 @@ void main()
     float shadow = shadow(angle);
 
     FragColor = texture(utexture, TexCoords) * vec4((1 - shadow) * diffuse + ambient, 1.0f);
-//    FragColor = texture(utexture, TexCoords) * vec4((1 - shadow) * brightness * horizon + ambientStrength, 0.0f, 0.0f, 1.0f);
-//    FragColor = vec4(lightDir, 1.0);
-//    FragColor = vec4(vec3(angle), 1.0);
 }
 
 float mag(float i)
