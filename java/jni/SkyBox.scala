@@ -13,6 +13,19 @@ class SkyBox extends Shape{
   }
 
   /**
+    * Binds the model buffer for use. Call once when the model is first used
+    */
+  def bindBuffer(): Unit = {
+    bindBufferN()
+  }
+
+  /**
+    * Activates the skybox shader for use - quite slow
+    * @param camera Camera to view from perspective of
+    */
+  def activateShader(camera: Camera): Unit = activateShader(camera.id)
+
+  /**
     * Native call to draw to the screen
     *
     * @param x     X-Coordinate of player
@@ -22,25 +35,8 @@ class SkyBox extends Shape{
     * @param distance Distance from player
     */
   @native private def drawN(x: Float, y: Float, z: Float, angle: Float, distance: Float): Unit
-
-  /**
-    * Binds the model buffer for use. Call once when the model is first used
-    */
-  def bindBuffer(): Unit = {
-    bindBufferN()
-  }
-
-  /**
-    * Native call to bind
-    */
   @native private def bindBufferN(): Unit
-
-  /**
-    * Activates the skybox shader for use - quite slow
-    */
   @native private def activateShader(camera: Int): Unit
-
-  def activateShader(camera: Camera): Unit = activateShader(camera.id)
 }
 
 object SkyBox extends SkyBox

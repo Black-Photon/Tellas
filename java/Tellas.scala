@@ -2,7 +2,7 @@ import java.nio.file.FileSystems
 
 import jni.Cube.Side.{BACK, BOTTOM, FRONT, LEFT, RIGHT, Side, TOP}
 import jni.{Camera, Cube, Framebuffer, GLWrapper, KeyListener, Model, Shader, Shape, SkyBox, Viewport}
-import src.block.{Air, Dirt, Grass}
+import src.block.{Air, Dirt, Grass, Stone}
 import src.util.Types.Texture
 import src.util.{Vector3F, Vector3I}
 import src.{Chunk, ChunkLoader, Data, Image}
@@ -16,32 +16,35 @@ object Tellas extends App {
       .getPath("cmake-build-debug/libOpenGLProject.so") // Dynamic link ../../../
       .normalize.toAbsolutePath.toString)
 
+  // Tests the JNI works
   GLWrapper.test()
 
+  // Initialises the game
   message("Pre-Initialisation")
   GLWrapper.preInit(Data.width, Data.height, "Tellas")
   message("Initialisation")
-  GLWrapper.init(true)
+  GLWrapper.init(true) // IMPORTANT - MAKE FALSE FOR DEBUGGING
 
+  // Generates the world terrain
   addBlocks()
 
   Data.player.setPosition(Vector3F(3, -2, 0))
 
-  Data.blocks(Air.ID) = Air
-  Data.blocks(Dirt.ID) = Dirt
-  Data.blocks(Grass.ID) = Grass
-
   var time = 0.0f
 
+  // General Texture Loading
   val crosshair: Image = new Image("crosshair.png", true)
   val sun: Texture = GLWrapper.generateTexture("sun.png", false)
 
+  // Shadow-mapping parameters
   val debugSun = false
   val sunCamDim = 4096 * 3
   val framebuffer: Framebuffer = new Framebuffer(sunCamDim, sunCamDim, debugSun)
 
+  // Sun position
   var angle: Float = 250.0f % 360
 
+  // Initialises shaders and cameras for shadow-mapping
   val sunCam: Camera = new Camera(sunCamDim, sunCamDim)
   sunCam.setProjectionType(ORTHOGRAPHIC)
   sunCam.setRotation(PITCH, -angle.toInt)
@@ -62,30 +65,11 @@ object Tellas extends App {
   while(!GLWrapper.shouldClose) {
     val deltaT = GLWrapper.deltaT
     KeyListener.processInput(deltaT, sunCam)
-    var colour: Vector3F = new Vector3F()
-    var duration = 15.0f
-    if(angle < 90 - 2*duration || angle > 270 + 2*duration) {
-      colour = Vector3F(0.2f, 0.2f, 0.7f)
-    } else if(angle > 90 && angle < 270) {
-      colour = Vector3F(0.0f, 0.0f, 0.0f)
-    } else if(angle < 90 - duration) {
-      val newAngle = (angle - (90 - 2*duration)) / duration
-      colour = Vector3F(0.2f + newAngle / 2, 0.2f, 0.7f - newAngle / 2)
-    } else if(angle < 90) {
-      val newAngle = (angle - (90 - duration)) / duration
-      colour = Vector3F(0.7f - newAngle * 0.7f, 0.2f - newAngle * 0.2f, 0.2f - newAngle * 0.2f)
-    } else if(angle < 270 + duration) {
-      val newAngle = (angle - 270) / duration
-      colour = Vector3F(newAngle * 0.7f, newAngle * 0.2f, newAngle * 0.2f)
-    } else if(angle < 270 + 2*duration) {
-      val newAngle = (angle - (270 + duration)) / duration
-      colour = Vector3F(0.7f - newAngle / 2, 0.2f, 0.2f + newAngle / 2)
-    } else {
-      println("MATH ERROR")
-    }
+    val colour: Vector3F = skyColour(angle, 15.0f)
     GLWrapper.prerender(colour.x, colour.y, colour.z)
 //    GLWrapper.prerender(0.17f, 0.0f, 0.02f) // Blood Moon Expansion
 
+    // Sets shadow-mapping parameters
     angle += deltaT * 4
     angle = angle % 360
     if(-angle > -180) {
@@ -99,9 +83,11 @@ object Tellas extends App {
     shadowShader.useShader()
     shadowShader.setVec3("lightDir", Math.sin(-angle * Math.PI / 180).toFloat, Math.cos(-angle * Math.PI / 180).toFloat, Math.sin(angle * Math.PI / 180).toFloat)
 
+    // Update player and move sunCam to keep player in view
     Data.player.frame(deltaT)
     sunCam.setPosition(Data.player.getPosition + Vector3F(-10.0f, 15.0f, 10.0f))
 
+    // FPS thing
     time += deltaT
     iterations += 1
     if((time - deltaT).floor < time.floor) {
@@ -110,7 +96,7 @@ object Tellas extends App {
       iterations = 0
     }
 
-    draw(time)
+    draw()
 
     if (Data.player.getPosition.y < -100) Data.player.setPosition(Vector3F(3, -2, 0))
 
@@ -122,6 +108,9 @@ object Tellas extends App {
   message("Closing")
   GLWrapper.close()
 
+  /**
+    * Adds all the blocks to the world
+    */
   def addBlocks(): Unit = {
     val cubeDims = 64
     for(x <- -cubeDims to cubeDims; z <- -cubeDims to cubeDims) {
@@ -133,20 +122,23 @@ object Tellas extends App {
     }
   }
 
-  def draw(time: Float): Unit = {
+  /**
+    * Draws everything to the screen
+    */
+  def draw(): Unit = {
+    // Draw blocks to shadow-mapper
     framebuffer.start()
     Shape.bindBuffer(Model.CUBE)
-//    GLWrapper.prerender(0.2f, 0.2f, 0.7f)
-    drawBlocks(sunCam, sunShader, false)
-//    GLWrapper.useTexture(sun, 0)
-//    Dirt.drawBlock(Vector3I(0, -1, 0))
+    drawBlocks(sunCam, sunShader, optimise = false)
     framebuffer.end()
 
+    // Draw Skybox
     GLWrapper.useTexture(sun, 0)
     SkyBox.bindBuffer()
     SkyBox.activateShader(Data.player.camera)
     SkyBox.draw(Data.player.getPosition, angle, 15)
 
+    // Draw actual blocks
     if(debugSun) {
       GLWrapper.useTexture(framebuffer.texture, 0)
       Viewport.drawImage(0, 0, 1000, 1000)
@@ -154,20 +146,28 @@ object Tellas extends App {
       shadowShader.useShader()
       shadowShader.simulateCamera("shadowMatrix", sunCam)
       GLWrapper.useTexture(framebuffer.texture, 1)
-      drawBlocks(Data.player.camera, shadowShader, true)
+      drawBlocks(Data.player.camera, shadowShader, optimise = true)
     }
 
     val size = 64
     crosshair.draw(Data.width/2 - size/2, Data.height/2 - size/2, size, size)
   }
 
+  /**
+    * Prints a formal message (Information)
+    * Uses format "INFO::SCALA::MESSAGE"
+    * @param message Message to send
+    */
   def message(message: String): Unit = {
     println("INFO::SCALA::"+message.toUpperCase())
   }
 
 
   /**
-    * Draws all the blocks of this type
+    * Draws all the blocks
+    * @param camera Camera to draw from perspective of
+    * @param shader Shader to use to draw
+    * @param optimise Whether to optimise drawing - cull unseen blocks
     */
   def drawBlocks(camera: Camera, shader: Shader, optimise: Boolean): Unit = {
     shader.useShader()
@@ -260,4 +260,32 @@ object Tellas extends App {
       }
     }
   }
+
+  /**
+    * Calculates the colour the sky should be
+    * @param angle Angle the sun is at (Up is 0 degrees)
+    * @param duration Duration of each transition in degrees
+    * @return Sky colour at angle
+    */
+  def skyColour(angle: Float, duration: Float): Vector3F =
+    if(angle < 90 - 2*duration || angle > 270 + 2*duration) {
+      Vector3F(0.2f, 0.2f, 0.7f)
+    } else if(angle > 90 && angle < 270) {
+      Vector3F(0.0f, 0.0f, 0.0f)
+    } else if(angle < 90 - duration) {
+      val newAngle = (angle - (90 - 2*duration)) / duration
+      Vector3F(0.2f + newAngle / 2, 0.2f, 0.7f - newAngle / 2)
+    } else if(angle < 90) {
+      val newAngle = (angle - (90 - duration)) / duration
+      Vector3F(0.7f - newAngle * 0.7f, 0.2f - newAngle * 0.2f, 0.2f - newAngle * 0.2f)
+    } else if(angle < 270 + duration) {
+      val newAngle = (angle - 270) / duration
+      Vector3F(newAngle * 0.7f, newAngle * 0.2f, newAngle * 0.2f)
+    } else if(angle < 270 + 2*duration) {
+      val newAngle = (angle - (270 + duration)) / duration
+      Vector3F(0.7f - newAngle / 2, 0.2f, 0.2f + newAngle / 2)
+    } else {
+      throw new RuntimeException("Sky Colour did not match any options - should be impossible. Contact Developer.")
+    }
+
 }

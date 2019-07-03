@@ -27,8 +27,17 @@ class Framebuffer (width: Int, height: Int, rw: Boolean){
     * @return ID of texture
     */
   @native private def getTextureIDN: Int
+  /**
+    * Starts drawing to the framebuffer instead of the usual
+    * @param width Width of framebuffer
+    * @param height Height of framebuffer
+    * @param FBO Framebuffer Object Reference
+    */
   @native private def startN(width: Int, height: Int, FBO: Int): Unit
-  @native private def endN: Unit
+  /**
+    * Finishes drawing to every framebuffer
+    */
+  @native private def endN(): Unit
 
   /**
     * Start Drawing to Framebuffer
@@ -38,7 +47,7 @@ class Framebuffer (width: Int, height: Int, rw: Boolean){
   }
 
   /**
-    * Finish drawing to framebuffer
+    * Finish drawing to every Framebuffer
     */
   def end(): Unit = {
     endN

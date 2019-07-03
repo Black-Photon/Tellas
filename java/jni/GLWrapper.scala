@@ -94,6 +94,7 @@ class GLWrapper {
 
   /**
     * Checks if an error has been recorded, printing it to the screen
+    * The line number is only recorded on the C++ side, so you have to use debugger alongside this to be useful
     */
   @native def checkError(): Unit
 }

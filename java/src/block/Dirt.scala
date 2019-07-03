@@ -17,7 +17,10 @@ class Dirt(position: Vector3I, update: Boolean) extends Block(Dirt, position, up
         if (!(x.abs == z.abs && x.abs == 1)) {
           ChunkLoader.getBlock(position + Vector3I(x, y, z)) match {
             case Some(block: Grass) =>
-              if (Math.random() < 0.00015) ChunkLoader.addBlock(new Grass(position), position)
+              if (Math.random() < 0.00015) {
+                ChunkLoader.addBlock(new Grass(position), position)
+                return
+              }
 
             case _ => Unit
           }

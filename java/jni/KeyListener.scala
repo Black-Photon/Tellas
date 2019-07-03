@@ -59,25 +59,12 @@ object KeyListener extends KeyListener {
     if (spacePressed) {
       Data.player.moveDirection(UP, deltaT)
     }
-    if(upPressed) {
-//      Data.player.getNewBlockPosition match {
-//        case Some(position)    => new Stone(position)
-//          updateSurroundings(position)
-//          ChunkLoader.updateSurroundingVisibility(position)
-//        case None              => Unit
-//      }
-    }
-//    if(rightPressed) {
-//      sunCam.rotate(Rotation.YAW, (deltaT * 100).toInt)
-//    }
-//    if(downPressed) {
-//      sunCam.rotate(Rotation.PITCH, -(deltaT * 100).toInt)
-//    }
-//    if(leftPressed) {
-//      sunCam.rotate(Rotation.YAW, -(deltaT * 100).toInt)
-//    }
   }
 
+  /**
+    * Updates blocks surrounding the position specified
+    * @param position Position to update around
+    */
   def updateSurroundings(position: Vector3I): Unit = {
     for((side, pos) <- surrounding(position)) {
       ChunkLoader.getBlock(pos) match {
@@ -87,5 +74,10 @@ object KeyListener extends KeyListener {
     }
   }
 
+  /**
+    * Finds the surrounding block vectors
+    * @param p Initial Location
+    * @return Hashmap of Side and block location on that side
+    */
   def surrounding(p: Vector3I): mutable.HashMap[Side, Vector3I] = mutable.HashMap(Side.LEFT -> (p px 1), Side.RIGHT -> (p px -1), TOP -> (p py -1), BOTTOM -> (p py 1), FRONT -> (p pz 1), BACK -> (p pz -1))
 }

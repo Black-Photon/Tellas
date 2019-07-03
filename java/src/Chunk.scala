@@ -29,13 +29,6 @@ class Chunk {
 
   def setBlockNoUpdate(block: Block, position: Vector3I): Unit = {
     blocks.set(block, position)
-
-//    if(block == null) {
-//      for(y <- position.y - 32 to position.y + 32) {
-//        val pos = Vector3I(position.x, y, position.z)
-//        if(ChunkLoader.getBlock(pos))
-//      }
-//    }
   }
 
   def updateBlockVisibility(block: Block): Unit = {

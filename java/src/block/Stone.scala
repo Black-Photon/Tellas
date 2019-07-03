@@ -19,7 +19,5 @@ object Stone extends BlockInstance() {
   // Stone ID
   override val ID: Int = 3
 
-  addTexture("stone.png", false, List(FRONT, BACK))
-  addTexture("grass.png", true, List(TOP, BOTTOM))
-  addTexture("sun.png", false, List(LEFT, RIGHT))
+  addTexture("stone.png", false, ALL)
 }

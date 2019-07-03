@@ -18,15 +18,23 @@ class Camera(width: Int, height: Int) {
   }
 
   /**
-    * Sets the position of the mainCamera on the native side
+    * Sets the position of the camera on the native side
     * @param x x-location
     * @param y y-location
     * @param z z-location
     */
   def setPosition(x: Float, y: Float, z: Float): Unit = setPositionN(x, y, z, id)
 
+  /**
+    * Sets the position of the camera on the native side
+    * @param pos New Position
+    */
   def setPosition(pos: Vector3F): Unit = setPositionN(pos.x, pos.y, pos.z, id)
 
+  /**
+    * Finds the current location of the camera
+    * @return Camera location
+    */
   def getPosition: Vector3F = {
     val positionArray: Array[Float] = getPositionN(id)
 
@@ -51,14 +59,36 @@ class Camera(width: Int, height: Int) {
     */
   def getLookingDirectionZ: Float = getLookingDirectionZ(id)
 
+  /**
+    * Whether to use orthographic or perspective Projection Matrix
+    * @param projectonType Type of Projection Matrix
+    */
   def setProjectionType(projectonType: Projection): Unit = setProjectionTypeN(projectonType.id, id)
 
+  /**
+    * Rotates the camera by an angle
+    * @param rotation Which way to rotate
+    * @param angle Angle in degrees
+    */
   def rotate(rotation: Rotation, angle: Int): Unit = rotateN(rotation.id, angle, id)
 
+  /**
+    * Sets the camera rotation to an angle
+    * @param rotation Rotation being set
+    * @param angle Angle in degrees
+    */
   def setRotation(rotation: Rotation, angle: Int): Unit = setRotationN(rotation.id, angle, id)
 
+  /**
+    * Whether Pitch should be restricted to -90 to 90 degrees
+    * @param lock Whether to lock pitch
+    */
   def lockPitch(lock: Boolean): Unit = lockPitchN(lock, id)
 
+  /**
+    * Inverts the camera (upside-down)
+    * @param inverted Should invert
+    */
   def invert(inverted: Boolean): Unit = invertN(inverted, id)
 
   /**
@@ -67,36 +97,16 @@ class Camera(width: Int, height: Int) {
     */
   @native private def createCamera(width: Int, height: Int): Int
 
-  /**
-    * Sets the position of the mainCamera on the native side
-    * @param x x-location
-    * @param y y-location
-    * @param z z-location
-    */
+  // Here follow the Native methods for the above
+  // The id is the id of the camera in all cases
   @native private def setPositionN(x: Float, y: Float, z: Float, id: Int): Unit
 
-  /**
-    * Finds the x-component of the vector looking in
-    * @return X-Component
-    */
   @native private def getLookingDirectionX(id: Int): Float
 
-  /**
-    * Finds the y-component of the vector looking in
-    * @return Y-Component
-    */
   @native private def getLookingDirectionY(id: Int): Float
 
-  /**
-    * Finds the z-component of the vector looking in
-    * @return Z-Component
-    */
   @native private def getLookingDirectionZ(id: Int): Float
 
-  /**
-    * Finds the direction of the vector looking in
-    * @return Array of x y z
-    */
   @native private def getLookingDirectionN(id: Int): Array[Float]
 
   @native private def getPositionN(id: Int): Array[Float]
@@ -122,7 +132,7 @@ object Projection extends Enumeration {
 }
 
 /**
-  * Represents different types of projection
+  * Represents different types of rotation
   */
 object Rotation extends Enumeration {
   type Rotation = Value
