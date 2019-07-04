@@ -11,11 +11,12 @@ out vec3 Normal;
 uniform mat4 model;
 uniform mat4 view;
 uniform mat4 projection;
+//uniform vec3 aOffset;
 
 void main()
 {
     // Multiplied to 2 means that we can work with whole number coordinates rather than decimals
-    gl_Position = projection * view * (vec4(aOffset * 2, 1.0) + vec4(aPos * 2, 1.0));
+    gl_Position = projection * view * (vec4(aPos * 2 + aOffset, 1.0));
     TexCoords = aTexCoords;
     FragPos = (model * vec4(aPos * 2, 1.0)).xyz;
     Normal = aNormal;

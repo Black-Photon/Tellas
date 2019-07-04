@@ -25,7 +25,7 @@ object Tellas extends App {
   message("Pre-Initialisation")
   GLWrapper.preInit(Data.width, Data.height, "Tellas")
   message("Initialisation")
-  GLWrapper.init(true) // IMPORTANT - MAKE FALSE FOR DEBUGGING
+  GLWrapper.init(false) // IMPORTANT - MAKE FALSE FOR DEBUGGING
 
   // Generates the world terrain
   addBlocks()
@@ -241,7 +241,7 @@ object Tellas extends App {
                     } else {
                       facesToDraw((texture, side)) = List(position)
                     }
-//                    drawFace(position, side, shader)
+                    drawFace(position, side, shader)
                   }
                 }
               }
@@ -249,14 +249,12 @@ object Tellas extends App {
           case _ => Unit
         }
       }
-//      if(facesToDraw.isDefinedAt((1, TOP))) {
-//        println(facesToDraw((1, TOP)))
-//      }
-      for((texture, side) <- facesToDraw.keys) {
-        GLWrapper.useTexture(texture, 0)
-        val pos = facesToDraw((texture, side))
-        Cube.drawFaceMany(pos, side)
-      }
+    }
+
+    for((texture, side) <- facesToDraw.keys) {
+      GLWrapper.useTexture(texture, 0)
+      val pos = facesToDraw((texture, side))
+      Cube.drawFaceMany(pos, side)
     }
 
     /**

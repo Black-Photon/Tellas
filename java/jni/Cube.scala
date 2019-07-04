@@ -26,7 +26,7 @@ class Cube extends Shape {
   }
 
   def drawFaceMany(position: List[Vector3I], side: Side): Unit = {
-    val array = position.toArray.flatMap(v => Array(v.x, v.y, v.z))
+    val array: Array[Int] = position.take(3).toArray.flatMap(v => Array(v.x, v.y, v.z))
     drawFaceManyN(array, array.length, side.id)
   }
 
