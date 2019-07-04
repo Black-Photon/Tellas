@@ -1,5 +1,7 @@
 package jni
 
+import java.util
+
 import jni.Cube.Side.Side
 import src.util.Vector3I
 
@@ -23,6 +25,11 @@ class Cube extends Shape {
     drawFaceN(position.x, position.y, position.z, side.id, shader.id)
   }
 
+  def drawFaceMany(position: List[Vector3I], side: Side): Unit = {
+    val array = position.toArray.flatMap(v => Array(v.x, v.y, v.z))
+    drawFaceManyN(array, array.length, side.id)
+  }
+
   /**
     * Native call to draw to the screen
     *
@@ -32,6 +39,8 @@ class Cube extends Shape {
     * @param face  Model reference to draw
     */
   @native private def drawFaceN(x: Float, y: Float, z: Float, face: Int, shader: Int): Unit
+
+  @native private def drawFaceManyN(positions: Array[Int], elements: Int, face: Int): Unit
 }
 
 object Cube extends Cube {

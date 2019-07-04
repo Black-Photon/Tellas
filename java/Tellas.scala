@@ -9,6 +9,8 @@ import src.{Chunk, ChunkLoader, Data, Image}
 import jni.Projection.ORTHOGRAPHIC
 import jni.Rotation.{PITCH, YAW}
 
+import scala.collection.mutable
+
 object Tellas extends App {
   // Loads the C++
   System.load(
@@ -205,6 +207,8 @@ object Tellas extends App {
     chunks = chunks + ChunkLoader.getChunk(playerPos nearestBlock)
     chunks = chunks + ChunkLoader.getChunk((playerPos nearestBlock) py Data.player.height.ceil.toInt)
 
+    val facesToDraw = mutable.Map[(Texture, Side), List[Vector3I]]()
+
     for (chunk <- chunks) {
       if (!chunk.isLoaded) {
         chunk.updateVisible()
@@ -231,13 +235,27 @@ object Tellas extends App {
               for ((texture, list) <- block.self.textures) {
                 GLWrapper.useTexture(texture, 0)
                 for (side <- list) {
-                  if (!block.isSide(side))
-                    drawFace(position, side, shader)
+                  if (!block.isSide(side)) {
+                    if(facesToDraw.isDefinedAt((texture, side))) {
+                      facesToDraw((texture, side)) = facesToDraw((texture, side)).::(position)
+                    } else {
+                      facesToDraw((texture, side)) = List(position)
+                    }
+//                    drawFace(position, side, shader)
+                  }
                 }
               }
             }
           case _ => Unit
         }
+      }
+//      if(facesToDraw.isDefinedAt((1, TOP))) {
+//        println(facesToDraw((1, TOP)))
+//      }
+      for((texture, side) <- facesToDraw.keys) {
+        GLWrapper.useTexture(texture, 0)
+        val pos = facesToDraw((texture, side))
+        Cube.drawFaceMany(pos, side)
       }
     }
 
