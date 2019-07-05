@@ -45,6 +45,9 @@ public:
 protected:
     unsigned int VAO;
     unsigned int VBO;
+    unsigned int instanceVBO;
+
+    void drawMany(glm::vec3 *position, int length, int start, int indices);
 };
 
 
