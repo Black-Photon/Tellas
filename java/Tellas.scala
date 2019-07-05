@@ -241,7 +241,7 @@ object Tellas extends App {
                     } else {
                       facesToDraw((texture, side)) = List(position)
                     }
-                    drawFace(position, side, shader)
+//                    drawFace(position, side, shader)
                   }
                 }
               }

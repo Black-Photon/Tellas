@@ -12,19 +12,28 @@ JNIEXPORT void JNICALL Java_jni_Cube_drawFaceN
 }
 
 JNIEXPORT void JNICALL Java_jni_Cube_drawFaceManyN
-        (JNIEnv *, jobject, jintArray positions, jint length, jint face)
+        (JNIEnv * env, jobject, jintArray positions, jint length, jint face)
 {
-    unsigned int instanceVBO;
-    glGenBuffers(1, &instanceVBO);
-    glBindBuffer(GL_ARRAY_BUFFER, instanceVBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec3) * length, &positions[0], GL_STATIC_DRAW);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    if(length % 3 != 0){
+        std::cerr << "Array length not a multiple of 3" << std::endl;
+        throw std::exception();
+    }
 
-    glEnableVertexAttribArray(3);
-    glBindBuffer(GL_ARRAY_BUFFER, instanceVBO);
-    glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glVertexAttribDivisor(3, 1);
+    jboolean isCopy = false;
+    int* positionArray = env->GetIntArrayElements(positions, &isCopy);
 
-    glDrawArraysInstanced(GL_TRIANGLES, 6 * face, 6, length);
+    auto* vectorArray = new glm::vec3[length / 3];
+    int x, y;
+    for(int i = 0; i < length; i++) {
+        int part = i % 3;
+        int index = i / 3;
+
+        if(part == 0) x = positionArray[i];
+        else if (part == 1) y = positionArray[i];
+        else vectorArray[index] = glm::vec3(x, y, positionArray[i]);
+    }
+
+    // Draws the model
+    auto *model = core::Data.cube;
+    model->drawMany(vectorArray, length / 3, face);
 }

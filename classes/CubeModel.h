@@ -64,6 +64,8 @@ public:
 
     void draw(glm::vec3 position, Shader shader);
     void drawSide(glm::vec3 position, Shader shader, int side);
+
+    void drawMany(glm::vec3 *position, int length, int side);
 };
 
 

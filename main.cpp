@@ -91,10 +91,6 @@ namespace core {
 
         Data.lastFrame = glfwGetTime();
 
-//        auto *camera = new Camera(1920.0f/1080.0f); TODO Delete when camera finished
-//        Data.mainCamera = camera;
-//        Data.mainCamera->rotate(YAW, -90.0f);
-
         auto *cube = new CubeModel();
         Data.cube = cube;
         Data.models3d.push_back(cube);

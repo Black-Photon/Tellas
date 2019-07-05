@@ -37,6 +37,11 @@ void CubeModel::draw(glm::vec3 position, Shader shader)
     Model3D::draw(position, shader, 0, 36);
 }
 
+void CubeModel::drawMany(glm::vec3* position, int length, int side)
+{
+    Model3D::drawMany(position, length, 6 * side, 6);
+}
+
 void CubeModel::drawSide(glm::vec3 position, Shader shader, int side)
 {
     Model3D::draw(position, shader, 6 * side, 6);
