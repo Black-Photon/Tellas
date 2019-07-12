@@ -37,3 +37,10 @@ JNIEXPORT void JNICALL Java_jni_Cube_drawFaceManyN
     auto *model = core::Data.cube;
     model->drawMany(vectorArray, length / 3, face);
 }
+
+JNIEXPORT void JNICALL Java_jni_Cube_drawItemFaceN
+        (JNIEnv *, jobject, jfloat x, jfloat y, jint size, jint shader, jint side)
+{
+    auto *model = core::Data.cube;
+    model->drawItemSide(glm::vec2(x, y), glm::vec2(core::Data.SCR_WIDTH, core::Data.SCR_HEIGHT), size, *core::Data.shaders.at(shader), side);
+}

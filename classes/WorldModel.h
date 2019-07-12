@@ -23,6 +23,8 @@ public:
 
     void draw(glm::vec3 position, float angle, float distance, Shader shader);
     void draw(glm::vec3 position, Shader shader);
+
+    void drawItemSide(glm::vec2 screen_position, glm::vec2 screen, int size, Shader shader, int side) override {}
 };
 
 

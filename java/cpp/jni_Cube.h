@@ -23,6 +23,14 @@ JNIEXPORT void JNICALL Java_jni_Cube_drawFaceN
 JNIEXPORT void JNICALL Java_jni_Cube_drawFaceManyN
   (JNIEnv *, jobject, jintArray, jint, jint);
 
+/*
+ * Class:     jni_Cube
+ * Method:    drawItemFaceN
+ * Signature: (FFIII)V
+ */
+JNIEXPORT void JNICALL Java_jni_Cube_drawItemFaceN
+  (JNIEnv *, jobject, jfloat, jfloat, jint, jint, jint);
+
 #ifdef __cplusplus
 }
 #endif

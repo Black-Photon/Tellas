@@ -66,6 +66,8 @@ public:
     void drawSide(glm::vec3 position, Shader shader, int side);
 
     void drawMany(glm::vec3 *position, int length, int side);
+
+    void drawItemSide(glm::vec2 screen_position, glm::vec2 screen, int size, Shader shader, int side);
 };
 
 

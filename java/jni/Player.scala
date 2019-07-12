@@ -22,7 +22,7 @@ class Player(val camera: Camera) extends Collidable {
   // Current vertical speed
   var verticalSpeed = 0.0f
   // Max fall speed
-  val maxFall = 5.867219f
+  val maxFall = 14.867219f
 
   /**
     * Moves the player forward one frame

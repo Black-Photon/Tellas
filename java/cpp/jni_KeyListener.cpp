@@ -1,34 +1,39 @@
 #include "jni_KeyListener.h"
 #include "../main.cpp"
 
+jboolean keyPressed(GLenum key)
+{
+    return glfwGetKey(core::Data.window, key) == GLFW_PRESS;
+}
+
 JNIEXPORT jboolean JNICALL Java_jni_KeyListener_wPressed
         (JNIEnv *, jobject)
 {
-    return glfwGetKey(core::Data.window, GLFW_KEY_W) == GLFW_PRESS;
+    return keyPressed(GLFW_KEY_W);
 }
 
 JNIEXPORT jboolean JNICALL Java_jni_KeyListener_aPressed
         (JNIEnv *, jobject)
 {
-    return glfwGetKey(core::Data.window, GLFW_KEY_A) == GLFW_PRESS;
+    return keyPressed(GLFW_KEY_A);
 }
 
 JNIEXPORT jboolean JNICALL Java_jni_KeyListener_sPressed
         (JNIEnv *, jobject)
 {
-    return glfwGetKey(core::Data.window, GLFW_KEY_S) == GLFW_PRESS;
+    return keyPressed(GLFW_KEY_S);
 }
 
 JNIEXPORT jboolean JNICALL Java_jni_KeyListener_dPressed
         (JNIEnv *, jobject)
 {
-    return glfwGetKey(core::Data.window, GLFW_KEY_D) == GLFW_PRESS;
+    return keyPressed(GLFW_KEY_D);
 }
 
 JNIEXPORT jboolean JNICALL Java_jni_KeyListener_spacePressed
         (JNIEnv *, jobject)
 {
-    return glfwGetKey(core::Data.window, GLFW_KEY_SPACE) == GLFW_PRESS;
+    return keyPressed(GLFW_KEY_SPACE);
 }
 
 JNIEXPORT jboolean JNICALL Java_jni_KeyListener_rcPressed
@@ -54,23 +59,29 @@ JNIEXPORT jboolean JNICALL Java_jni_KeyListener_lcPressed
 JNIEXPORT jboolean JNICALL Java_jni_KeyListener_upPressed
         (JNIEnv *, jobject)
 {
-    return glfwGetKey(core::Data.window, GLFW_KEY_UP) == GLFW_PRESS;
+    return keyPressed(GLFW_KEY_UP);
 }
 
 JNIEXPORT jboolean JNICALL Java_jni_KeyListener_rightPressed
         (JNIEnv *, jobject)
 {
-    return glfwGetKey(core::Data.window, GLFW_KEY_RIGHT) == GLFW_PRESS;
+    return keyPressed(GLFW_KEY_RIGHT);
 }
 
 JNIEXPORT jboolean JNICALL Java_jni_KeyListener_downPressed
         (JNIEnv *, jobject)
 {
-    return glfwGetKey(core::Data.window, GLFW_KEY_DOWN) == GLFW_PRESS;
+    return keyPressed(GLFW_KEY_DOWN);
 }
 
 JNIEXPORT jboolean JNICALL Java_jni_KeyListener_leftPressed
         (JNIEnv *, jobject)
 {
-    return glfwGetKey(core::Data.window, GLFW_KEY_LEFT) == GLFW_PRESS;
+    return keyPressed(GLFW_KEY_LEFT);
+}
+
+JNIEXPORT jboolean JNICALL Java_jni_KeyListener_lctrlPressed
+        (JNIEnv *, jobject)
+{
+    return keyPressed(GLFW_KEY_LEFT_CONTROL);
 }

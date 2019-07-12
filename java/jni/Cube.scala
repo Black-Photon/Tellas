@@ -30,6 +30,8 @@ class Cube extends Shape {
     drawFaceManyN(array, array.length, side.id)
   }
 
+  def drawItemFace(x: Float, y: Float, size: Int, shader: Shader, face: Side): Unit = drawItemFaceN(x, y, size, shader.id, face.id)
+
   /**
     * Native call to draw to the screen
     *
@@ -41,6 +43,8 @@ class Cube extends Shape {
   @native private def drawFaceN(x: Float, y: Float, z: Float, face: Int, shader: Int): Unit
 
   @native private def drawFaceManyN(positions: Array[Int], elements: Int, face: Int): Unit
+
+  @native private def drawItemFaceN(x: Float, y: Float, size: Int, shader: Int, face: Int): Unit
 }
 
 object Cube extends Cube {

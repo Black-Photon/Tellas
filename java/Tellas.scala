@@ -1,11 +1,11 @@
 import java.nio.file.FileSystems
 
 import jni.Cube.Side.{BACK, BOTTOM, FRONT, LEFT, RIGHT, Side, TOP}
-import jni.{Camera, Cube, Framebuffer, GLWrapper, KeyListener, Model, Shader, Shape, SkyBox, Viewport}
+import jni.{Camera, Cube, Framebuffer, GLWrapper, KeyListener, Model, Player, Shader, Shape, SkyBox, Viewport}
 import src.block.{Air, Dirt, Grass, Stone}
 import src.util.Types.Texture
-import src.util.{Vector3F, Vector3I}
-import src.{Chunk, ChunkLoader, Data, Image}
+import src.util.{Vector2F, Vector2I, Vector3F, Vector3I}
+import src.{Chunk, ChunkLoader, Data, Image, Perlin}
 import jni.Projection.ORTHOGRAPHIC
 import jni.Rotation.{PITCH, YAW}
 
@@ -25,12 +25,15 @@ object Tellas extends App {
   message("Pre-Initialisation")
   GLWrapper.preInit(Data.width, Data.height, "Tellas")
   message("Initialisation")
-  GLWrapper.init(false) // IMPORTANT - MAKE FALSE FOR DEBUGGING
+  GLWrapper.init(true) // IMPORTANT - MAKE FALSE FOR DEBUGGING
+
+  // Required to ensure all blocks are added to the Data array as not explicitly used otherwise
+  forceConstructors()
 
   // Generates the world terrain
   addBlocks()
 
-  Data.player.setPosition(Vector3F(3, -2, 0))
+//  Data.player.setPosition(Vector3F(3, -2, 0))
 
   var time = 0.0f
 
@@ -44,7 +47,7 @@ object Tellas extends App {
   val framebuffer: Framebuffer = new Framebuffer(sunCamDim, sunCamDim, debugSun)
 
   // Sun position
-  var angle: Float = 250.0f % 360
+  var angle: Float = 60.0f % 360
 
   // Initialises shaders and cameras for shadow-mapping
   val sunCam: Camera = new Camera(sunCamDim, sunCamDim)
@@ -53,15 +56,20 @@ object Tellas extends App {
   sunCam.setRotation(YAW, -90+angle.toInt)
   sunCam.lockPitch(false)
 
-  val sunShader = new Shader("3dImage", if(debugSun) "3dImage" else "empty")
+  val sunShader = new Shader("instanceBlock", if(debugSun) "3dImage" else "empty")
 
-  val shadowShader = new Shader("3dImage", "shadow")
+  val shadowShader = new Shader("instanceBlock", "shadow")
   shadowShader.useShader()
   shadowShader.setVec3("lightDir", Math.sin(-angle * Math.PI / 180).toFloat, Math.cos(-angle * Math.PI / 180).toFloat, Math.sin(angle * Math.PI / 180).toFloat)
   shadowShader.setInt("shadowMap", 1)
 
+  val itemShader = new Shader("item", "item")
+
   var lastTime = 0.0f
   var iterations = 0
+
+  new Dirt(Vector3I(3, 10, 0))
+  Data.player.setPosition(Vector3F(3, 10, 0))
 
   message("Drawing")
   while(!GLWrapper.shouldClose) {
@@ -72,7 +80,7 @@ object Tellas extends App {
 //    GLWrapper.prerender(0.17f, 0.0f, 0.02f) // Blood Moon Expansion
 
     // Sets shadow-mapping parameters
-    angle += deltaT * 4
+    angle -= deltaT * 0.2f
     angle = angle % 360
     if(-angle > -180) {
       sunCam.setRotation(PITCH, angle.toInt % 90 + 270)
@@ -100,7 +108,7 @@ object Tellas extends App {
 
     draw()
 
-    if (Data.player.getPosition.y < -100) Data.player.setPosition(Vector3F(3, -2, 0))
+    if (Data.player.getPosition.y < -100) Data.player.setPosition(Vector3F(3, 0, 0))
 
     GLWrapper.postrender()
     GLWrapper.swapBuffers()
@@ -115,12 +123,29 @@ object Tellas extends App {
     */
   def addBlocks(): Unit = {
     val cubeDims = 64
-    for(x <- -cubeDims to cubeDims; z <- -cubeDims to cubeDims) {
-      new Grass(Vector3I(x, -2, z), false)
+    val perlin = new Perlin(2, cubeDims * 2 + 1)
+    println("Printing perlin points")
+    println(perlin.perlin(perlin.vectors, Vector2F(0.0f, 0.0f)))
+    println(perlin.perlin(perlin.vectors, Vector2F(0.99f, 0.0f)))
+    println(perlin.perlin(perlin.vectors, Vector2F(0.0f, 0.99f)))
+    println(perlin.perlin(perlin.vectors, Vector2F(0.99f, 0.99f)))
 
-    }
-    for(x <- -cubeDims to cubeDims; y <- -cubeDims to -3; z <- -cubeDims to cubeDims) {
-      new Dirt(Vector3I(x, y, z), false)
+    val bias = 10
+    for (x <- -cubeDims to cubeDims; z <- -cubeDims to cubeDims) {
+      val yoffset = perlin.landscape.get(Vector2I(x + cubeDims, z + cubeDims)) match {
+        case Some(v) => (v * bias).toInt
+        case None => 0
+      }
+      println(s"Noise is $yoffset")
+      for (y <- -cubeDims to -2) {
+        if (y == -2) {
+          new Grass(Vector3I(x, y + yoffset, z), false)
+        } else if (y < -2 && y > -6) {
+          new Dirt(Vector3I(x, y + yoffset, z), false)
+        } else {
+          new Stone(Vector3I(x, y + yoffset, z), false)
+        }
+      }
     }
   }
 
@@ -153,6 +178,10 @@ object Tellas extends App {
 
     val size = 64
     crosshair.draw(Data.width/2 - size/2, Data.height/2 - size/2, size, size)
+
+    Cube.bindBuffer(Model.CUBE)
+    val pos = Math.min(Data.width/20, Data.height/20)
+    Data.selected.drawItem(pos, pos, 100, itemShader)
   }
 
   /**
@@ -176,7 +205,8 @@ object Tellas extends App {
     shader.makeModel(camera)
 
     Shape.bindBuffer(Model.CUBE)
-    val chunkDepth = 3
+    val chunkDepth = 4
+    val chunkHeight = 2
     val playerChunk = camera.getPosition / 16 floor
     val playerDir: Vector3F = camera.getLookingDirection
 
@@ -188,7 +218,7 @@ object Tellas extends App {
 
     var chunks = Set[Chunk]()
     // Checks every chunk for viewable.
-    for (cx <- -chunkDepth + playerChunk.x until chunkDepth + playerChunk.x; cy <- -chunkDepth + playerChunk.y until chunkDepth + playerChunk.y; cz <- -chunkDepth + playerChunk.z until chunkDepth + playerChunk.z) {
+    for (cx <- -chunkDepth + playerChunk.x until chunkDepth + playerChunk.x; cy <- -chunkHeight + playerChunk.y until chunkHeight + playerChunk.y; cz <- -chunkDepth + playerChunk.z until chunkDepth + playerChunk.z) {
       if(optimise) {
         if (findAngleToPlayer(Vector3F(cx, cy, cz) * 16) > 0.6) {
           val gen = -1 to 0
@@ -241,7 +271,6 @@ object Tellas extends App {
                     } else {
                       facesToDraw((texture, side)) = List(position)
                     }
-//                    drawFace(position, side, shader)
                   }
                 }
               }
@@ -304,4 +333,10 @@ object Tellas extends App {
       throw new RuntimeException("Sky Colour did not match any options - should be impossible. Contact Developer.")
     }
 
+  def forceConstructors(): Unit = {
+    Air
+    Dirt
+    Grass
+    Stone
+  }
 }

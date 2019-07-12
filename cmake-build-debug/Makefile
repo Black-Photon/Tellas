@@ -157,17 +157,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named OpenGLProject
+# Target rules for targets named Tellas
 
 # Build rule for target.
-OpenGLProject: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 OpenGLProject
-.PHONY : OpenGLProject
+Tellas: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Tellas
+.PHONY : Tellas
 
 # fast build rule for target.
-OpenGLProject/fast:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/build
-.PHONY : OpenGLProject/fast
+Tellas/fast:
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/build
+.PHONY : Tellas/fast
 
 #=============================================================================
 # Target rules for targets named uninstall
@@ -201,7 +201,7 @@ classes/Camera.o: classes/Camera.cpp.o
 
 # target to build an object file
 classes/Camera.cpp.o:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.o
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/classes/Camera.cpp.o
 .PHONY : classes/Camera.cpp.o
 
 classes/Camera.i: classes/Camera.cpp.i
@@ -210,7 +210,7 @@ classes/Camera.i: classes/Camera.cpp.i
 
 # target to preprocess a source file
 classes/Camera.cpp.i:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.i
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/classes/Camera.cpp.i
 .PHONY : classes/Camera.cpp.i
 
 classes/Camera.s: classes/Camera.cpp.s
@@ -219,7 +219,7 @@ classes/Camera.s: classes/Camera.cpp.s
 
 # target to generate assembly for a file
 classes/Camera.cpp.s:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Camera.cpp.s
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/classes/Camera.cpp.s
 .PHONY : classes/Camera.cpp.s
 
 classes/CubeModel.o: classes/CubeModel.cpp.o
@@ -228,7 +228,7 @@ classes/CubeModel.o: classes/CubeModel.cpp.o
 
 # target to build an object file
 classes/CubeModel.cpp.o:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/CubeModel.cpp.o
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/classes/CubeModel.cpp.o
 .PHONY : classes/CubeModel.cpp.o
 
 classes/CubeModel.i: classes/CubeModel.cpp.i
@@ -237,7 +237,7 @@ classes/CubeModel.i: classes/CubeModel.cpp.i
 
 # target to preprocess a source file
 classes/CubeModel.cpp.i:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/CubeModel.cpp.i
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/classes/CubeModel.cpp.i
 .PHONY : classes/CubeModel.cpp.i
 
 classes/CubeModel.s: classes/CubeModel.cpp.s
@@ -246,7 +246,7 @@ classes/CubeModel.s: classes/CubeModel.cpp.s
 
 # target to generate assembly for a file
 classes/CubeModel.cpp.s:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/CubeModel.cpp.s
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/classes/CubeModel.cpp.s
 .PHONY : classes/CubeModel.cpp.s
 
 classes/Model2D.o: classes/Model2D.cpp.o
@@ -255,7 +255,7 @@ classes/Model2D.o: classes/Model2D.cpp.o
 
 # target to build an object file
 classes/Model2D.cpp.o:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Model2D.cpp.o
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/classes/Model2D.cpp.o
 .PHONY : classes/Model2D.cpp.o
 
 classes/Model2D.i: classes/Model2D.cpp.i
@@ -264,7 +264,7 @@ classes/Model2D.i: classes/Model2D.cpp.i
 
 # target to preprocess a source file
 classes/Model2D.cpp.i:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Model2D.cpp.i
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/classes/Model2D.cpp.i
 .PHONY : classes/Model2D.cpp.i
 
 classes/Model2D.s: classes/Model2D.cpp.s
@@ -273,7 +273,7 @@ classes/Model2D.s: classes/Model2D.cpp.s
 
 # target to generate assembly for a file
 classes/Model2D.cpp.s:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Model2D.cpp.s
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/classes/Model2D.cpp.s
 .PHONY : classes/Model2D.cpp.s
 
 classes/Model3D.o: classes/Model3D.cpp.o
@@ -282,7 +282,7 @@ classes/Model3D.o: classes/Model3D.cpp.o
 
 # target to build an object file
 classes/Model3D.cpp.o:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Model3D.cpp.o
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/classes/Model3D.cpp.o
 .PHONY : classes/Model3D.cpp.o
 
 classes/Model3D.i: classes/Model3D.cpp.i
@@ -291,7 +291,7 @@ classes/Model3D.i: classes/Model3D.cpp.i
 
 # target to preprocess a source file
 classes/Model3D.cpp.i:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Model3D.cpp.i
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/classes/Model3D.cpp.i
 .PHONY : classes/Model3D.cpp.i
 
 classes/Model3D.s: classes/Model3D.cpp.s
@@ -300,7 +300,7 @@ classes/Model3D.s: classes/Model3D.cpp.s
 
 # target to generate assembly for a file
 classes/Model3D.cpp.s:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Model3D.cpp.s
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/classes/Model3D.cpp.s
 .PHONY : classes/Model3D.cpp.s
 
 classes/Shader.o: classes/Shader.cpp.o
@@ -309,7 +309,7 @@ classes/Shader.o: classes/Shader.cpp.o
 
 # target to build an object file
 classes/Shader.cpp.o:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Shader.cpp.o
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/classes/Shader.cpp.o
 .PHONY : classes/Shader.cpp.o
 
 classes/Shader.i: classes/Shader.cpp.i
@@ -318,7 +318,7 @@ classes/Shader.i: classes/Shader.cpp.i
 
 # target to preprocess a source file
 classes/Shader.cpp.i:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Shader.cpp.i
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/classes/Shader.cpp.i
 .PHONY : classes/Shader.cpp.i
 
 classes/Shader.s: classes/Shader.cpp.s
@@ -327,7 +327,7 @@ classes/Shader.s: classes/Shader.cpp.s
 
 # target to generate assembly for a file
 classes/Shader.cpp.s:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/Shader.cpp.s
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/classes/Shader.cpp.s
 .PHONY : classes/Shader.cpp.s
 
 classes/SquareModel.o: classes/SquareModel.cpp.o
@@ -336,7 +336,7 @@ classes/SquareModel.o: classes/SquareModel.cpp.o
 
 # target to build an object file
 classes/SquareModel.cpp.o:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/SquareModel.cpp.o
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/classes/SquareModel.cpp.o
 .PHONY : classes/SquareModel.cpp.o
 
 classes/SquareModel.i: classes/SquareModel.cpp.i
@@ -345,7 +345,7 @@ classes/SquareModel.i: classes/SquareModel.cpp.i
 
 # target to preprocess a source file
 classes/SquareModel.cpp.i:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/SquareModel.cpp.i
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/classes/SquareModel.cpp.i
 .PHONY : classes/SquareModel.cpp.i
 
 classes/SquareModel.s: classes/SquareModel.cpp.s
@@ -354,7 +354,7 @@ classes/SquareModel.s: classes/SquareModel.cpp.s
 
 # target to generate assembly for a file
 classes/SquareModel.cpp.s:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/SquareModel.cpp.s
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/classes/SquareModel.cpp.s
 .PHONY : classes/SquareModel.cpp.s
 
 classes/WorldModel.o: classes/WorldModel.cpp.o
@@ -363,7 +363,7 @@ classes/WorldModel.o: classes/WorldModel.cpp.o
 
 # target to build an object file
 classes/WorldModel.cpp.o:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/WorldModel.cpp.o
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/classes/WorldModel.cpp.o
 .PHONY : classes/WorldModel.cpp.o
 
 classes/WorldModel.i: classes/WorldModel.cpp.i
@@ -372,7 +372,7 @@ classes/WorldModel.i: classes/WorldModel.cpp.i
 
 # target to preprocess a source file
 classes/WorldModel.cpp.i:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/WorldModel.cpp.i
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/classes/WorldModel.cpp.i
 .PHONY : classes/WorldModel.cpp.i
 
 classes/WorldModel.s: classes/WorldModel.cpp.s
@@ -381,7 +381,7 @@ classes/WorldModel.s: classes/WorldModel.cpp.s
 
 # target to generate assembly for a file
 classes/WorldModel.cpp.s:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/classes/WorldModel.cpp.s
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/classes/WorldModel.cpp.s
 .PHONY : classes/WorldModel.cpp.s
 
 java/cpp/jni_GLWrapper.o: java/cpp/jni_GLWrapper.cpp.o
@@ -390,7 +390,7 @@ java/cpp/jni_GLWrapper.o: java/cpp/jni_GLWrapper.cpp.o
 
 # target to build an object file
 java/cpp/jni_GLWrapper.cpp.o:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/java/cpp/jni_GLWrapper.cpp.o
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/java/cpp/jni_GLWrapper.cpp.o
 .PHONY : java/cpp/jni_GLWrapper.cpp.o
 
 java/cpp/jni_GLWrapper.i: java/cpp/jni_GLWrapper.cpp.i
@@ -399,7 +399,7 @@ java/cpp/jni_GLWrapper.i: java/cpp/jni_GLWrapper.cpp.i
 
 # target to preprocess a source file
 java/cpp/jni_GLWrapper.cpp.i:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/java/cpp/jni_GLWrapper.cpp.i
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/java/cpp/jni_GLWrapper.cpp.i
 .PHONY : java/cpp/jni_GLWrapper.cpp.i
 
 java/cpp/jni_GLWrapper.s: java/cpp/jni_GLWrapper.cpp.s
@@ -408,7 +408,7 @@ java/cpp/jni_GLWrapper.s: java/cpp/jni_GLWrapper.cpp.s
 
 # target to generate assembly for a file
 java/cpp/jni_GLWrapper.cpp.s:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/java/cpp/jni_GLWrapper.cpp.s
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/java/cpp/jni_GLWrapper.cpp.s
 .PHONY : java/cpp/jni_GLWrapper.cpp.s
 
 src/glad.o: src/glad.c.o
@@ -417,7 +417,7 @@ src/glad.o: src/glad.c.o
 
 # target to build an object file
 src/glad.c.o:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/src/glad.c.o
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/src/glad.c.o
 .PHONY : src/glad.c.o
 
 src/glad.i: src/glad.c.i
@@ -426,7 +426,7 @@ src/glad.i: src/glad.c.i
 
 # target to preprocess a source file
 src/glad.c.i:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/src/glad.c.i
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/src/glad.c.i
 .PHONY : src/glad.c.i
 
 src/glad.s: src/glad.c.s
@@ -435,7 +435,7 @@ src/glad.s: src/glad.c.s
 
 # target to generate assembly for a file
 src/glad.c.s:
-	$(MAKE) -f CMakeFiles/OpenGLProject.dir/build.make CMakeFiles/OpenGLProject.dir/src/glad.c.s
+	$(MAKE) -f CMakeFiles/Tellas.dir/build.make CMakeFiles/Tellas.dir/src/glad.c.s
 .PHONY : src/glad.c.s
 
 # Help Target
@@ -446,7 +446,7 @@ help:
 	@echo "... depend"
 	@echo "... install/strip"
 	@echo "... edit_cache"
-	@echo "... OpenGLProject"
+	@echo "... Tellas"
 	@echo "... rebuild_cache"
 	@echo "... list_install_components"
 	@echo "... install/local"

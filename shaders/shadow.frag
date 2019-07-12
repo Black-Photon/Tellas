@@ -1,5 +1,4 @@
 #version 330 core
-const float PI = 3.14159265359;
 out vec4 FragColor;
 
 in vec2 TexCoords;

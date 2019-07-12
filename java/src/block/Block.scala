@@ -1,7 +1,7 @@
 package src.block
 
 import jni.Cube.Side
-import src.ChunkLoader
+import src.{ChunkLoader, Data}
 import src.util.Vector3I
 import jni.Cube.Side.{ALL, BACK, BOTTOM, FRONT, LEFT, RIGHT, Side, TOP}
 

@@ -14,8 +14,14 @@ case class Air(override val position: Vector3I) extends Block(Air, position)
   */
 object Air extends BlockInstance() {
   // Air ID
-  override val ID: Int = 0
+  override def ID: Int = 0
+  override type BlockClass = Air
+
+  override def createNew(pos: Vector3I): Block = new BlockClass(pos)
 
   // Don't draw anything
   override def drawBlock(position: Vector3I, shader: Shader): Unit = {}
+
+  // Don't draw anything
+  override def drawItem(x: Float, y: Float, size: Int, shader: Shader): Unit = {}
 }

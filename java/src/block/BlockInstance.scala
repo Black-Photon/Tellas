@@ -3,6 +3,7 @@ package src.block
 import jni.{Cube, GLWrapper, Model, Shader, Shape}
 import jni.Cube.Side.{ALL, BACK, BOTTOM, FRONT, LEFT, RIGHT, Side, TOP}
 import jni.Model.{CUBE, Model}
+import src.Data
 import src.util.Vector3I
 
 /**
@@ -14,9 +15,21 @@ abstract class BlockInstance() {
   // Uses a cube model as default
   val model: Model = CUBE
   // ID of block type
-  val ID: Int
+  def ID: Int
   // Textures to draw with
   var textures: List[(Texture, List[Side])] = List()
+  // Type of Block
+  type BlockClass <: Block
+
+  // Add to data list
+  try {
+    Data.blocks(ID) = this
+  } catch {
+    case _: ArrayIndexOutOfBoundsException =>
+      throw new RuntimeException("Update number of blocks in Data.blocks array")
+  }
+
+  def createNew(pos: Vector3I): Block
 
   def addTexture(texture: Int, sides: List[Side]): Unit = {
     textures = textures :+ (texture, sides)
@@ -31,11 +44,18 @@ abstract class BlockInstance() {
     * @param position Location to draw at
     */
   def drawBlock(position: Vector3I, shader: Shader): Unit = {
-    Cube.drawFace(position, FRONT, shader)
-    Cube.drawFace(position, BACK, shader)
-    Cube.drawFace(position, LEFT, shader)
-    Cube.drawFace(position, RIGHT, shader)
-    Cube.drawFace(position, BOTTOM, shader)
-    Cube.drawFace(position, TOP, shader)
+    shader.useShader()
+    for((texture, sides) <- textures; side <- sides) {
+      GLWrapper.useTexture(texture, 0)
+      Cube.drawFace(position, side, shader)
+    }
+  }
+
+  def drawItem(x: Float, y: Float, size: Int, shader: Shader): Unit = {
+    shader.useShader()
+    for((texture, sides) <- textures; side <- sides) {
+      GLWrapper.useTexture(texture, 0)
+      Cube.drawItemFace(x, y, size, shader, side)
+    }
   }
 }

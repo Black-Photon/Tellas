@@ -50,6 +50,16 @@ void Shader::setVec3(const std::string &name, float v1, float v2, float v3) cons
     setVec3(name, glm::vec3(v1, v2, v3));
 }
 
+void Shader::setVec2(const std::string &name, glm::vec2 value) const
+{
+    glUniform2fv(glGetUniformLocation(ID, name.c_str()), 1, glm::value_ptr(value));
+}
+
+void Shader::setVec2(const std::string &name, float v1, float v2) const
+{
+    setVec2(name, glm::vec2(v1, v2));
+}
+
 void Shader::readVertexFile(const char* vertexPath, std::string * vertexCode)
 {
     std::ifstream vShaderFile;

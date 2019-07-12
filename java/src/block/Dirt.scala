@@ -20,7 +20,7 @@ class Dirt(position: Vector3I, update: Boolean) extends Block(Dirt, position, up
               if (Math.random() < 0.00015) {
                 ChunkLoader.addBlock(new Grass(position), position)
                 return
-              }
+              } else return
 
             case _ => Unit
           }
@@ -35,7 +35,10 @@ class Dirt(position: Vector3I, update: Boolean) extends Block(Dirt, position, up
   */
 object Dirt extends BlockInstance() {
   // Dirt ID
-  override val ID: Int = 1
+  override def ID: Int = 1
+  override type BlockClass = Dirt
+
+  override def createNew(pos: Vector3I): Block = new BlockClass(pos)
 
   /**
     * You may be wondering later why isPNG is false. It *is* a png after all. The answer to that is that for

@@ -59,6 +59,10 @@ public:
      */
     void setVec3(const std::string &name, float v1, float v2, float v3) const;
 
+    void setVec2(const std::string &name, float v1, float v2) const;
+
+    void setVec2(const std::string &name, glm::vec2 value) const;
+
 private:
     /**
      * Links the shader programs together into a single program

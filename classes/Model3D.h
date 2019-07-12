@@ -37,6 +37,11 @@ public:
      */
     virtual void draw(glm::vec3 position, Shader shader) = 0;
 
+
+    void drawMany(glm::vec3 *position, int length, int start, int indices);
+
+    virtual void drawItemSide(glm::vec2 screen_position, glm::vec2 screen, int size, Shader shader, int side) = 0;
+
     /**
      * Binds the VAO
      */
@@ -47,7 +52,6 @@ protected:
     unsigned int VBO;
     unsigned int instanceVBO;
 
-    void drawMany(glm::vec3 *position, int length, int start, int indices);
 };
 
 

@@ -1,6 +1,6 @@
 package src.block
 
-import jni.Cube.Side.{ALL, LEFT, RIGHT, TOP, BOTTOM, FRONT, BACK}
+import jni.Cube.Side.{ALL, BACK, BOTTOM, FRONT, LEFT, RIGHT, TOP}
 import src.util.Vector3I
 
 /**
@@ -17,7 +17,10 @@ class Stone(position: Vector3I, update: Boolean) extends Block(Stone, position, 
   */
 object Stone extends BlockInstance() {
   // Stone ID
-  override val ID: Int = 3
+  override def ID: Int = 3
+  override type BlockClass = Stone
+
+  override def createNew(pos: Vector3I): Block = new BlockClass(pos)
 
   addTexture("stone.png", false, ALL)
 }

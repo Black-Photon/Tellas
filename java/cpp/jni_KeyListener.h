@@ -95,6 +95,14 @@ JNIEXPORT jboolean JNICALL Java_jni_KeyListener_downPressed
 JNIEXPORT jboolean JNICALL Java_jni_KeyListener_leftPressed
   (JNIEnv *, jobject);
 
+/*
+ * Class:     jni_KeyListener
+ * Method:    lctrlPressed
+ * Signature: ()Z
+ */
+JNIEXPORT jboolean JNICALL Java_jni_KeyListener_lctrlPressed
+  (JNIEnv *, jobject);
+
 #ifdef __cplusplus
 }
 #endif

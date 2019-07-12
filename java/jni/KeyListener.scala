@@ -22,9 +22,12 @@ class KeyListener {
   @native def rightPressed: Boolean
   @native def downPressed: Boolean
   @native def leftPressed: Boolean
+  @native def lctrlPressed: Boolean
 }
 
 object KeyListener extends KeyListener {
+  var lctrl = false
+
   def processInput(deltaT: Float, sunCam: Camera): Unit = {
     GLWrapper.processInput(deltaT)
 
@@ -42,7 +45,7 @@ object KeyListener extends KeyListener {
     }
     if (rcPressed) {
       Data.player.getNewBlockPosition match {
-        case Some(position)    => new Stone(position)
+        case Some(position)    => if(Data.selected != Air) Data.selected.createNew(position)
                                   updateSurroundings(position)
                                   ChunkLoader.updateSurroundingVisibility(position)
         case None              => Unit
@@ -59,6 +62,21 @@ object KeyListener extends KeyListener {
     if (spacePressed) {
       Data.player.moveDirection(UP, deltaT)
     }
+    if (lctrlPressed) {
+      if(!lctrl) {
+        try {
+          var current = Data.selected.ID
+          if (current == Data.blocks.length - 1) {
+            current = -1
+          }
+          Data.selected = Data.blocks(current + 1)
+        } catch {
+          case _: NullPointerException =>
+            throw new RuntimeException("A block has not been added to the array in Data")
+        }
+        lctrl = true
+      }
+    } else lctrl = false
   }
 
   /**

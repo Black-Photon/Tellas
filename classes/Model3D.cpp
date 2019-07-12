@@ -39,8 +39,6 @@ void Model3D::draw(glm::vec3 position, Shader shader, int start, int length)
     // Sets the relative shader3d uniform
     glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
-//    shader.setVec3("aOffset", position);
-
     // Draws the model
     glDrawArrays(GL_TRIANGLES, start, length);
 }
