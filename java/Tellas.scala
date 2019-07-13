@@ -124,11 +124,6 @@ object Tellas extends App {
   def addBlocks(): Unit = {
     val cubeDims = 64
     val perlin = new Perlin(2, cubeDims * 2 + 1)
-    println("Printing perlin points")
-    println(perlin.perlin(perlin.vectors, Vector2F(0.0f, 0.0f)))
-    println(perlin.perlin(perlin.vectors, Vector2F(0.99f, 0.0f)))
-    println(perlin.perlin(perlin.vectors, Vector2F(0.0f, 0.99f)))
-    println(perlin.perlin(perlin.vectors, Vector2F(0.99f, 0.99f)))
 
     val bias = 10
     for (x <- -cubeDims to cubeDims; z <- -cubeDims to cubeDims) {
@@ -136,7 +131,6 @@ object Tellas extends App {
         case Some(v) => (v * bias).toInt
         case None => 0
       }
-      println(s"Noise is $yoffset")
       for (y <- -cubeDims to -2) {
         if (y == -2) {
           new Grass(Vector3I(x, y + yoffset, z), false)

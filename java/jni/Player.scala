@@ -6,6 +6,8 @@ import Player.Direction.{BACKWARDS, FORWARD, LEFT, RIGHT, UP}
 import jni.Player.Axis.{Axis, X, Y, Z}
 import src.util.{Vector3F, Vector3I}
 
+import scala.util.control.Breaks
+
 /**
   * Represents the player
   * @param camera Camera the player views through
@@ -23,6 +25,8 @@ class Player(val camera: Camera) extends Collidable {
   var verticalSpeed = 0.0f
   // Max fall speed
   val maxFall = 14.867219f
+  val feetLength = 0.2f
+  val feetWidth = 0.4f
 
   /**
     * Moves the player forward one frame
@@ -39,14 +43,7 @@ class Player(val camera: Camera) extends Collidable {
     // If Moving up and block above
     if (yCollisionP && verticalSpeed > 0) verticalSpeed = 0
 
-    // Applies velocity
-    setPosition(position py verticalSpeed * deltaT)
-
-    // In case slightly in block, moves out
-    if (yCollisionN) {
-      position.y = position.nearestBlock.y
-    }
-
+    resolveFalling(verticalSpeed * deltaT)
   }
 
   /**
@@ -113,7 +110,9 @@ class Player(val camera: Camera) extends Collidable {
     }
 
     if(direction == UP) {
-      if(yCollisionN) verticalSpeed = 5.00f
+      if(yCollisionN) {
+        verticalSpeed = 5.00f
+      }
     }
   }
 
@@ -293,6 +292,35 @@ class Player(val camera: Camera) extends Collidable {
   def reduce[A]: Option[Option[A]] => Option[A] = {
     case Some(a) => a
     case None => None
+  }
+
+  def resolveFalling(distance: Float): Unit = {
+    var distLeft = distance
+    var initial = position
+    var nextDec = if(distance > 0) Math.min(1, distLeft) else Math.max(-1, distLeft)
+    var next = position py nextDec
+    distLeft -= nextDec
+    do {
+      val feetCentre = next.applyY(f => f.ceil)
+      val look = camera.getLookingDirection.applyY(_ => 0).normalized()
+      val lookPer = look :+ Vector3F(0, 1, 0)
+      val feetPos = Set(
+        feetCentre + look * feetLength + lookPer * feetWidth,
+        feetCentre - look * feetLength + lookPer * feetWidth,
+        feetCentre + look * feetLength - lookPer * feetWidth,
+        feetCentre - look * feetLength - lookPer * feetWidth)
+      var isBlock = false
+      for(vec <- feetPos) isBlock = isBlock || ChunkLoader.isBlock(vec.nearestBlock)
+      if(isBlock) {
+        setPosition(initial.applyY(f => f.floor))
+        return
+      }
+      initial = next
+      nextDec = if(distance > 0) Math.min(1, distLeft) else Math.max(-1, distLeft)
+      next = next py nextDec
+      distLeft -= nextDec
+    } while (distLeft != 0)
+    setPosition(initial)
   }
 }
 

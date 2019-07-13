@@ -59,6 +59,18 @@ case class Vector3F (var x: Float, var y: Float, var z: Float) extends Vector3[F
   }
 
   /**
+    * Ceilings all components of the vector
+    * @return An integer vector of all components ceiling-d
+    */
+  def ceil: Vector3I = {
+    Vector3I(x.ceil toInt, y.ceil toInt, z.ceil toInt)
+  }
+
+  def applyY(f: Float => Float): Vector3F = {
+    Vector3F(x, f(y), z)
+  }
+
+  /**
     * Normalises the vector (makes the magnitude 1)
     */
   def normalize(): Unit = {
@@ -67,6 +79,18 @@ case class Vector3F (var x: Float, var y: Float, var z: Float) extends Vector3[F
     x = x / mag
     y = y / mag
     z = z / mag
+  }
+
+  /**
+    * Normalises the vector (makes the magnitude 1)
+    * Returns value
+    */
+  def normalized(): Vector3F = {
+    if(x == 0 && y == 0 && z == 0) return this
+
+    val mag = Math.sqrt (x*x + y*y + z*z).toFloat
+
+    Vector3F(x / mag, y / mag, z / mag)
   }
 
   /**
