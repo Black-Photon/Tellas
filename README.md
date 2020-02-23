@@ -39,10 +39,9 @@ Unfortunately, as the project is run from the Scala side, it is impossible (to m
 
 ## Documentation of Progress
 It's not a guide at all, but I wrote two blog posts about the experience of making Tellas:
-
-https://antitemporalphotonicenergies.wordpress.com/2019/04/14/tellas-a-minecraft-clone/
-https://antitemporalphotonicenergies.wordpress.com/2019/07/13/tellas-the-conclusion/
+https://black-photon.github.io/programming/tellas/
+https://black-photon.github.io/programming/tellas-end/
 
 And something of relevance on JNI:
 
-https://antitemporalphotonicenergies.wordpress.com/2019/05/03/jni-tutorial/
+https://black-photon.github.io/programming/jni/
