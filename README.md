@@ -39,7 +39,9 @@ Unfortunately, as the project is run from the Scala side, it is impossible (to m
 
 ## Documentation of Progress
 It's not a guide at all, but I wrote two blog posts about the experience of making Tellas:
+
 https://black-photon.github.io/programming/tellas/
+
 https://black-photon.github.io/programming/tellas-end/
 
 And something of relevance on JNI:
